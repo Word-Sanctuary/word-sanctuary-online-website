@@ -141,6 +141,107 @@ export default function Home() {
         </div>
       </section>
       
+      {/* Worship With Us Section */}
+      <section className="w-full px-12 py-24 bg-stone-950 flex flex-col justify-start items-center gap-16 overflow-hidden">
+        <div className="max-w-[785px] flex flex-col justify-start items-center gap-12">
+          <div className="w-full flex flex-col justify-start items-center gap-8">
+            {/* Worship Badge */}
+            <div className="h-10 px-6 py-2.5 bg-zinc-400/40 rounded-full backdrop-blur-sm inline-flex justify-center items-center gap-4">
+              <div className="w-2 h-2 bg-white rounded-full" />
+              <div className="justify-center text-white text-[10px] font-bold tracking-wide">WORSHIP WITH US</div>
+            </div>
+            
+            {/* Heading and Description */}
+            <div className="w-full flex flex-col justify-start items-center gap-4">
+              <div className="w-full text-center">
+                <span className="text-white text-4xl font-bold uppercase leading-tight block">
+                  Experience a new chapter in your
+                </span>
+                <span className="text-sky-500 text-4xl font-bold uppercase leading-tight block">
+                  spiritual growth journey
+                </span>
+              </div>
+              <div className="w-full text-center text-white text-sm font-medium">
+                Find an installation near you
+              </div>
+            </div>
+          </div>
+          
+          {/* CTA Button */}
+          <button className="h-11 px-7 py-2.5 rounded-full outline outline-1 outline-offset-[-1px] outline-white inline-flex justify-center items-center gap-2.5 hover:bg-white/10 transition-colors">
+            <div className="justify-center text-white text-sm font-bold">SEE ALL INSTALLATIONS</div>
+          </button>
+        </div>
+        
+        {/* Installation Cards */}
+        <div className="w-full max-w-[1340px] flex justify-start items-center gap-4">
+          {/* Ilorin */}
+          <div className="flex-1 h-96 relative rounded overflow-hidden group cursor-pointer">
+            {/* Background with warm earth tones */}
+            <div className="w-full h-full absolute bg-gradient-to-br from-amber-600 via-orange-500 to-red-600" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+            
+            {/* Location Info */}
+            <div className="absolute bottom-4 left-4 flex flex-col">
+              <div className="text-white text-2xl font-bold mb-1">Ilorin</div>
+              <div className="text-white text-xs font-medium opacity-90">Address in subtext</div>
+            </div>
+          </div>
+
+          {/* Abuja */}
+          <div className="flex-1 h-96 relative rounded overflow-hidden group cursor-pointer">
+            {/* Background with modern blue tones */}
+            <div className="w-full h-full absolute bg-gradient-to-br from-blue-600 via-indigo-500 to-purple-600" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+            
+            {/* Location Info */}
+            <div className="absolute bottom-4 left-4 flex flex-col">
+              <div className="text-white text-2xl font-bold mb-1">Abuja</div>
+              <div className="text-white text-xs font-medium opacity-90">Address in subtext</div>
+            </div>
+          </div>
+
+          {/* Lagos */}
+          <div className="flex-1 h-96 relative rounded overflow-hidden group cursor-pointer">
+            {/* Background with coastal cyan tones */}
+            <div className="w-full h-full absolute bg-gradient-to-br from-cyan-500 via-blue-500 to-blue-700" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+            
+            {/* Location Info */}
+            <div className="absolute bottom-4 left-4 flex flex-col">
+              <div className="text-white text-2xl font-bold mb-1">Lagos</div>
+              <div className="text-white text-xs font-medium opacity-90">Address in subtext</div>
+            </div>
+          </div>
+
+          {/* Ibadan */}
+          <div className="flex-1 h-96 relative rounded overflow-hidden group cursor-pointer">
+            {/* Background with green nature tones */}
+            <div className="w-full h-full absolute bg-gradient-to-br from-green-600 via-emerald-500 to-teal-600" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+            
+            {/* Location Info */}
+            <div className="absolute bottom-4 left-4 flex flex-col">
+              <div className="text-white text-2xl font-bold mb-1">Ibadan</div>
+              <div className="text-white text-xs font-medium opacity-90">Address in subtext</div>
+            </div>
+          </div>
+
+          {/* United Kingdom */}
+          <div className="flex-1 h-96 relative rounded overflow-hidden group cursor-pointer">
+            {/* Background with elegant gray tones */}
+            <div className="w-full h-full absolute bg-gradient-to-br from-slate-600 via-gray-500 to-zinc-600" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+            
+            {/* Location Info */}
+            <div className="absolute bottom-4 left-4 flex flex-col">
+              <div className="text-white text-2xl font-bold mb-1">United Kingdom</div>
+              <div className="text-white text-xs font-medium opacity-90">Address in subtext</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
     </div>
   );
 }
