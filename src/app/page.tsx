@@ -154,10 +154,10 @@ export default function Home() {
             {/* Heading and Description */}
             <div className="w-full flex flex-col justify-start items-center gap-4">
               <div className="w-full text-center">
-                <span className="text-white text-4xl font-bold uppercase leading-tight block">
+                <span className="text-white text-4xl font-bold uppercase leading-tight block font-anton">
                   Experience a new chapter in your
                 </span>
-                <span className="text-sky-500 text-4xl font-bold uppercase leading-tight block">
+                <span className="text-sky-500 text-4xl font-bold uppercase leading-tight block font-anton">
                   spiritual growth journey
                 </span>
               </div>
@@ -246,7 +246,7 @@ export default function Home() {
       <section className="w-full min-h-[753px] bg-gradient-to-br from-blue-900 via-sky-800 to-blue-700 flex justify-center items-end">
         <div className="w-full max-w-[1440px] h-[753px] p-12 inline-flex flex-col justify-end items-start gap-6">
           <div className="p-12 bg-black/20 rounded-xl outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-md flex flex-col justify-start items-start gap-6">
-            <div className="w-[671px] justify-center text-white text-7xl font-normal uppercase leading-[84px]">
+            <div className="w-[671px] justify-center text-white text-7xl font-normal uppercase leading-[84px] font-anton">
               A gathering<br />of achievers
             </div>
             <div className="w-[640px] justify-center text-white text-base font-normal leading-normal">
@@ -271,15 +271,13 @@ export default function Home() {
             <img className="w-[571px] h-96 relative rounded-xl object-cover" src="https://placehold.co/571x437" alt="Pastor Temple" />
             <div className="flex-1 self-stretch inline-flex flex-col justify-start items-start">
               <div className="self-stretch flex-1 flex flex-col justify-start items-start gap-6">
-                <div className="self-stretch text-white text-5xl font-bold uppercase leading-none">
+                <div className="self-stretch text-white text-5xl font-bold uppercase leading-none font-anton">
                   ABOUT OUR PASTOR
                 </div>
                 <div className="self-stretch flex-1 text-justify justify-start text-white text-base font-normal leading-normal">
                   Pastor Temple embodies a fatherly figure, nurturing nations through Jesus' teachings. As our Good Shepherd, he guides us tirelessly, leading us closer to God. Through his vision, we've seen the birth of Word Sanctuary and Life Class, empowering us with God's Word.
                   <br /><br />
-                  His influence radiates Jesus' love, and his unwavering dedication to God's kingdom inspires countless lives. With a rare anointing, he shapes hearts and minds, bringing people to the knowledge of God's Word. Through his servant-leadership, we've witnessed lives transformed, new relationships formed, broken marriages restored, and the Word of God bringing out the best in people. Hearts are mended, souls are saved, and destinies are fulfilled.
-                  <br /><br />
-                  His passion for souls is contagious, his love for people unconditional, and his commitment to God's Word unshakeable. His impact not only transforms lives but also foreshadows greater things to come, a true blessing to our generation, an honour to God's kingdom, and a testament to His faithfulness.
+                  His influence radiates Jesus' love, and his unwavering dedication to God's kingdom inspires countless lives. With a rare anointing, he shapes hearts and minds, bringing people to the knowledge of God's Word. Through his servant-leadership, we've witnessed lives transformed and destinies fulfilled.
                 </div>
               </div>
             </div>
@@ -297,8 +295,8 @@ export default function Home() {
             </div>
             <div className="self-stretch flex flex-col justify-start items-center gap-4">
               <div className="self-stretch text-center justify-center">
-                <span className="text-black text-5xl font-normal leading-[56px]">We do community differently <br />at</span>
-                <span className="text-sky-900 text-5xl font-normal leading-[56px]"> Word Sanctuary Global</span>
+                <span className="text-black text-5xl font-normal leading-[56px] font-anton">We do community differently <br />at</span>
+                <span className="text-sky-900 text-5xl font-normal leading-[56px] font-anton"> Word Sanctuary Global</span>
               </div>
               <div className="self-stretch text-center justify-center">
                 <span className="text-black text-base font-normal">A place to grow, belong, and become — </span>

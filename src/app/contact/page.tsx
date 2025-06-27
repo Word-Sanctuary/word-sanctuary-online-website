@@ -21,11 +21,11 @@ export default function Contact() {
           <div className="flex flex-col justify-start items-center gap-6">
             {/* Main Heading */}
             <div className="text-center justify-center max-w-4xl">
-              <span className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight block font-sans">
-                Where Help Meets Hope — 
+              <span className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight block font-anton">
+                WHERE HELP MEETS HOPE — 
               </span>
-              <span className="text-sky-400 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight block font-sans">
-                Get in Touch
+              <span className="text-sky-400 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight block font-anton">
+                GET IN TOUCH
               </span>
             </div>
           </div>
@@ -42,7 +42,7 @@ export default function Contact() {
                 <div className="w-2 h-2 bg-sky-900 rounded-full" />
                 <div className="justify-center text-sky-900 text-[10px] font-bold tracking-wide">CONTACT US</div>
               </div>
-              <div className="text-center justify-center text-black text-4xl md:text-5xl font-normal uppercase leading-tight">We'd Love to Hear From You</div>
+              <div className="text-center justify-center text-black text-4xl md:text-5xl font-normal uppercase leading-tight font-anton">We'd Love to Hear From You</div>
               <div className="text-center justify-center max-w-2xl">
                 <span className="text-stone-500 text-sm font-normal leading-tight">Whether you have a question, need prayer, or just want to connect — </span>
                 <span className="text-stone-500 text-sm font-bold leading-tight">We're here for you.</span>

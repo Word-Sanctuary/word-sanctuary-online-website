@@ -21,11 +21,11 @@ export default function Installations() {
           <div className="flex flex-col justify-start items-center gap-6">
             {/* Main Heading */}
             <div className="text-center justify-center max-w-4xl">
-              <span className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight block font-sans">
-                Step into a community in Heaven 
+              <span className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight block font-anton">
+                STEP INTO A COMMUNITY IN HEAVEN 
               </span>
-              <span className="text-sky-400 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight block font-sans">
-                and every soul matters.
+              <span className="text-sky-400 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight block font-anton">
+                AND EVERY SOUL MATTERS.
               </span>
             </div>
           </div>
@@ -41,7 +41,7 @@ export default function Installations() {
               <div className="w-2 h-2 bg-sky-900 rounded-full" />
               <div className="justify-center text-sky-900 text-[10px] font-bold font-['Inter']">INSTALLATIONS</div>
             </div>
-            <h2 className="text-black text-4xl sm:text-5xl font-normal font-['Anton'] leading-tight mb-6">
+            <h2 className="text-black text-4xl sm:text-5xl font-normal font-anton leading-tight mb-6">
               JOIN US IN OVER 70 INSTALLATIONS <br/>WORLD WIDE
             </h2>
             <p className="text-center max-w-2xl mx-auto">
