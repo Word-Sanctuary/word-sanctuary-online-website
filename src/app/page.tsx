@@ -2,6 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -58,8 +59,14 @@ export default function Home() {
         <div className="w-full flex justify-start items-start gap-6">
           {/* About Us Card */}
           <div className="flex-1 h-96 relative bg-zinc-700 rounded-lg overflow-hidden group cursor-pointer">
-            {/* Background Image Placeholder */}
-            <div className="w-full h-full absolute bg-gradient-to-br from-zinc-600 to-zinc-800" />
+            {/* Background Image */}
+            <Image
+              src="/images/image2.png"
+              alt="About Us"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
             <div className="absolute inset-0 bg-zinc-700/60" />
 
             {/* Card Content */}
@@ -81,8 +88,14 @@ export default function Home() {
 
           {/* Community Card */}
           <div className="flex-1 h-96 relative bg-blue-600 rounded-lg overflow-hidden group cursor-pointer">
-            {/* Background Image Placeholder */}
-            <div className="w-full h-full absolute bg-gradient-to-br from-blue-500 to-blue-700" />
+            {/* Background Image */}
+            <Image
+              src="/images/image3.png"
+              alt="Community"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
             <div className="absolute inset-0 bg-blue-600/50" />
 
             {/* Card Content */}
@@ -104,8 +117,14 @@ export default function Home() {
 
           {/* Celebration Card */}
           <div className="flex-1 h-96 relative bg-blue-600 rounded-lg overflow-hidden group cursor-pointer">
-            {/* Background Image Placeholder */}
-            <div className="w-full h-full absolute bg-gradient-to-br from-blue-500 to-blue-700" />
+            {/* Background Image */}
+            <Image
+              src="/images/image4.png"
+              alt="Celebration"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
             <div className="absolute inset-0 bg-blue-600/50" />
 
             {/* Card Content */}
