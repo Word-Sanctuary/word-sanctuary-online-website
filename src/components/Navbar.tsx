@@ -2,9 +2,10 @@
 
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
-  const [activeTab, setActiveTab] = useState('HOME');
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
 
   const navItems = [
@@ -13,6 +14,14 @@ export default function Navbar() {
     { name: 'INSTALLATIONS', href: '/installations' },
     { name: 'CONTACT US', href: '/contact' }
   ];
+
+  // Determine active tab based on current pathname
+  const getActiveTab = () => {
+    const currentItem = navItems.find(item => item.href === pathname);
+    return currentItem ? currentItem.name : 'HOME';
+  };
+
+  const activeTab = getActiveTab();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,7 +56,6 @@ export default function Navbar() {
           <a
             key={item.name}
             href={item.href}
-            onClick={() => setActiveTab(item.name)}
             className={`justify-start text-xs font-bold font-['Inter'] tracking-widest transition-all duration-300 ease-in-out hover:text-white hover:scale-105 transform ${
               activeTab === item.name ? 'text-white font-black' : 'text-zinc-400'
             }`}
