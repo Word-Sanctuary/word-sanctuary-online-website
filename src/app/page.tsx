@@ -6,71 +6,141 @@ export default function Home() {
       {/* Navigation */}
       <Navbar />
       
-      {/* Main Content */}
-      <main className="container mx-auto px-6 py-12">
-        {/* Hero Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">
-            Welcome to Word Sanctuary
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Your digital sanctuary for words, thoughts, and creative expression. 
-            Discover a peaceful space where language comes alive and stories find their home.
-          </p>
+      {/* Hero Section */}
+      <section className="relative min-h-screen bg-gradient-to-br from-blue-900 via-sky-800 to-blue-700 flex items-end justify-center pb-32">
+        {/* Background overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/30"></div>
+        
+        {/* Background pattern effect */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
         </div>
-
-        {/* Feature Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <div className="w-12 h-12 bg-sky-900 rounded-full flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-              </svg>
+        
+        {/* Hero Content */}
+        <div className="relative z-10 inline-flex flex-col justify-start items-center gap-9 px-6 text-center">
+          <div className="flex flex-col justify-start items-center gap-6">
+            {/* Our Mandate Badge */}
+            <div className="h-10 px-6 py-2.5 bg-white/40 rounded-full outline outline-1 outline-offset-[-1px] outline-white backdrop-blur-sm inline-flex justify-center items-center gap-4">
+              <div className="w-2 h-2 bg-sky-900 rounded-full" />
+              <div className="justify-center text-white text-xs font-bold tracking-wide">OUR MANDATE</div>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">Digital Library</h3>
-            <p className="text-gray-600">
-              Access our vast collection of literary works and discover new voices in contemporary writing.
-            </p>
-          </div>
-
-          <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <div className="w-12 h-12 bg-sky-900 rounded-full flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-              </svg>
+            
+            {/* Main Heading */}
+            <div className="text-center justify-center max-w-4xl">
+              <span className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight block font-sans">
+                MAKING A FAMILY FOR GOD
+              </span>
+              <span className="text-sky-400 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight block font-sans">
+                ON EARTH!
+              </span>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">Creative Writing</h3>
-            <p className="text-gray-600">
-              Express yourself through our writing tools and join a community of passionate writers and readers.
-            </p>
           </div>
-
-          <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <div className="w-12 h-12 bg-sky-900 rounded-full flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-              </svg>
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">Community</h3>
-            <p className="text-gray-600">
-              Connect with fellow word enthusiasts and participate in discussions about literature and writing.
-            </p>
-          </div>
-        </div>
-
-        {/* Call to Action */}
-        <div className="text-center bg-white p-12 rounded-lg shadow-md">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Ready to Begin Your Journey?
-          </h2>
-          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            Join our community today and discover the perfect sanctuary for your words and ideas.
-          </p>
-          <button className="bg-sky-900 text-white px-8 py-3 rounded-lg hover:bg-sky-800 transition-colors font-medium">
-            Get Started
+          
+          {/* CTA Button */}
+          <button className="h-11 px-8 py-2.5 bg-white rounded-full inline-flex justify-center items-center gap-2.5 hover:bg-gray-100 transition-colors shadow-lg">
+            <div className="justify-center text-black text-sm font-bold tracking-wide">JOIN US ON YOUTUBE</div>
           </button>
         </div>
-      </main>
+      </section>
+      
+      {/* Welcome to Mount Zion Section */}
+      <section className="w-full p-12 flex flex-col justify-start items-start gap-4 bg-white">
+        <div className="max-w-[702px] flex flex-col justify-start items-start gap-8">
+          {/* Welcome Badge */}
+          <div className="h-10 px-6 py-2.5 bg-zinc-200 rounded-full backdrop-blur-sm inline-flex justify-center items-center gap-4">
+            <div className="w-2 h-2 bg-sky-900 rounded-full" />
+            <div className="justify-center text-sky-900 text-[10px] font-bold tracking-wide">WELCOME TO WORD SANCTUARY GLOBAL</div>
+          </div>
+          
+          {/* Heading and Description */}
+          <div className="w-full flex flex-col justify-start items-start gap-4">
+            <div className="w-full flex flex-col justify-start items-start gap-8">
+              <h2 className="w-full text-black text-5xl font-normal">WELCOME TO MOUNT ZION</h2>
+              <div className="w-full">
+                <span className="text-stone-500 text-sm font-normal leading-snug">
+                  The Heavenly Jerusalem; a Church that is 
+                </span>
+                <span className="text-black text-sm font-bold leading-snug">
+                  {" HEAVEN!"}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Feature Cards */}
+        <div className="w-full flex justify-start items-start gap-6">
+          {/* About Us Card */}
+          <div className="flex-1 h-96 relative bg-zinc-700 rounded-lg overflow-hidden group cursor-pointer">
+            {/* Background Image Placeholder */}
+            <div className="w-full h-full absolute bg-gradient-to-br from-zinc-600 to-zinc-800" />
+            <div className="absolute inset-0 bg-zinc-700/60" />
+            
+            {/* Card Content */}
+            <div className="w-36 h-80 left-[24px] top-[24px] absolute flex flex-col justify-between items-start">
+              <div className="w-full flex flex-col justify-start items-start gap-1.5">
+                <div className="w-full text-neutral-200 text-[10px] font-bold tracking-wide">WHO ARE WE?</div>
+                <div className="w-full text-white text-3xl font-bold">About Us</div>
+              </div>
+              <div className="flex justify-start items-center gap-1 group-hover:gap-2 transition-all">
+                <div className="text-neutral-200 text-[10px] font-bold tracking-wide">LEARN MORE</div>
+                <div className="w-3 h-3 relative overflow-hidden">
+                  <svg className="w-2 h-1.5 absolute left-[2px] top-[3px] text-neutral-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Community Card */}
+          <div className="flex-1 h-96 relative bg-blue-600 rounded-lg overflow-hidden group cursor-pointer">
+            {/* Background Image Placeholder */}
+            <div className="w-full h-full absolute bg-gradient-to-br from-blue-500 to-blue-700" />
+            <div className="absolute inset-0 bg-blue-600/50" />
+            
+            {/* Card Content */}
+            <div className="h-80 left-[24px] top-[24px] absolute flex flex-col justify-between items-start">
+              <div className="flex flex-col justify-start items-start gap-1.5">
+                <div className="w-full text-neutral-200 text-[10px] font-bold tracking-wide">JOIN OUR COMMUNITY</div>
+                <div className="text-white text-3xl font-bold">Community</div>
+              </div>
+              <div className="flex justify-start items-center gap-1 group-hover:gap-2 transition-all">
+                <div className="text-neutral-200 text-[10px] font-bold tracking-wide">LEARN MORE</div>
+                <div className="w-3 h-3 relative overflow-hidden">
+                  <svg className="w-2 h-1.5 absolute left-[2px] top-[3px] text-neutral-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Celebration Card */}
+          <div className="flex-1 h-96 relative bg-blue-600 rounded-lg overflow-hidden group cursor-pointer">
+            {/* Background Image Placeholder */}
+            <div className="w-full h-full absolute bg-gradient-to-br from-blue-500 to-blue-700" />
+            <div className="absolute inset-0 bg-blue-600/50" />
+            
+            {/* Card Content */}
+            <div className="h-80 left-[24px] top-[25px] absolute flex flex-col justify-between items-start">
+              <div className="w-full flex flex-col justify-start items-start gap-1.5">
+                <div className="w-full text-neutral-200 text-[10px] font-bold tracking-wide">JOIN US SPECIAL SERVICES</div>
+                <div className="text-white text-3xl font-bold">Celebration</div>
+              </div>
+              <div className="flex justify-start items-center gap-1 group-hover:gap-2 transition-all">
+                <div className="text-neutral-200 text-[10px] font-bold tracking-wide">LEARN MORE</div>
+                <div className="w-3 h-3 relative overflow-hidden">
+                  <svg className="w-2 h-1.5 absolute left-[2px] top-[3px] text-neutral-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
     </div>
   );
 }
