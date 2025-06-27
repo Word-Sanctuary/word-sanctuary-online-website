@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import Image from 'next/image';
 
 interface HeroProps {
@@ -28,50 +28,78 @@ const Hero: React.FC<HeroProps> = ({
   backgroundImages = []
 }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
-  // Default carousel images
-  const defaultCarouselImages = [
-    '/images/hero-carousel/08Artboard 1 (2).jpg',
-    '/images/hero-carousel/10Artboard 1 (2).jpg',
-    '/images/hero-carousel/16 (4).jpg'
-  ];
+  // Memoize carousel images to prevent recalculation
+  const carouselImages = useMemo(() => {
+    const defaultCarouselImages = [
+      '/images/hero-carousel/08Artboard 1 (2).jpg',
+      '/images/hero-carousel/10Artboard 1 (2).jpg',
+      '/images/hero-carousel/16 (4).jpg'
+    ];
+    return backgroundImages.length > 0 ? backgroundImages : defaultCarouselImages;
+  }, [backgroundImages]);
 
-  const carouselImages = backgroundImages.length > 0 ? backgroundImages : defaultCarouselImages;
+  // Optimized transition function
+  const handleTransition = useCallback(() => {
+    if (!useCarousel || carouselImages.length <= 1 || isTransitioning) return;
+    
+    setIsTransitioning(true);
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
+    
+    // Reset transition flag after transition completes
+    setTimeout(() => setIsTransitioning(false), 2500);
+  }, [useCarousel, carouselImages.length, isTransitioning]);
 
   useEffect(() => {
     if (!useCarousel || carouselImages.length <= 1) return;
 
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
-        (prevIndex + 1) % carouselImages.length
-      );
-    }, 5000); // Back to 5 seconds
-
+    const interval = setInterval(handleTransition, 5000);
     return () => clearInterval(interval);
-  }, [useCarousel, carouselImages.length]);
+  }, [useCarousel, carouselImages.length, handleTransition]);
 
   return (
     <section className="relative min-h-screen flex items-end justify-center pb-16 pt-20 overflow-hidden">
       {/* Background Images Carousel */}
       {useCarousel && carouselImages.length > 0 ? (
-        <>
+        <div className="absolute inset-0" style={{ contain: 'layout style paint' }}>
           {carouselImages.map((image, index) => (
             <div
               key={image}
-              className={`absolute inset-0 transition-opacity duration-[2500ms] ease-out ${
+              className={`absolute inset-0 will-change-[opacity] transform-gpu ${
                 index === currentImageIndex ? 'opacity-100' : 'opacity-0'
               }`}
+              style={{
+                transition: 'opacity 2.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                backfaceVisibility: 'hidden',
+                perspective: 1000,
+              }}
             >
               <Image
                 src={image}
                 alt={`Hero background ${index + 1}`}
                 fill
                 className="object-cover"
-                priority={index === 0}
+                priority={index <= 1} // Prioritize first 2 images
+                quality={85} // Slightly reduce quality for faster loading
+                sizes="100vw"
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyaKex8MRXYBZkRZdehAVBp5JjM3AxyCLCnpGNGFsO4TrUNJ9nLxwwFzYFYq5LqEKkmCWJC5D8vWgS2lLwFqIZV/9k="
+                onLoad={() => {
+                  if (index === 0) {
+                    // Preload next image after first loads
+                    const nextIndex = (index + 1) % carouselImages.length;
+                    const link = document.createElement('link');
+                    link.rel = 'preload';
+                    link.href = carouselImages[nextIndex];
+                    link.as = 'image';
+                    document.head.appendChild(link);
+                  }
+                }}
               />
             </div>
           ))}
-        </>
+        </div>
       ) : (
         // Fallback gradient background
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-sky-800 to-blue-700"></div>
