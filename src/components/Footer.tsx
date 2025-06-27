@@ -1,5 +1,7 @@
 'use client';
 
+import { AssetLogo } from '@/assets';
+
 export default function Footer() {
   const connectLinks = [
     'Watch Online',
@@ -27,19 +29,15 @@ export default function Footer() {
     <div className="w-full bg-sky-900 px-12 py-8">
       <div className="max-w-7xl mx-auto">
         {/* Main Footer Content */}
-<div className="flex items-start gap-32 mb-8">
+        <div className="flex items-start gap-32 mb-8">
           {/* Logo Section */}
           <div className="flex items-center gap-4">
-            {/* WSG Logo Circle */}
-            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
-              <div className="text-sky-900 font-bold text-lg">WSG</div>
-            </div>
-            {/* Company Name */}
-            <div className="text-white">
-              <div className="text-xl font-semibold">Word</div>
-              <div className="text-xl font-semibold">Sanctuary</div>
-              <div className="text-xl font-semibold">Global</div>
-            </div>
+            <AssetLogo
+              name="footer-logo"
+              size={200}
+              className="transition-transform duration-300 hover:scale-105"
+              alt="Word Sanctuary Global Logo"
+            />
           </div>
 
           {/* Connect With Us Section */}

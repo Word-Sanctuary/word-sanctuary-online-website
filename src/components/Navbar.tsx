@@ -1,8 +1,8 @@
 'use client';
 
-import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import { AssetLogo } from '@/assets';
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -38,15 +38,14 @@ export default function Navbar() {
       isScrolled ? 'h-16 shadow-lg' : 'h-20'
     }`}>
       {/* Logo */}
-      <div className={`shadow-[4.821428298950195px_4.821428298950195px_16.151784896850586px_0px_rgba(58,45,74,1.00)] shadow-[2.4107141494750977px_2.4107141494750977px_4.901785373687744px_0px_rgba(58,45,74,1.00)] transition-all duration-300 ${
+      <div className={`transition-all duration-300 ${
         isScrolled ? 'w-28 h-10' : 'w-32 h-12'
       }`}>
-        <Image
-          src="/logo-placeholder.svg"
-          alt="Word Sanctuary Logo"
-          width={144}
-          height={62}
+        <AssetLogo
+          name="hq-and-global-main"
+          size={isScrolled ? 112 : 144}
           className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+          alt="HQ and Global Ministry Logo"
         />
       </div>
       

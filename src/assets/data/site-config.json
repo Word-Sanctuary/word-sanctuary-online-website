@@ -1,0 +1,48 @@
+{
+  "siteMetadata": {
+    "title": "HQ and Global Ministry",
+    "description": "Headquarters and Global Ministry operations",
+    "author": "HQ and Global Ministry Team"
+  },
+  "navigation": {
+    "primary": [
+      {
+        "label": "Home",
+        "href": "/",
+        "icon": "house"
+      },
+      {
+        "label": "About",
+        "href": "/about",
+        "icon": "info"
+      },
+      {
+        "label": "Installations",
+        "href": "/installations",
+        "icon": "cube"
+      },
+      {
+        "label": "Contact",
+        "href": "/contact",
+        "icon": "envelope"
+      }
+    ]
+  },
+  "socialLinks": [
+    {
+      "platform": "twitter",
+      "url": "https://twitter.com/hqandglobal",
+      "icon": "twitter"
+    },
+    {
+      "platform": "facebook",
+      "url": "https://facebook.com/hqandglobal",
+      "icon": "facebook"
+    },
+    {
+      "platform": "instagram",
+      "url": "https://instagram.com/hqandglobal",
+      "icon": "instagram"
+    }
+  ]
+}
