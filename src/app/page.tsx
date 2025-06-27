@@ -242,6 +242,51 @@ export default function Home() {
         </div>
       </section>
       
+      {/* A Gathering of Achievers Section */}
+      <section className="w-full min-h-[753px] bg-gradient-to-br from-blue-900 via-sky-800 to-blue-700 flex justify-center items-end">
+        <div className="w-full max-w-[1440px] h-[753px] p-12 inline-flex flex-col justify-end items-start gap-6">
+          <div className="p-12 bg-black/20 rounded-xl outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-md flex flex-col justify-start items-start gap-6">
+            <div className="w-[671px] justify-center text-white text-7xl font-normal uppercase leading-[84px]">
+              A gathering<br/>of achievers
+            </div>
+            <div className="w-[640px] justify-center text-white text-base font-normal leading-normal">
+              At Word Sanctuary, our greatest success story is the grace to effectively evangelize, disciple, and equip those who were once seekers—transforming them into mature disciples and vibrant ministers of the gospel.
+            </div>
+            <div className="h-10 px-7 py-2.5 bg-sky-500 rounded-[100px] inline-flex justify-center items-center gap-2">
+              <div className="justify-center text-white text-sm font-semibold tracking-wide">LEARN MORE</div>
+              <div className="w-3 h-3 relative overflow-hidden">
+                <svg className="w-2 h-1.5 absolute left-[2px] top-[3px] text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* About Our Pastor Section */}
+      <section className="w-full bg-stone-950">
+        <div className="self-stretch px-12 py-24 inline-flex flex-col justify-start items-start gap-2.5">
+          <div className="self-stretch inline-flex justify-start items-start gap-16">
+            <img className="w-[571px] h-96 relative rounded-xl object-cover" src="https://placehold.co/571x437" alt="Pastor Temple" />
+            <div className="flex-1 self-stretch inline-flex flex-col justify-start items-start">
+              <div className="self-stretch flex-1 flex flex-col justify-start items-start gap-6">
+                <div className="self-stretch text-white text-5xl font-bold uppercase leading-none">
+                  ABOUT OUR PASTOR
+                </div>
+                <div className="self-stretch flex-1 text-justify justify-start text-white text-base font-normal leading-normal">
+                  Pastor Temple embodies a fatherly figure, nurturing nations through Jesus' teachings. As our Good Shepherd, he guides us tirelessly, leading us closer to God. Through his vision, we've seen the birth of Word Sanctuary and Life Class, empowering us with God's Word. 
+                  <br/><br/>
+                  His influence radiates Jesus' love, and his unwavering dedication to God's kingdom inspires countless lives. With a rare anointing, he shapes hearts and minds, bringing people to the knowledge of God's Word. Through his servant-leadership, we've witnessed lives transformed, new relationships formed, broken marriages restored, and the Word of God bringing out the best in people. Hearts are mended, souls are saved, and destinies are fulfilled. 
+                  <br/><br/>
+                  His passion for souls is contagious, his love for people unconditional, and his commitment to God's Word unshakeable. His impact not only transforms lives but also foreshadows greater things to come, a true blessing to our generation, an honour to God's kingdom, and a testament to His faithfulness.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
     </div>
   );
 }
