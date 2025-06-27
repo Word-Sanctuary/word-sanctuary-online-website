@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
 import { useState } from "react";
 
 export default function About() {
@@ -24,35 +25,13 @@ His influence radiates Jesus' love, and his unwavering dedication to God's kingd
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative min-h-screen bg-gradient-to-br from-blue-900 via-sky-800 to-blue-700 flex items-end justify-center pb-16 pt-20">
-        {/* Background overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/30"></div>
-        
-        {/* Background pattern effect */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
-        </div>
-        
-        {/* Hero Content */}
-        <div className="relative z-10 inline-flex flex-col justify-start items-center gap-9 px-6 text-center">
-          <div className="flex flex-col justify-start items-center gap-6">
-            {/* Main Heading */}
-            <div className="text-center justify-center max-w-4xl">
-              <span className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight block font-anton">
-                GROWING IN LOVE — 
-              </span>
-              <span className="text-sky-400 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight block font-anton">
-                A CHURCH THAT'S HEAVEN
-              </span>
-            </div>
-          </div>
-          
-          {/* CTA Button */}
-          <button className="h-11 px-8 py-2.5 bg-white rounded-full inline-flex justify-center items-center gap-2.5 hover:bg-gray-100 transition-colors shadow-lg">
-            <div className="justify-center text-black text-sm font-bold tracking-wide">JOIN US</div>
-          </button>
-        </div>
-      </section>
+      <Hero
+        useCarousel={true}
+        title={{
+          primary: "GROWING IN LOVE — ",
+          secondary: "A CHURCH THAT'S HEAVEN"
+        }}
+      />
       
       {/* About Us Section */}
       <section className="w-full bg-white p-12">

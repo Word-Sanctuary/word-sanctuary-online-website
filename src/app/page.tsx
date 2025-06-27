@@ -1,4 +1,7 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
 
 export default function Home() {
   return (
@@ -7,41 +10,24 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen bg-gradient-to-br from-blue-900 via-sky-800 to-blue-700 flex items-end justify-center pb-16 pt-20">
-        {/* Background overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/30"></div>
-
-        {/* Background pattern effect */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
-        </div>
-
-        {/* Hero Content */}
-        <div className="relative z-10 inline-flex flex-col justify-start items-center gap-9 px-6 text-center">
-          <div className="flex flex-col justify-start items-center gap-6">
-            {/* Our Mandate Badge */}
-            <div className="h-10 px-6 py-2.5 bg-white/40 rounded-full outline outline-1 outline-offset-[-1px] outline-white backdrop-blur-sm inline-flex justify-center items-center gap-4">
-              <div className="w-2 h-2 bg-sky-900 rounded-full" />
-              <div className="justify-center text-white text-xs font-bold tracking-wide font-lato">OUR MANDATE</div>
-            </div>
-
-            {/* Main Heading */}
-            <div className="text-center justify-center max-w-4xl">
-              <span className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight block font-anton">
-                MAKING A FAMILY FOR GOD
-              </span>
-              <span className="text-sky-400 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight block font-anton">
-                ON EARTH!
-              </span>
-            </div>
-          </div>
-
-          {/* CTA Button */}
-          <button className="h-11 px-8 py-2.5 bg-white rounded-full inline-flex justify-center items-center gap-2.5 hover:bg-gray-100 transition-colors shadow-lg">
-            <div className="justify-center text-black text-sm font-bold tracking-wide font-inter">JOIN US ON YOUTUBE</div>
-          </button>
-        </div>
-      </section>
+      <Hero
+        useCarousel={true}
+        badge={{
+          text: "OUR MANDATE",
+          showDot: true
+        }}
+        title={{
+          primary: "MAKING A FAMILY FOR GOD",
+          secondary: "ON EARTH!"
+        }}
+        ctaButton={{
+          text: "JOIN US ON YOUTUBE",
+          onClick: () => {
+            // Add your YouTube link logic here
+            window.open('https://youtube.com/@wordsanctuaryglobal', '_blank');
+          }
+        }}
+      />
 
       {/* Welcome to Mount Zion Section */}
       <section className="w-full p-12 flex flex-col justify-start items-start gap-4 bg-white">
