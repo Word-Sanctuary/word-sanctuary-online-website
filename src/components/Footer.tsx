@@ -26,83 +26,183 @@ export default function Footer() {
   ];
 
   return (
-    <div className="w-full bg-sky-900 px-12 py-16">
-      <div className="max-w-7xl mx-auto">
-        {/* Main Footer Content */}
-        <div className="flex items-start gap-32 mb-12">
+    <div className="w-full relative">
+      {/* White section for top part of mobile card */}
+      <div className="block md:hidden bg-white h-24"></div>
+      
+      {/* Blue footer section */}
+      <div className="bg-sky-900 relative">
+        {/* Mobile Donation Card - Only visible on mobile, positioned absolutely */}
+        <div className="block md:hidden absolute -top-16 left-4 right-4 z-10">
+          <div className="bg-sky-200 rounded-xl shadow-lg overflow-hidden p-8 pb-12 relative">
+            <div className="flex flex-col gap-8 relative z-10">
+              <div className="flex flex-col gap-5">
+                <h2 className="text-stone-900 text-4xl font-bold font-anton leading-[48px]">
+                  Give to Word Sanctuary
+                </h2>
+                <p className="text-stone-900 text-base font-semibold leading-normal">
+                  Your generosity keeps blessing lives, thank you for giving!
+                </p>
+              </div>
+              <div className="flex justify-start mt-16">
+                <button className="h-11 px-8 py-2.5 bg-white rounded-full inline-flex justify-center items-center gap-2 hover:bg-gray-50 transition-colors">
+                  <span className="text-stone-900 text-sm font-extrabold tracking-widest">
+                    GIVE NOW
+                  </span>
+                </button>
+              </div>
+            </div>
+            {/* Decorative illustration background - spans full width and covers lower portion */}
+            <div className="absolute bottom-0 left-0 right-0 opacity-30 pointer-events-none">
+              <img 
+                src="/icons/peoplevector.svg" 
+                alt="People illustration" 
+                className="w-full object-cover object-bottom"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="px-4 md:px-12 pt-80 md:pt-16 pb-16">
+        <div className="max-w-7xl mx-auto">
+          {/* Main Footer Content */}
+          <div className="flex flex-col md:flex-row md:items-start gap-8 md:gap-32 mb-12">
           {/* Logo Section */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center justify-center md:justify-start gap-4 mb-8 md:mb-0">
             <AssetLogo
               name="footer-logo"
-              size={200}
+              size={160}
               className="transition-transform duration-300 hover:scale-105"
               alt="Word Sanctuary Global Logo"
             />
           </div>
 
-          {/* Connect With Us Section */}
-          <div className="flex flex-col gap-6 min-w-[160px]">
-            <h3 className="text-white text-sm font-medium uppercase tracking-wider">
-              CONNECT WITH US
-            </h3>
-            <div className="flex flex-col gap-3">
-              {connectLinks.map((link) => (
-                <a
-                  key={link}
-                  href="#"
-                  className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer text-left"
-                >
-                  {link}
-                </a>
-              ))}
+          {/* Mobile: Stack all sections vertically */}
+          <div className="flex flex-col md:hidden gap-8 w-full">
+            {/* Connect With Us Section */}
+            <div className="flex flex-col gap-6">
+              <h3 className="text-white text-xs font-bold uppercase tracking-wider">
+                CONNECT WITH US
+              </h3>
+              <div className="flex flex-col gap-3">
+                {connectLinks.map((link) => (
+                  <a
+                    key={link}
+                    href="#"
+                    className="text-white text-sm font-bold hover:text-white/80 transition-colors cursor-pointer"
+                  >
+                    {link}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Fellowship and Resources in a row on mobile */}
+            <div className="flex justify-between gap-8">
+              {/* Fellowship With Us Section */}
+              <div className="flex flex-col gap-6 flex-1">
+                <h3 className="text-white text-xs font-bold uppercase tracking-wider">
+                  FELLOWSHIP WITH US
+                </h3>
+                <div className="flex flex-col gap-3">
+                  {fellowshipLinks.map((link) => (
+                    <a
+                      key={link}
+                      href="#"
+                      className="text-white text-sm font-bold hover:text-white/80 transition-colors cursor-pointer"
+                    >
+                      {link}
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {/* Resources Section */}
+              <div className="flex flex-col gap-6 flex-1">
+                <h3 className="text-white text-xs font-bold uppercase tracking-wider">
+                  RESOURCES
+                </h3>
+                <div className="flex flex-col gap-3">
+                  {resourceLinks.map((link) => (
+                    <a
+                      key={link}
+                      href="#"
+                      className="text-white text-sm font-bold hover:text-white/80 transition-colors cursor-pointer"
+                    >
+                      {link}
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Fellowship With Us Section */}
-          <div className="flex flex-col gap-6 min-w-[160px]">
-            <h3 className="text-white text-sm font-medium uppercase tracking-wider">
-              FELLOWSHIP WITH US
-            </h3>
-            <div className="flex flex-col gap-3">
-              {fellowshipLinks.map((link) => (
-                <a
-                  key={link}
-                  href="#"
-                  className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer text-left"
-                >
-                  {link}
-                </a>
-              ))}
+          {/* Desktop: Original horizontal layout */}
+          <div className="hidden md:flex md:items-start gap-32">
+            {/* Connect With Us Section */}
+            <div className="flex flex-col gap-6 min-w-[160px]">
+              <h3 className="text-white text-sm font-medium uppercase tracking-wider">
+                CONNECT WITH US
+              </h3>
+              <div className="flex flex-col gap-3">
+                {connectLinks.map((link) => (
+                  <a
+                    key={link}
+                    href="#"
+                    className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer text-left"
+                  >
+                    {link}
+                  </a>
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Resources Section */}
-          <div className="flex flex-col gap-6 min-w-[160px]">
-            <h3 className="text-white text-sm font-medium uppercase tracking-wider">
-              RESOURCES
-            </h3>
-            <div className="flex flex-col gap-3">
-              {resourceLinks.map((link) => (
-                <a
-                  key={link}
-                  href="#"
-                  className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer text-left"
-                >
-                  {link}
-                </a>
-              ))}
+            {/* Fellowship With Us Section */}
+            <div className="flex flex-col gap-6 min-w-[160px]">
+              <h3 className="text-white text-sm font-medium uppercase tracking-wider">
+                FELLOWSHIP WITH US
+              </h3>
+              <div className="flex flex-col gap-3">
+                {fellowshipLinks.map((link) => (
+                  <a
+                    key={link}
+                    href="#"
+                    className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer text-left"
+                  >
+                    {link}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Resources Section */}
+            <div className="flex flex-col gap-6 min-w-[160px]">
+              <h3 className="text-white text-sm font-medium uppercase tracking-wider">
+                RESOURCES
+              </h3>
+              <div className="flex flex-col gap-3">
+                {resourceLinks.map((link) => (
+                  <a
+                    key={link}
+                    href="#"
+                    className="text-white/80 text-sm hover:text-white transition-colors cursor-pointer text-left"
+                  >
+                    {link}
+                  </a>
+                ))}
+              </div>
+            </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-white/20 pt-8 flex justify-between items-center">
-          <div className="text-white/80 text-sm">
+        <div className="border-t border-white/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="text-white text-xs font-bold leading-tight order-2 md:order-1">
             ©Copyright 2025. Word Sanctuary Global. All Rights Reserved.
           </div>
           
           {/* Social Media Icons */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-6 order-1 md:order-2">
             {/* Instagram */}
             <a href="#" className="text-white/80 hover:text-white transition-colors">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -130,6 +230,7 @@ export default function Footer() {
                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
               </svg>
             </a>
+          </div>
           </div>
         </div>
       </div>
