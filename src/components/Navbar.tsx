@@ -10,6 +10,8 @@ export default function Navbar() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const navItems = [
     { name: 'HOME', href: '/' },
@@ -28,13 +30,29 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 50);
+      const currentScrollY = window.scrollY;
+      
+      // Update background state based on scroll position
+      setIsScrolled(currentScrollY > 50);
+      
+      // Handle navbar visibility based on scroll direction
+      if (currentScrollY === 0) {
+        // At the top, always show navbar
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down and past 100px, hide navbar
+        setIsVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up, show navbar
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -44,10 +62,19 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
   };
 
+  // Close mobile menu when navbar becomes hidden
+  useEffect(() => {
+    if (!isVisible && isMobileMenuOpen) {
+      closeMobileMenu();
+    }
+  }, [isVisible, isMobileMenuOpen]);
+
   return (
     <>
       <div className={`w-full px-8 md:px-12 bg-sky-900/95 backdrop-blur-md flex justify-between items-center overflow-hidden fixed top-0 z-50 transition-all duration-300 ease-in-out border-b border-white/10 ${
         isScrolled ? 'h-16 shadow-lg shadow-sky-900/20' : 'h-20'
+      } ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}>
         {/* Logo */}
         <div className={`transition-all duration-300 ${
