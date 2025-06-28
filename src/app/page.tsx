@@ -2,9 +2,39 @@
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import InstallationCarousel from "@/components/InstallationCarousel";
 import Image from "next/image";
 
 export default function Home() {
+  // Installation data for the carousel
+  const installations = [
+    {
+      name: "Ilorin",
+      image: "/images/ilorin.png",
+      address: "Address in subtext"
+    },
+    {
+      name: "Abuja", 
+      image: "/images/abuja.jpg",
+      address: "Address in subtext"
+    },
+    {
+      name: "Lagos",
+      image: "/images/lagos.png", 
+      address: "Address in subtext"
+    },
+    {
+      name: "Ibadan",
+      image: "/images/ibadan.png",
+      address: "Address in subtext"
+    },
+    {
+      name: "United Kingdom",
+      image: "/images/unitedkingdom.png",
+      address: "Address in subtext"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
@@ -179,7 +209,8 @@ export default function Home() {
         </div>
 
         {/* Installation Cards */}
-        <div className="w-full max-w-[1340px] flex justify-start items-center gap-4">
+        {/* Desktop Grid - Hidden on mobile */}
+        <div className="hidden lg:flex w-full max-w-[1340px] justify-start items-center gap-4">
           {/* Ilorin */}
           <div className="flex-1 h-96 relative rounded overflow-hidden group cursor-pointer">
             {/* Background Image */}
@@ -274,6 +305,11 @@ export default function Home() {
               <div className="text-white text-xs font-medium opacity-90">Address in subtext</div>
             </div>
           </div>
+        </div>
+
+        {/* Mobile Carousel - Visible only on mobile */}
+        <div className="lg:hidden w-full -mr-12">
+          <InstallationCarousel installations={installations} />
         </div>
       </section>
 
