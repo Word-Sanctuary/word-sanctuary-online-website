@@ -2,6 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import { Button } from "@/components/ui";
 
 export default function Installations() {
   return (
@@ -145,14 +146,17 @@ export default function Installations() {
           
           {/* See More Button */}
           <div className="text-center mt-8 sm:mt-10 lg:mt-12">
-            <button className="w-36 sm:w-44 h-9 sm:h-10 py-2 sm:py-2.5 bg-sky-500 rounded-[100px] inline-flex justify-center items-center gap-2 hover:bg-sky-600 transition-colors">
-              <div className="justify-center text-white text-xs sm:text-sm font-semibold font-['Lato'] tracking-wide">SEE MORE</div>
-              <div className="w-3 h-3 relative overflow-hidden">
-                <svg className="w-2 h-1.5 absolute left-[2px] top-[3px] text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-            </button>
+            <Button 
+              variant="primary" 
+              size="md" 
+              showArrow
+              onClick={() => {
+                // Add logic to load more installations
+                console.log('Load more installations');
+              }}
+            >
+              SEE MORE
+            </Button>
           </div>
         </div>
       </section>

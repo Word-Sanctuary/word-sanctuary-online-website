@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { AssetLogo } from '@/assets';
+import { Button } from '@/components/ui';
 import Image from 'next/image';
 
 export default function Navbar() {
@@ -81,17 +82,15 @@ export default function Navbar() {
         {/* Desktop Join Us Button and Mobile Menu Button */}
         <div className="flex items-center">
           {/* Join Us Button - Desktop Only */}
-          <a 
+          <Button 
+            variant="secondary"
+            size="md"
             href="/signup"
-            className="hidden md:block bg-white text-sky-900 px-6 py-2 rounded-lg font-bold font-['Inter'] text-xs tracking-wider transition-all duration-300 hover:bg-gray-100 hover:scale-105 hover:shadow-lg transform active:scale-95 group"
+            as="a"
+            className="hidden md:block"
           >
-            <span className="relative">
-              JOIN US
-              <span className="absolute inset-0 bg-gradient-to-r from-sky-900 to-blue-700 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
-                JOIN US
-              </span>
-            </span>
-          </a>
+            JOIN US
+          </Button>
           
           {/* Mobile Menu Button */}
           <button 
@@ -158,13 +157,16 @@ export default function Navbar() {
           ))}
           
           {/* Join Us Button - Mobile */}
-          <a 
+          <Button 
+            variant="secondary"
+            fullWidth
             href="/signup"
-            className="w-full bg-white text-sky-900 py-2 xs:py-2 sm:py-3 rounded-lg font-bold font-['Anton'] text-sm xs:text-lg sm:text-xl tracking-wider transition-all duration-300 hover:bg-gray-100 mt-2 xs:mt-2 sm:mt-4 text-center block active:scale-95 hover:shadow-lg"
+            as="a"
             onClick={closeMobileMenu}
+            className="mt-2 xs:mt-2 sm:mt-4"
           >
             JOIN US
-          </a>
+          </Button>
         </div>
       </div>
     </>

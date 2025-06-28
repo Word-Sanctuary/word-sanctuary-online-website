@@ -2,6 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import { Button } from "@/components/ui";
 
 export default function Contact() {
   return (
@@ -108,9 +109,13 @@ export default function Contact() {
                 </div>
                 
                 {/* Submit Button */}
-                <button className="px-6 sm:px-8 py-2.5 bg-sky-500 hover:bg-sky-600 rounded-full text-white text-sm sm:text-base font-semibold tracking-wide transition-colors">
+                <Button 
+                  variant="primary" 
+                  size="md"
+                  type="submit"
+                >
                   SEND MESSAGE
-                </button>
+                </Button>
               </div>
             </div>
           </div>

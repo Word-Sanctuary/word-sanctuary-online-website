@@ -3,6 +3,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import CommunitySection from "@/components/CommunitySection";
+import { Button } from "@/components/ui";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 
@@ -157,21 +158,14 @@ His influence radiates Jesus' love, and his unwavering dedication to God's kingd
                 </div>
               </div>
               {shouldShowReadMore && (
-                <button 
+                <Button 
+                  variant="ghost" 
+                  size="sm"
                   onClick={() => setIsExpanded(!isExpanded)}
-                  className="h-8 sm:h-10 py-2 sm:py-2.5 rounded-[100px] inline-flex justify-center items-center gap-2 hover:bg-white/10 transition-colors duration-200"
+                  className="h-8 sm:h-10 py-2 sm:py-2.5 text-white text-xs sm:text-sm font-semibold underline"
                 >
-                  <div className="justify-center text-white text-xs sm:text-sm font-semibold underline tracking-wide">
-                    {isExpanded ? 'READ LESS' : 'READ MORE'}
-                  </div>
-                  <div className="w-3 h-3 relative overflow-hidden">
-                    <div 
-                      className={`w-2 h-1.5 left-[2px] top-[3px] absolute outline outline-[1.50px] outline-offset-[-0.75px] outline-white transition-transform duration-200 ${
-                        isExpanded ? 'rotate-90' : ''
-                      }`} 
-                    />
-                  </div>
-                </button>
+                  {isExpanded ? 'READ LESS' : 'READ MORE'}
+                </Button>
               )}
             </div>
           </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useMemo, useCallback } from 'react';
+import { Button } from '@/components/ui';
 import Image from 'next/image';
 
 interface HeroProps {
@@ -141,14 +142,13 @@ const Hero: React.FC<HeroProps> = ({
 
         {/* CTA Button */}
         {ctaButton && (
-          <button 
-            className="h-11 px-8 py-2.5 bg-white rounded-full inline-flex justify-center items-center gap-2.5 hover:bg-gray-100 transition-colors shadow-lg"
+          <Button 
+            variant="secondary" 
+            size="lg"
             onClick={ctaButton.onClick}
           >
-            <div className="justify-center text-black text-sm font-bold tracking-wide font-inter">
-              {ctaButton.text}
-            </div>
-          </button>
+            {ctaButton.text}
+          </Button>
         )}
       </div>
     </section>

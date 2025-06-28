@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
+import { Button } from "@/components/ui";
 import Image from "next/image";
 
 export default function SignUp() {
@@ -137,24 +138,17 @@ export default function SignUp() {
                   
                   {/* Submit Button */}
                   <div className="w-full flex flex-col justify-start items-start gap-4">
-                    <button
+                    <Button
                       type="submit"
+                      variant="primary"
+                      size="lg"
+                      fullWidth
                       disabled={isSubmitting}
-                      className={`w-full h-12 sm:h-14 px-7 py-3 sm:py-4 rounded-lg shadow-sm flex justify-center items-center gap-3 font-lato transition-all duration-300 ${
-                        isSubmitting
-                          ? "bg-gray-400 cursor-not-allowed"
-                          : "bg-sky-900 hover:bg-sky-800 active:scale-[0.98]"
-                      }`}
+                      isLoading={isSubmitting}
+                      className="h-12 sm:h-14 bg-sky-900 hover:bg-sky-800 text-base sm:text-lg"
                     >
-                      {isSubmitting ? (
-                        <div className="flex items-center gap-2">
-                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                          <span className="text-white text-base sm:text-lg font-semibold leading-7">Creating...</span>
-                        </div>
-                      ) : (
-                        <span className="text-white text-base sm:text-lg font-semibold leading-7">Get started</span>
-                      )}
-                    </button>
+                      {isSubmitting ? "Creating..." : "Get started"}
+                    </Button>
                   </div>
                 </form>
                 

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ActionLink } from "@/components/ui";
 
 interface CommunityCard {
   title: string;
@@ -49,12 +50,9 @@ export default function CommunitySection({ cards = defaultCards }: CommunitySect
           </div>
         </div>
         <div className="h-8 sm:h-10 px-4 sm:px-7 py-2 sm:py-2.5 rounded-[100px] outline outline-1 outline-offset-[-1px] outline-black inline-flex justify-center items-center gap-2">
-          <div className="justify-center text-black text-[10px] sm:text-xs font-bold">SEE ALL INSTALLATIONS</div>
-          <div className="w-3 sm:w-4 h-3 sm:h-4 relative overflow-hidden">
-            <svg className="w-2 sm:w-2.5 h-1.5 sm:h-2 absolute left-[2px] sm:left-[2.67px] top-[3px] sm:top-[4px] text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
-            </svg>
-          </div>
+          <ActionLink href="/installations" color="dark" size="sm">
+            SEE ALL INSTALLATIONS
+          </ActionLink>
         </div>
       </div>
       <div className="w-full max-w-[1340px] mx-auto flex flex-col lg:flex-row justify-between items-start gap-6 sm:gap-8">
@@ -70,14 +68,9 @@ export default function CommunitySection({ cards = defaultCards }: CommunitySect
               />
             </div>
             <div className="self-stretch flex flex-col justify-start items-start gap-3 sm:gap-4">
-              <div className="inline-flex justify-start items-end gap-2">
-                <div className="justify-center text-black text-sm sm:text-base font-bold">{card.title}</div>
-                <div className="w-3 sm:w-4 h-3 sm:h-4 relative overflow-hidden">
-                  <svg className="w-2 sm:w-2.5 h-1.5 sm:h-2 absolute left-[2px] sm:left-[2.67px] top-[3px] sm:top-[4px] text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
+              <ActionLink href="/community" color="dark" size="md" className="inline-flex justify-start items-end gap-2">
+                {card.title}
+              </ActionLink>
               <div className="self-stretch justify-center text-stone-500 text-xs sm:text-sm font-normal tracking-wide">
                 {card.description}
               </div>

@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import InstallationCarousel from "@/components/InstallationCarousel";
 import CommunitySection from "@/components/CommunitySection";
+import { Button, ActionLink } from "@/components/ui";
 import Image from "next/image";
 
 export default function Home() {
@@ -107,14 +108,9 @@ export default function Home() {
                   <div className="w-full text-neutral-200 text-[10px] sm:text-xs md:text-sm font-bold tracking-wide font-inter">WHO ARE WE?</div>
                   <div className="w-full text-white text-2xl sm:text-3xl md:text-4xl font-bold font-inter">About Us</div>
                 </div>
-                <div className="flex justify-start items-center gap-1 group-hover:gap-2 transition-all">
-                  <div className="text-neutral-200 text-[10px] sm:text-xs md:text-sm font-bold tracking-wide font-inter">LEARN MORE</div>
-                  <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 relative overflow-hidden">
-                    <svg className="w-1.5 sm:w-2 h-1 sm:h-1.5 absolute left-[2px] top-[2px] sm:top-[3px] text-neutral-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </div>
+                <ActionLink href="/about" color="light" size="sm">
+                  LEARN MORE
+                </ActionLink>
               </div>
             </div>
 
@@ -136,14 +132,9 @@ export default function Home() {
                   <div className="w-full text-neutral-200 text-[10px] sm:text-xs md:text-sm font-bold tracking-wide font-inter">JOIN OUR COMMUNITY</div>
                   <div className="text-white text-2xl sm:text-3xl md:text-4xl font-bold font-inter">Community</div>
                 </div>
-                <div className="flex justify-start items-center gap-1 group-hover:gap-2 transition-all">
-                  <div className="text-neutral-200 text-[10px] sm:text-xs md:text-sm font-bold tracking-wide font-inter">LEARN MORE</div>
-                  <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 relative overflow-hidden">
-                    <svg className="w-1.5 sm:w-2 h-1 sm:h-1.5 absolute left-[2px] top-[2px] sm:top-[3px] text-neutral-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </div>
+                <ActionLink href="#community" color="light" size="sm">
+                  LEARN MORE
+                </ActionLink>
               </div>
             </div>
 
@@ -165,14 +156,9 @@ export default function Home() {
                   <div className="w-full text-neutral-200 text-[10px] sm:text-xs md:text-sm font-bold tracking-wide font-inter">JOIN US SPECIAL SERVICES</div>
                   <div className="text-white text-2xl sm:text-3xl md:text-4xl font-bold font-inter">Celebration</div>
                 </div>
-                <div className="flex justify-start items-center gap-1 group-hover:gap-2 transition-all">
-                  <div className="text-neutral-200 text-[10px] sm:text-xs md:text-sm font-bold tracking-wide font-inter">LEARN MORE</div>
-                  <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 relative overflow-hidden">
-                    <svg className="w-1.5 sm:w-2 h-1 sm:h-1.5 absolute left-[2px] top-[2px] sm:top-[3px] text-neutral-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </div>
+                <ActionLink href="/contact" color="light" size="sm">
+                  LEARN MORE
+                </ActionLink>
               </div>
             </div>
           </div>
@@ -206,9 +192,13 @@ export default function Home() {
           </div>
 
           {/* CTA Button */}
-          <button className="h-11 px-7 py-2.5 rounded-full outline outline-1 outline-offset-[-1px] outline-white inline-flex justify-center items-center gap-2.5 hover:bg-white/10 transition-colors">
-            <div className="justify-center text-white text-sm font-bold">SEE ALL INSTALLATIONS</div>
-          </button>
+          <Button 
+            variant="outline" 
+            size="lg" 
+            onClick={() => window.location.href = '/installations'}
+          >
+            SEE ALL INSTALLATIONS
+          </Button>
         </div>
 
         {/* Installation Cards */}
@@ -330,8 +320,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/40" />
         
         {/* Mobile Layout */}
-        <div className="lg:hidden w-full h-full flex flex-col justify-center items-start relative z-10">
-          <div className="w-full h-full flex flex-col justify-end items-start p-4 sm:p-6 md:p-8 pb-16 sm:pb-20 md:pb-24">
+        <div className="lg:hidden w-full h-[500px] flex flex-col justify-center items-start relative z-10">
+          <div className="w-full h-full relative bottom-0 flex flex-col justify-end items-start p-4 sm:p-6 md:p-8 pb-16 sm:pb-20 md:pb-24">
             <div className="p-4 sm:p-6 md:p-8 bg-black/20 rounded-xl outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-md flex flex-col justify-start items-start gap-4 sm:gap-6 w-full max-w-none sm:max-w-[90%] md:max-w-[80%]">
               <div className="w-full justify-center text-white text-2xl sm:text-3xl md:text-4xl font-normal uppercase leading-tight sm:leading-snug md:leading-normal font-anton">
                 A gathering<br />of achievers
@@ -339,12 +329,15 @@ export default function Home() {
               <div className="w-full justify-center text-white text-sm sm:text-base font-normal font-lato leading-relaxed sm:leading-normal">
                 At Word Sanctuary, our greatest success story is the grace to effectively evangelize, disciple, and equip those who were once seekers—transforming them into mature disciples and vibrant ministers of the gospel.
               </div>
-              <div className="h-8 sm:h-10 px-4 sm:px-7 py-2 sm:py-2.5 bg-sky-500 rounded-[100px] inline-flex justify-center items-center gap-2">
-                <div className="justify-center text-white text-xs sm:text-sm font-semibold font-lato tracking-wide">LEARN MORE</div>
-                <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 relative overflow-hidden">
-                  <div className="w-1.5 sm:w-2 h-1 sm:h-1.5 left-[2px] top-[2px] sm:top-[3px] absolute outline outline-[1.50px] outline-offset-[-0.75px] outline-white" />
-                </div>
-              </div>
+              <Button 
+                variant="primary" 
+                size="sm" 
+                showArrow 
+                href="/about"
+                as="a"
+              >
+                LEARN MORE
+              </Button>
             </div>
           </div>
         </div>
@@ -359,12 +352,15 @@ export default function Home() {
               <div className="w-[640px] justify-center text-white text-base font-normal font-lato leading-normal">
                 At Word Sanctuary, our greatest success story is the grace to effectively evangelize, disciple, and equip those who were once seekers—transforming them into mature disciples and vibrant ministers of the gospel.
               </div>
-              <div className="h-10 px-7 py-2.5 bg-sky-500 rounded-[100px] inline-flex justify-center items-center gap-2">
-                <div className="justify-center text-white text-sm font-semibold font-lato tracking-wide">LEARN MORE</div>
-                <div className="w-3 h-3 relative overflow-hidden">
-                  <div className="w-2 h-1.5 left-[2px] top-[3px] absolute outline outline-[1.50px] outline-offset-[-0.75px] outline-white" />
-                </div>
-              </div>
+              <Button 
+                variant="primary" 
+                size="md" 
+                showArrow 
+                href="/about"
+                as="a"
+              >
+                LEARN MORE
+              </Button>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import { AssetLogo } from '@/assets';
+import { Button } from '@/components/ui';
 import Image from 'next/image';
 
 export default function Footer() {
@@ -46,11 +47,14 @@ export default function Footer() {
                 </p>
               </div>
               <div className="flex justify-start mt-16">
-                <button className="h-11 px-8 py-2.5 bg-white rounded-full inline-flex justify-center items-center gap-2 hover:bg-gray-50 transition-colors">
-                  <span className="text-stone-900 text-sm font-extrabold tracking-widest">
-                    GIVE NOW
-                  </span>
-                </button>
+                <Button 
+                  variant="secondary" 
+                  size="lg"
+                  onClick={() => window.open('https://give.wordsanctuaryglobal.com', '_blank')}
+                  className="bg-white text-stone-900 hover:bg-gray-50"
+                >
+                  GIVE NOW
+                </Button>
               </div>
             </div>
             {/* Decorative illustration background - spans full width and covers lower portion */}
