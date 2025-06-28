@@ -3,6 +3,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import InstallationCarousel from "@/components/InstallationCarousel";
+import CommunitySection from "@/components/CommunitySection";
 import Image from "next/image";
 
 export default function Home() {
@@ -314,8 +315,19 @@ export default function Home() {
       </section>
 
       {/* A Gathering of Achievers Section */}
-      <section className="w-full min-h-[753px] bg-gradient-to-br from-blue-900 via-sky-800 to-blue-700 flex justify-center items-end">
-        <div className="w-full max-w-[1440px] h-[753px] p-12 inline-flex flex-col justify-end items-start gap-6">
+      <section className="w-full min-h-[753px] relative flex justify-center items-end overflow-hidden">
+        {/* Background Image */}
+        <Image
+          src="/images/achievers.png"
+          alt="A Gathering of Achievers"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/40" />
+        
+        <div className="w-full max-w-[1440px] h-[753px] p-12 inline-flex flex-col justify-end items-start gap-6 relative z-10">
           <div className="p-12 bg-black/20 rounded-xl outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-md flex flex-col justify-start items-start gap-6">
             <div className="w-[671px] justify-center text-white text-7xl font-normal uppercase leading-[84px] font-anton">
               A gathering<br />of achievers
@@ -339,7 +351,15 @@ export default function Home() {
       <section className="w-full bg-stone-950">
         <div className="self-stretch px-12 py-24 inline-flex flex-col justify-start items-start gap-2.5">
           <div className="self-stretch inline-flex justify-start items-start gap-16">
-            <img className="w-[571px] h-96 relative rounded-xl object-cover" src="https://placehold.co/571x437" alt="Pastor Temple" />
+            <div className="w-[571px] h-96 relative rounded-xl overflow-hidden">
+              <Image
+                src="/images/ourpastor.png"
+                alt="Pastor Temple"
+                fill
+                className="object-cover object-top"
+                sizes="571px"
+              />
+            </div>
             <div className="flex-1 self-stretch inline-flex flex-col justify-start items-start">
               <div className="self-stretch flex-1 flex flex-col justify-start items-start gap-6">
                 <div className="self-stretch text-white text-5xl font-bold uppercase leading-none font-anton">
@@ -348,7 +368,7 @@ export default function Home() {
                 <div className="self-stretch flex-1 text-justify justify-start text-white text-base font-normal leading-normal">
                   Pastor Temple embodies a fatherly figure, nurturing nations through Jesus' teachings. As our Good Shepherd, he guides us tirelessly, leading us closer to God. Through his vision, we've seen the birth of Word Sanctuary and Life Class, empowering us with God's Word.
                   <br /><br />
-                  His influence radiates Jesus' love, and his unwavering dedication to God's kingdom inspires countless lives. With a rare anointing, he shapes hearts and minds, bringing people to the knowledge of God's Word. Through his servant-leadership, we've witnessed lives transformed and destinies fulfilled.
+                  His influence radiates Jesus' love, and his unwavering dedication to God's kingdom inspires countless lives. With a rare anointing, he shapes hearts and minds, bringing people to the knowledge of God's Word. Through his servant-leadership, we've witnessed lives transformed, new relationships formed, broken marriages restored, and the Word of God bringing out the best in people. Hearts are mended, souls are saved, and destinies are fulfilled.
                 </div>
               </div>
             </div>
@@ -357,90 +377,7 @@ export default function Home() {
       </section>
 
       {/* Family Section */}
-      <section className="self-stretch px-12 py-24 bg-white inline-flex flex-col justify-start items-center gap-12 overflow-hidden">
-        <div className="self-stretch flex flex-col justify-start items-center gap-12">
-          <div className="self-stretch flex flex-col justify-start items-center gap-8">
-            <div className="h-10 px-6 py-2.5 bg-slate-300 rounded-[100px] backdrop-blur-[2px] inline-flex justify-center items-center gap-4">
-              <div className="w-2 h-2 bg-sky-900 rounded-full" />
-              <div className="justify-center text-sky-900 text-[10px] font-bold">FAMILY</div>
-            </div>
-            <div className="self-stretch flex flex-col justify-start items-center gap-4">
-              <div className="self-stretch text-center justify-center">
-                <span className="text-black text-5xl font-normal leading-[56px] font-anton">We do community differently <br />at</span>
-                <span className="text-sky-900 text-5xl font-normal leading-[56px] font-anton"> Word Sanctuary Global</span>
-              </div>
-              <div className="self-stretch text-center justify-center">
-                <span className="text-black text-base font-normal">A place to grow, belong, and become — </span>
-                <span className="text-black text-base font-bold">a church that's Heaven.</span>
-              </div>
-            </div>
-          </div>
-          <div className="h-10 px-7 py-2.5 rounded-[100px] outline outline-1 outline-offset-[-1px] outline-black inline-flex justify-center items-center gap-2">
-            <div className="justify-center text-black text-xs font-bold">SEE ALL INSTALLATIONS</div>
-            <div className="w-4 h-4 relative overflow-hidden">
-              <svg className="w-2.5 h-2 absolute left-[2.67px] top-[4px] text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
-              </svg>
-            </div>
-          </div>
-        </div>
-        <div className="w-full max-w-[1340px] mx-auto flex flex-col lg:flex-row justify-between items-start gap-8">
-          <div className="flex-1 max-w-96 flex flex-col justify-start items-start gap-4">
-            <div className="self-stretch h-96 relative bg-neutral-900 rounded-lg overflow-hidden">
-              <div className="w-[826px] h-[551px] left-[-299px] top-[-124px] absolute bg-sky-900/30" />
-            </div>
-            <div className="self-stretch flex flex-col justify-start items-start gap-4">
-              <div className="inline-flex justify-start items-end gap-2">
-                <div className="justify-center text-black text-base font-bold">Life Class</div>
-                <div className="w-4 h-4 relative overflow-hidden">
-                  <svg className="w-2.5 h-2 absolute left-[2.67px] top-[4px] text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
-              <div className="self-stretch justify-center text-stone-500 text-sm font-normal tracking-wide">
-                Life class gets you grounded in God's word with a systematic approach to the study of God's word; from salvation, to discipleship, evangelism, all these and more will be brought to your knowledge.
-              </div>
-            </div>
-          </div>
-          <div className="flex-1 max-w-96 flex flex-col justify-start items-start gap-4">
-            <div className="self-stretch h-96 relative bg-neutral-900 rounded-lg overflow-hidden">
-              <div className="w-[694.34px] h-96 left-[-131.67px] top-0 absolute bg-sky-900/30" />
-            </div>
-            <div className="self-stretch flex flex-col justify-start items-start gap-4">
-              <div className="inline-flex justify-start items-end gap-2">
-                <div className="justify-center text-black text-base font-bold">Foundation Training</div>
-                <div className="w-4 h-4 relative overflow-hidden">
-                  <svg className="w-2.5 h-2 absolute left-[2.67px] top-[4px] text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
-              <div className="self-stretch justify-center text-stone-500 text-sm font-normal tracking-wide">
-                Life class gets you grounded in God's word with a systematic approach to the study of God's word; from salvation, to discipleship, evangelism, all these and more will be brought to your knowledge.
-              </div>
-            </div>
-          </div>
-          <div className="flex-1 max-w-96 flex flex-col justify-start items-start gap-4">
-            <div className="self-stretch h-96 relative bg-neutral-900 rounded-lg overflow-hidden">
-              <div className="w-[826px] h-[551px] left-[-352.33px] top-[-138px] absolute bg-sky-900/30" />
-            </div>
-            <div className="self-stretch flex flex-col justify-start items-start gap-4">
-              <div className="inline-flex justify-start items-end gap-2">
-                <div className="justify-center text-black text-base font-bold">Central Trainings</div>
-                <div className="w-4 h-4 relative overflow-hidden">
-                  <svg className="w-2.5 h-2 absolute left-[2.67px] top-[4px] text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
-              <div className="self-stretch justify-center text-stone-500 text-sm font-normal tracking-wide">
-                Life class gets you grounded in God's word with a systematic approach to the study of God's word; from salvation, to discipleship, evangelism, all these and more will be brought to your knowledge.
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CommunitySection />
 
     </div>
   );
