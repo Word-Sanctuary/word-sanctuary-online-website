@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Anton, Lato, Inter } from "next/font/google";
 import PerformanceMonitor from "@/components/PerformanceMonitor";
 import ConditionalFooter from "@/components/ConditionalFooter";
+import { AuthProvider } from "@/contexts/AuthContext";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -47,11 +48,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${anton.variable} ${lato.variable} ${inter.variable} antialiased`}
       >
-        <PerformanceMonitor />
-        <div className="min-h-screen flex flex-col">
-          <main className="flex-1">{children}</main>
-          <ConditionalFooter />
-        </div>
+        <AuthProvider>
+          <PerformanceMonitor />
+          <div className="min-h-screen flex flex-col">
+            <main className="flex-1">{children}</main>
+            <ConditionalFooter />
+          </div>
+        </AuthProvider>
       </body>
     </html>
   );

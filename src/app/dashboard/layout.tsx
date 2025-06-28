@@ -1,26 +1,43 @@
-import { ReactNode } from 'react';
-import DashboardNavbar from '@/components/DashboardNavbar';
-import DashboardSidebar from '@/components/DashboardSidebar';
+'use client';
 
-interface DashboardLayoutProps {
+import { ReactNode } from 'react';
+import { useAuth } from '@/contexts/AuthContext';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import DashboardLayout from '@/components/dashboard/DashboardLayout';
+
+interface DashboardRootLayoutProps {
   children: ReactNode;
 }
 
-export default function DashboardLayout({ children }: DashboardLayoutProps) {
-  return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Navigation */}
-      <DashboardNavbar />
-      
-      <div className="flex pt-16">
-        {/* Sidebar */}
-        <DashboardSidebar />
-        
-        {/* Main Content */}
-        <main className="flex-1 lg:ml-64 p-6">
-          {children}
-        </main>
+export default function DashboardRootLayout({ children }: DashboardRootLayoutProps) {
+  const { user, isLoading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!isLoading && !user) {
+      router.push('/signin');
+    }
+  }, [user, isLoading, router]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-sky-200 border-t-sky-900 rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading dashboard...</p>
+        </div>
       </div>
-    </div>
+    );
+  }
+
+  if (!user) {
+    return null;
+  }
+
+  return (
+    <DashboardLayout>
+      {children}
+    </DashboardLayout>
   );
 }
