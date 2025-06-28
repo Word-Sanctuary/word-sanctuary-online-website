@@ -103,8 +103,23 @@ His influence radiates Jesus' love, and his unwavering dedication to God's kingd
       </section>
       
       {/* Beliefs Section */}
-      <section className="w-full min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[753px] bg-gradient-to-br from-blue-900 via-sky-800 to-blue-700 flex justify-center items-end">
-        <div className="max-w-6xl mx-auto w-full p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-end items-start gap-4 sm:gap-6">
+      <section className="w-full min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[753px] relative flex justify-center items-end">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/optimized/webelieve.webp"
+            alt="We Believe Background"
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority
+          />
+          {/* Subtle dark overlay for text readability */}
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+        
+        {/* Content */}
+        <div className="relative z-10 max-w-6xl mx-auto w-full p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-end items-start gap-4 sm:gap-6">
           <div className="w-full p-4 sm:p-6 md:p-8 lg:p-12 bg-black/20 rounded-xl outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-md flex flex-col justify-start items-start gap-4 sm:gap-6">
             <div className="w-full text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold uppercase leading-tight font-anton">AT WORD SANCTUARY, we believe;</div>
             <div className="w-full text-white text-sm sm:text-base font-normal leading-relaxed sm:leading-normal">
