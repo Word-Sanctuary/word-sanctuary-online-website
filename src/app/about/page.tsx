@@ -68,30 +68,30 @@ His influence radiates Jesus' love, and his unwavering dedication to God's kingd
       />
       
       {/* About Us Section */}
-      <section className="w-full bg-white p-12">
-        <div className="max-w-6xl mx-auto flex flex-col justify-start items-center gap-4">
-          <div className="w-full flex flex-col justify-start items-center gap-8">
-            <div className="w-full flex flex-col justify-start items-center gap-12">
-              <div className="w-full flex flex-col justify-start items-center gap-16">
-                <div className="flex flex-col justify-start items-center gap-6">
-                  <div className="h-10 px-6 py-2.5 bg-zinc-200 rounded-full backdrop-blur-sm inline-flex justify-center items-center gap-4">
-                    <div className="w-2 h-2 bg-sky-900 rounded-full" />
-                    <div className="justify-center text-sky-900 text-[10px] font-bold tracking-wide">ABOUT US</div>
+      <section className="w-full bg-white p-4 sm:p-6 md:p-8 lg:p-12">
+        <div className="max-w-6xl mx-auto flex flex-col justify-start items-center gap-3 sm:gap-4">
+          <div className="w-full flex flex-col justify-start items-center gap-6 sm:gap-8">
+            <div className="w-full flex flex-col justify-start items-center gap-8 sm:gap-10 md:gap-12">
+              <div className="w-full flex flex-col justify-start items-center gap-10 sm:gap-12 md:gap-16">
+                <div className="flex flex-col justify-start items-center gap-4 sm:gap-6">
+                  <div className="h-8 sm:h-10 px-4 sm:px-6 py-2 sm:py-2.5 bg-zinc-200 rounded-full backdrop-blur-sm inline-flex justify-center items-center gap-3 sm:gap-4">
+                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-sky-900 rounded-full" />
+                    <div className="justify-center text-sky-900 text-[9px] sm:text-[10px] font-bold tracking-wide">ABOUT US</div>
                   </div>
-                  <div className="text-center justify-center text-black text-5xl font-normal leading-[59px] font-anton">WORD SANCTUARY GLOBAL</div>
+                  <div className="text-center justify-center text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-tight sm:leading-snug md:leading-tight lg:leading-[59px] font-anton">WORD SANCTUARY GLOBAL</div>
                   <div className="max-w-2xl text-center justify-center">
-                    <span className="text-stone-500 text-sm font-normal leading-snug">The Heavenly Jerusalem; a Church that is </span>
-                    <span className="text-black text-sm font-bold leading-snug">HEAVEN!</span>
+                    <span className="text-stone-500 text-xs sm:text-sm font-normal leading-snug">The Heavenly Jerusalem; a Church that is </span>
+                    <span className="text-black text-xs sm:text-sm font-bold leading-snug">HEAVEN!</span>
                   </div>
                 </div>
-                <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8">
-                  <div className="text-stone-500 text-sm font-normal leading-snug">
+                <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                  <div className="text-stone-500 text-xs sm:text-sm font-normal leading-snug">
                     Lorem ipsum dolor sit amet consectetur. Tristique nam amet est turpis in pellentesque. Elit pellentesque ultricies donec posuere tellus egestas sem magna. Mi diam tincidunt urna massa urna lectus. Sit ac parturient morbi nunc hendrerit mauris quis ut a. Nisl sit diam mi nulla a pretium nec venenatis a. Neque mi suspendisse quam faucibus augue senectus.
                   </div>
-                  <div className="text-stone-500 text-sm font-normal leading-snug">
+                  <div className="text-stone-500 text-xs sm:text-sm font-normal leading-snug">
                     Lorem ipsum dolor sit amet consectetur. Tristique nam amet est turpis in pellentesque. Elit pellentesque ultricies donec posuere tellus egestas sem magna. Mi diam tincidunt urna massa urna lectus. Sit ac parturient morbi nunc hendrerit mauris quis ut a. Nisl sit diam mi nulla a pretium nec venenatis a. Neque mi suspendisse quam faucibus augue senectus.
                   </div>
-                  <div className="text-stone-500 text-sm font-normal leading-snug">
+                  <div className="text-stone-500 text-xs sm:text-sm font-normal leading-snug">
                     Lorem ipsum dolor sit amet consectetur. Tristique nam amet est turpis in pellentesque. Elit pellentesque ultricies donec posuere tellus egestas sem magna. Mi diam tincidunt urna massa urna lectus. Sit ac parturient morbi nunc hendrerit mauris quis ut a. Nisl sit diam mi nulla a pretium nec venenatis a. Neque mi suspendisse quam faucibus augue senectus.
                   </div>
                 </div>
@@ -102,11 +102,11 @@ His influence radiates Jesus' love, and his unwavering dedication to God's kingd
       </section>
       
       {/* Beliefs Section */}
-      <section className="w-full min-h-[753px] bg-gradient-to-br from-blue-900 via-sky-800 to-blue-700 flex justify-center items-end">
-        <div className="max-w-6xl mx-auto w-full p-12 flex flex-col justify-end items-start gap-6">
-          <div className="w-full p-12 bg-black/20 rounded-xl outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-md flex flex-col justify-start items-start gap-6">
-            <div className="w-full text-white text-4xl md:text-5xl lg:text-6xl font-bold uppercase leading-tight font-anton">AT WORD SANCTUARY, we believe;</div>
-            <div className="w-full text-white text-base font-normal leading-normal">
+      <section className="w-full min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[753px] bg-gradient-to-br from-blue-900 via-sky-800 to-blue-700 flex justify-center items-end">
+        <div className="max-w-6xl mx-auto w-full p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-end items-start gap-4 sm:gap-6">
+          <div className="w-full p-4 sm:p-6 md:p-8 lg:p-12 bg-black/20 rounded-xl outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-md flex flex-col justify-start items-start gap-4 sm:gap-6">
+            <div className="w-full text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold uppercase leading-tight font-anton">AT WORD SANCTUARY, we believe;</div>
+            <div className="w-full text-white text-sm sm:text-base font-normal leading-relaxed sm:leading-normal">
               Lorem ipsum dolor sit amet consectetur. Tincidunt aliquam scelerisque orci viverra at habitant nulla vel morbi. Ut nulla feugiat nibh turpis. Sit consequat lectus est laoreet facilisi ut duis est. Velit sollicitudin vitae erat id in sagittis. Tincidunt sed arcu pulvinar fames nibh proin platea massa. Dui diam a ligula pulvinar sed in.<br/><br/>
               Tortor nunc cursus sit elit malesuada vel at viverra. Est eu at auctor duis ac orci elementum scelerisque. Id vel turpis proin integer dictum volutpat gravida pellentesque. Ridiculus lacinia quis adipiscing et augue auctor purus vulputate vel. Id id mi malesuada ultrices sagittis erat.
             </div>
@@ -116,37 +116,37 @@ His influence radiates Jesus' love, and his unwavering dedication to God's kingd
       
       {/* About Our Pastor Section */}
       <section className="self-stretch bg-neutral-900 inline-flex flex-col justify-start items-start gap-2.5 overflow-hidden">
-        <div className="self-stretch px-12 py-24 flex flex-col justify-start items-start gap-2.5">
-          <div className="self-stretch inline-flex justify-start items-start gap-16">
-            <div className="w-[571px] h-[602px] relative rounded-xl overflow-hidden flex-shrink-0">
+        <div className="self-stretch p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-2.5">
+          <div className="self-stretch inline-flex flex-col lg:flex-row justify-start items-start gap-8 sm:gap-12 lg:gap-16">
+            <div className="w-full lg:w-[571px] h-64 sm:h-80 md:h-96 lg:h-[602px] relative rounded-xl overflow-hidden flex-shrink-0">
               <Image
                 src="/images/ourpastor.png"
                 alt="Pastor Temple"
                 fill
                 className="object-cover object-top"
-                sizes="571px"
+                sizes="(max-width: 1024px) 100vw, 571px"
               />
             </div>
             <div className="flex-1 self-stretch inline-flex flex-col justify-start items-start">
-              <div className="self-stretch flex-1 flex flex-col justify-start items-start gap-6">
-                <div className="self-stretch text-white text-5xl font-bold uppercase leading-none font-anton">ABOUT OUR PASTOR</div>
+              <div className="self-stretch flex-1 flex flex-col justify-start items-start gap-4 sm:gap-6">
+                <div className="self-stretch text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase leading-tight sm:leading-snug md:leading-tight lg:leading-none font-anton">ABOUT OUR PASTOR</div>
                 <div 
                   ref={textRef}
-                  className={`self-stretch text-justify justify-start text-white text-base font-normal leading-normal transition-all duration-300 ${
+                  className={`self-stretch text-left sm:text-justify justify-start text-white text-sm sm:text-base font-normal leading-relaxed sm:leading-normal transition-all duration-300 ${
                     isExpanded || !shouldShowReadMore ? 'flex-1' : 'overflow-hidden'
                   }`}
                   style={!isExpanded && shouldShowReadMore ? { maxHeight: `${imageHeight - 150}px` } : {}}
                 >
                   {(isExpanded || !shouldShowReadMore) ? (
-                    <div className="space-y-4">
+                    <div className="space-y-3 sm:space-y-4">
                       {fullText.split('\n').filter(p => p.trim()).map((paragraph, index) => (
-                        <p key={index} className="mb-4 last:mb-0">
+                        <p key={index} className="mb-3 sm:mb-4 last:mb-0">
                           {paragraph}
                         </p>
                       ))}
                     </div>
                   ) : (
-                    <div className="space-y-4">
+                    <div className="space-y-3 sm:space-y-4">
                       {truncatedText.split('\n').filter(p => p.trim()).map((paragraph, index) => (
                         <p key={index} className="mb-4 last:mb-0">
                           {paragraph}
@@ -159,9 +159,9 @@ His influence radiates Jesus' love, and his unwavering dedication to God's kingd
               {shouldShowReadMore && (
                 <button 
                   onClick={() => setIsExpanded(!isExpanded)}
-                  className="h-10 py-2.5 rounded-[100px] inline-flex justify-center items-center gap-2 hover:bg-white/10 transition-colors duration-200"
+                  className="h-8 sm:h-10 py-2 sm:py-2.5 rounded-[100px] inline-flex justify-center items-center gap-2 hover:bg-white/10 transition-colors duration-200"
                 >
-                  <div className="justify-center text-white text-sm font-semibold underline tracking-wide">
+                  <div className="justify-center text-white text-xs sm:text-sm font-semibold underline tracking-wide">
                     {isExpanded ? 'READ LESS' : 'READ MORE'}
                   </div>
                   <div className="w-3 h-3 relative overflow-hidden">
