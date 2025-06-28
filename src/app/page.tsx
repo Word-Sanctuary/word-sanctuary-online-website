@@ -182,8 +182,14 @@ export default function Home() {
         <div className="w-full max-w-[1340px] flex justify-start items-center gap-4">
           {/* Ilorin */}
           <div className="flex-1 h-96 relative rounded overflow-hidden group cursor-pointer">
-            {/* Background with warm earth tones */}
-            <div className="w-full h-full absolute bg-gradient-to-br from-amber-600 via-orange-500 to-red-600" />
+            {/* Background Image */}
+            <Image
+              src="/images/ilorin.png"
+              alt="Ilorin Installation"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 20vw"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
             {/* Location Info */}
@@ -195,8 +201,14 @@ export default function Home() {
 
           {/* Abuja */}
           <div className="flex-1 h-96 relative rounded overflow-hidden group cursor-pointer">
-            {/* Background with modern blue tones */}
-            <div className="w-full h-full absolute bg-gradient-to-br from-blue-600 via-indigo-500 to-purple-600" />
+            {/* Background Image */}
+            <Image
+              src="/images/abuja.jpg"
+              alt="Abuja Installation"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 20vw"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
             {/* Location Info */}
@@ -208,8 +220,14 @@ export default function Home() {
 
           {/* Lagos */}
           <div className="flex-1 h-96 relative rounded overflow-hidden group cursor-pointer">
-            {/* Background with coastal cyan tones */}
-            <div className="w-full h-full absolute bg-gradient-to-br from-cyan-500 via-blue-500 to-blue-700" />
+            {/* Background Image */}
+            <Image
+              src="/images/lagos.png"
+              alt="Lagos Installation"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 20vw"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
             {/* Location Info */}
@@ -221,8 +239,14 @@ export default function Home() {
 
           {/* Ibadan */}
           <div className="flex-1 h-96 relative rounded overflow-hidden group cursor-pointer">
-            {/* Background with green nature tones */}
-            <div className="w-full h-full absolute bg-gradient-to-br from-green-600 via-emerald-500 to-teal-600" />
+            {/* Background Image */}
+            <Image
+              src="/images/ibadan.png"
+              alt="Ibadan Installation"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 20vw"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
             {/* Location Info */}
@@ -234,8 +258,14 @@ export default function Home() {
 
           {/* United Kingdom */}
           <div className="flex-1 h-96 relative rounded overflow-hidden group cursor-pointer">
-            {/* Background with elegant gray tones */}
-            <div className="w-full h-full absolute bg-gradient-to-br from-slate-600 via-gray-500 to-zinc-600" />
+            {/* Background Image */}
+            <Image
+              src="/images/unitedkingdom.png"
+              alt="United Kingdom Installation"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 20vw"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
             {/* Location Info */}
