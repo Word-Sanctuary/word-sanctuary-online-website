@@ -1,6 +1,7 @@
 'use client';
 
 import { AssetLogo } from '@/assets';
+import Image from 'next/image';
 
 export default function Footer() {
   const connectLinks = [
@@ -54,9 +55,11 @@ export default function Footer() {
             </div>
             {/* Decorative illustration background - spans full width and covers lower portion */}
             <div className="absolute bottom-0 left-0 right-0 opacity-30 pointer-events-none">
-              <img 
+              <Image 
                 src="/icons/peoplevector.svg" 
                 alt="People illustration" 
+                width={1200}
+                height={400}
                 className="w-full object-cover object-bottom"
               />
             </div>

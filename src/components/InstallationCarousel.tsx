@@ -68,7 +68,7 @@ export default function InstallationCarousel({ installations }: InstallationCaro
             transform: `translateX(-${currentIndex * 85}%)`,
           }}
         >
-          {installations.map((installation, index) => (
+          {installations.map((installation) => (
             <div
               key={installation.name}
               className="w-[85%] flex-shrink-0 pr-4"

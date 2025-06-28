@@ -19,7 +19,7 @@ const FontDemo: React.FC = () => {
         <p className="font-anton text-4xl font-bold">
           WORD SANCTUARY GLOBAL
         </p>
-        <code className="text-sm text-gray-600">className="font-anton"</code>
+        <code className="text-sm text-gray-600">className=&quot;font-anton&quot;</code>
       </div>
 
       {/* Lato Font */}
@@ -37,7 +37,7 @@ const FontDemo: React.FC = () => {
         <p className="font-lato text-lg font-black">
           The quick brown fox jumps over the lazy dog (Black)
         </p>
-        <code className="text-sm text-gray-600">className="font-lato"</code>
+        <code className="text-sm text-gray-600">className=&quot;font-lato&quot;</code>
       </div>
 
       {/* Inter Font */}
@@ -58,7 +58,7 @@ const FontDemo: React.FC = () => {
         <p className="font-inter text-lg font-bold">
           The quick brown fox jumps over the lazy dog (Bold)
         </p>
-        <code className="text-sm text-gray-600">className="font-inter"</code>
+        <code className="text-sm text-gray-600">className=&quot;font-inter&quot;</code>
       </div>
 
       {/* Usage Examples */}

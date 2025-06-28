@@ -34,10 +34,10 @@ export default function Contact() {
                 <div className="w-2 h-2 bg-sky-900 rounded-full" />
                 <div className="justify-center text-sky-900 text-[10px] font-bold tracking-wide">CONTACT US</div>
               </div>
-              <div className="text-center justify-center text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal uppercase leading-tight font-anton">We'd Love to Hear From You</div>
+              <div className="text-center justify-center text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal uppercase leading-tight font-anton">We&apos;d Love to Hear From You</div>
               <div className="text-center justify-center max-w-2xl">
                 <span className="text-stone-500 text-sm sm:text-base font-normal leading-tight">Whether you have a question, need prayer, or just want to connect — </span>
-                <span className="text-stone-500 text-sm sm:text-base font-bold leading-tight">We're here for you.</span>
+                <span className="text-stone-500 text-sm sm:text-base font-bold leading-tight">We&apos;re here for you.</span>
               </div>
             </div>
             

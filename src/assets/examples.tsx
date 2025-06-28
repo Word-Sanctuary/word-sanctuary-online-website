@@ -3,10 +3,11 @@
  * This file demonstrates different ways to use assets in your components
  */
 
+import Image from 'next/image';
 import { 
   AssetIcon, 
   AssetLogo, 
-  AssetImage,
+  // AssetImage, // Commented out since it's not used in this file
   getIconPath, 
   getLogoPath,
   useIcon,
@@ -49,7 +50,7 @@ export function ExampleWithHooks() {
       
       {mainLogo && (
         <div>
-          <img 
+          <Image 
             src={mainLogo.src} 
             alt={mainLogo.alt} 
             width={mainLogo.width} 
@@ -62,7 +63,7 @@ export function ExampleWithHooks() {
       
       {footerLogo && (
         <div>
-          <img 
+          <Image 
             src={footerLogo.src} 
             alt={footerLogo.alt} 
             width={footerLogo.width} 
@@ -75,7 +76,7 @@ export function ExampleWithHooks() {
       
       {fileIcon && (
         <div className="flex items-center space-x-2">
-          <img 
+          <Image 
             src={fileIcon.src} 
             alt={fileIcon.alt} 
             width={fileIcon.width} 
@@ -95,19 +96,25 @@ export function ExampleWithUtilities() {
       <h2 className="text-2xl font-bold">Using Utility Functions</h2>
       
       <div className="grid grid-cols-3 gap-4">
-        <img 
+        <Image 
           src={getLogoPath('hq-and-global-1.svg')} 
           alt="Main Logo"
+          width={80}
+          height={80}
           className="w-20 h-auto"
         />
-        <img 
+        <Image 
           src={getLogoPath('footerlogo.svg')} 
           alt="Footer Logo"
+          width={80}
+          height={80}
           className="w-20 h-auto"
         />
-        <img 
+        <Image 
           src={getIconPath('file.svg')} 
           alt="File"
+          width={80}
+          height={80}
           className="w-8 h-8"
         />
       </div>

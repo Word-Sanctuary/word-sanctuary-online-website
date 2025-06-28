@@ -366,9 +366,9 @@ export default function Home() {
                   ABOUT OUR PASTOR
                 </div>
                 <div className="self-stretch flex-1 text-left sm:text-justify justify-start text-white text-sm sm:text-base font-normal leading-relaxed sm:leading-normal">
-                  Pastor Temple embodies a fatherly figure, nurturing nations through Jesus' teachings. As our Good Shepherd, he guides us tirelessly, leading us closer to God. Through his vision, we've seen the birth of Word Sanctuary and Life Class, empowering us with God's Word.
+                  Pastor Temple embodies a fatherly figure, nurturing nations through Jesus&apos; teachings. As our Good Shepherd, he guides us tirelessly, leading us closer to God. Through his vision, we&apos;ve seen the birth of Word Sanctuary and Life Class, empowering us with God&apos;s Word.
                   <br /><br />
-                  His influence radiates Jesus' love, and his unwavering dedication to God's kingdom inspires countless lives. With a rare anointing, he shapes hearts and minds, bringing people to the knowledge of God's Word. Through his servant-leadership, we've witnessed lives transformed, new relationships formed, broken marriages restored, and the Word of God bringing out the best in people. Hearts are mended, souls are saved, and destinies are fulfilled.
+                  His influence radiates Jesus&apos; love, and his unwavering dedication to God&apos;s kingdom inspires countless lives. With a rare anointing, he shapes hearts and minds, bringing people to the knowledge of God&apos;s Word. Through his servant-leadership, we&apos;ve witnessed lives transformed, new relationships formed, broken marriages restored, and the Word of God bringing out the best in people. Hearts are mended, souls are saved, and destinies are fulfilled.
                 </div>
               </div>
             </div>

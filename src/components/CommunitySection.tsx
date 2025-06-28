@@ -44,7 +44,7 @@ export default function CommunitySection({ cards = defaultCards }: CommunitySect
             </div>
             <div className="self-stretch text-center justify-center">
               <span className="text-black text-sm sm:text-base font-normal">A place to grow, belong, and become — </span>
-              <span className="text-black text-sm sm:text-base font-bold">a church that's Heaven.</span>
+              <span className="text-black text-sm sm:text-base font-bold">a church that&apos;s Heaven.</span>
             </div>
           </div>
         </div>
