@@ -1,21 +1,27 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { useAuth } from '@/contexts/AuthContext';
-import { Button } from '@/components/ui';
-import { AssetLogo } from '@/assets';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/contexts/AuthContext";
+import SignupNavbar from "@/components/SignupNavbar";
+import { Button } from "@/components/ui";
+import Image from "next/image";
 
-export default function SignInPage() {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-  });
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
-  
-  const { login } = useAuth();
+export default function SignIn() {
   const router = useRouter();
+  const { login } = useAuth();
+  
+  const [formData, setFormData] = useState({
+    email: "",
+    otp: ""
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [currentStep, setCurrentStep] = useState(1);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [otpSent, setOtpSent] = useState(false);
+  const totalSteps = 2;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -23,120 +29,294 @@ export default function SignInPage() {
       ...prev,
       [name]: value
     }));
+    setError(""); // Clear error when user types
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSendOTP = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
-    setError('');
-
+    setIsSubmitting(true);
+    setError("");
+    
     try {
-      const success = await login(formData.email, formData.password);
-      if (success) {
-        router.push('/dashboard');
+      // Simulate OTP sending
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      // For demo purposes, any email is valid
+      if (formData.email) {
+        setOtpSent(true);
+        setCurrentStep(2);
+        setSuccess("OTP sent to your email address!");
+        console.log("OTP sent to:", formData.email);
       } else {
-        setError('Invalid email or password');
+        setError("Please enter a valid email address");
       }
-    } catch (err) {
-      setError('An error occurred during sign in');
+    } catch (error) {
+      setError("Failed to send OTP. Please try again.");
+      console.error("Error sending OTP:", error);
     } finally {
-      setIsLoading(false);
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleVerifyOTP = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError("");
+    
+    try {
+      // Simulate OTP verification
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      // For demo purposes, any OTP is valid (non-empty)
+      if (formData.otp.trim()) {
+        // Simulate successful login
+        const success = await login(formData.email, "dummy-password");
+        if (success) {
+          setSuccess("Login successful! Welcome back!");
+          setTimeout(() => {
+            router.push("/dashboard");
+          }, 1500);
+        } else {
+          setError("Account not found. Please check your email or sign up.");
+        }
+      } else {
+        setError("Please enter the OTP sent to your email");
+      }
+    } catch (error) {
+      setError("Invalid OTP. Please try again.");
+      console.error("Error verifying OTP:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleBack = () => {
+    setCurrentStep(1);
+    setOtpSent(false);
+    setError("");
+    setSuccess("");
+  };
+
+  const handleResendOTP = async () => {
+    setIsSubmitting(true);
+    setError("");
+    
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      setSuccess("OTP resent to your email address!");
+    } catch (error) {
+      setError("Failed to resend OTP. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-sky-50 to-sky-100 flex items-center justify-center p-4">
-      <div className="max-w-md w-full space-y-8">
-        <div className="text-center">
-          <div className="w-32 h-12 mx-auto mb-6">
-            <AssetLogo
-              name="hq-and-global-main"
-              size={144}
-              className="w-full h-full object-cover"
-              alt="HQ and Global Ministry Logo"
-            />
-          </div>
-          <h2 className="text-3xl font-bold text-gray-900 font-anton">
-            Sign In to Dashboard
-          </h2>
-          <p className="mt-2 text-sm text-gray-600">
-            Access your personalized ministry dashboard
-          </p>
-        </div>
+    <div className="min-h-screen bg-gray-50">
+      <SignupNavbar />
+      
+      {/* Main Content */}
+      <div className="w-full pt-24 min-h-screen flex justify-center items-start">
+        <div className="w-full max-w-6xl flex flex-col lg:flex-row justify-start items-start gap-6 lg:gap-8">
+          
+          {/* Form Section */}
+          <div className="flex-1 w-full flex flex-col justify-start items-center px-4 sm:px-6 md:px-8 py-8">
+            <div className="w-full max-w-md flex flex-col justify-start items-center">
+              <div className="w-full flex flex-col justify-start items-center gap-4 sm:gap-6">
+                
+                {/* Header */}
+                <div className="w-full flex flex-col justify-start items-start gap-2">
+                  <h1 className="w-full text-left text-gray-900 text-xl sm:text-2xl font-normal font-anton leading-tight">
+                    Welcome Back
+                  </h1>
+                  <p className="w-full text-left text-slate-600 text-sm font-normal font-lato leading-normal">
+                    Sign in to access your Word Sanctuary dashboard
+                  </p>
+                  
+                  {/* Progress Indicator */}
+                  <div className="w-full flex items-center gap-2 mt-3">
+                    <div className="flex items-center gap-2 flex-1">
+                      {[1, 2].map((step) => (
+                        <div key={step} className="flex items-center">
+                          <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium ${
+                            currentStep >= step 
+                              ? 'bg-sky-900 text-white' 
+                              : 'bg-gray-200 text-gray-500'
+                          }`}>
+                            {step}
+                          </div>
+                          {step < totalSteps && (
+                            <div className={`w-8 h-0.5 mx-1 ${
+                              currentStep > step ? 'bg-sky-900' : 'bg-gray-200'
+                            }`} />
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                    <span className="text-xs text-gray-500">
+                      Step {currentStep} of {totalSteps}
+                    </span>
+                  </div>
+                </div>
 
-        <div className="bg-white rounded-xl shadow-lg p-8">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {error && (
-              <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-                <p className="text-sm text-red-600">{error}</p>
+                {/* Success Message */}
+                {success && (
+                  <div className="w-full bg-green-50 border border-green-200 rounded-lg p-3">
+                    <p className="text-sm text-green-600 font-lato">{success}</p>
+                  </div>
+                )}
+
+                {/* Error Message */}
+                {error && (
+                  <div className="w-full bg-red-50 border border-red-200 rounded-lg p-3">
+                    <p className="text-sm text-red-600 font-lato">{error}</p>
+                  </div>
+                )}
+                
+                {/* Step 1: Email Input */}
+                {currentStep === 1 && (
+                  <form onSubmit={handleSendOTP} className="w-full flex flex-col justify-start items-center gap-4">
+                    <div className="w-full flex flex-col justify-start items-start gap-3">
+                      <h3 className="text-base font-semibold text-gray-900 font-lato">Enter Your Email</h3>
+                      
+                      {/* Email */}
+                      <div className="w-full flex flex-col justify-start items-start gap-1">
+                        <label className="text-slate-700 text-sm font-medium font-lato leading-tight">
+                          Email Address*
+                        </label>
+                        <input
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          required
+                          placeholder="Enter your email address"
+                          className="w-full h-10 px-3 py-2 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal placeholder-gray-500 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-200"
+                        />
+                      </div>
+                      
+                      {/* Send OTP Button */}
+                      <div className="w-full pt-3">
+                        <Button
+                          type="submit"
+                          variant="primary"
+                          size="lg"
+                          fullWidth
+                          className="h-10 bg-sky-900 hover:bg-sky-800 text-sm"
+                          disabled={!formData.email || isSubmitting}
+                          isLoading={isSubmitting}
+                        >
+                          {isSubmitting ? "Sending OTP..." : "Send OTP"}
+                        </Button>
+                      </div>
+                    </div>
+                  </form>
+                )}
+                
+                {/* Step 2: OTP Verification */}
+                {currentStep === 2 && (
+                  <form onSubmit={handleVerifyOTP} className="w-full flex flex-col justify-start items-center gap-4">
+                    <div className="w-full flex flex-col justify-start items-start gap-3">
+                      <h3 className="text-base font-semibold text-gray-900 font-lato">Verify OTP</h3>
+                      
+                      <p className="text-slate-600 text-sm font-normal font-lato leading-normal">
+                        We sent a verification code to <strong>{formData.email}</strong>
+                      </p>
+                      
+                      {/* OTP Input */}
+                      <div className="w-full flex flex-col justify-start items-start gap-1">
+                        <label className="text-slate-700 text-sm font-medium font-lato leading-tight">
+                          Enter OTP*
+                        </label>
+                        <input
+                          type="text"
+                          name="otp"
+                          value={formData.otp}
+                          onChange={handleInputChange}
+                          required
+                          placeholder="Enter 6-digit code"
+                          maxLength={6}
+                          className="w-full h-10 px-3 py-2 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal placeholder-gray-500 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-200 text-center tracking-widest"
+                        />
+                      </div>
+
+                      {/* Resend OTP */}
+                      <div className="w-full text-center">
+                        <button
+                          type="button"
+                          onClick={handleResendOTP}
+                          disabled={isSubmitting}
+                          className="text-sky-600 hover:text-sky-500 text-sm font-medium font-lato underline"
+                        >
+                          Didn't receive code? Resend OTP
+                        </button>
+                      </div>
+                      
+                      {/* Navigation Buttons */}
+                      <div className="w-full flex gap-2 pt-3">
+                        <Button
+                          type="button"
+                          onClick={handleBack}
+                          variant="secondary"
+                          size="lg"
+                          className="flex-1 h-10 text-sm"
+                        >
+                          Back
+                        </Button>
+                        <Button
+                          type="submit"
+                          variant="primary"
+                          size="lg"
+                          disabled={isSubmitting || !formData.otp}
+                          isLoading={isSubmitting}
+                          className="flex-1 h-10 bg-sky-900 hover:bg-sky-800 text-sm"
+                        >
+                          {isSubmitting ? "Verifying..." : "Sign In"}
+                        </Button>
+                      </div>
+                    </div>
+                  </form>
+                )}
+
+                {/* Sign Up Link */}
+                <div className="w-full text-center pt-4">
+                  <p className="text-slate-600 text-sm font-normal font-lato leading-normal">
+                    Don't have an account?{' '}
+                    <a href="/signup" className="text-sky-600 hover:text-sky-500 font-medium underline">
+                      Join our community
+                    </a>
+                  </p>
+                </div>
+
+                {/* Demo accounts info */}
+                <div className="w-full pt-6 border-t border-gray-200">
+                  <h3 className="text-sm font-medium text-gray-700 mb-3 font-lato">Demo Accounts:</h3>
+                  <div className="space-y-2 text-xs text-gray-600 font-lato">
+                    <div><strong>Super Admin:</strong> admin@wordsanctuary.com</div>
+                    <div><strong>Head of Installation:</strong> head@wordsanctuary.com</div>
+                    <div><strong>Sub Central Head:</strong> subcentral@wordsanctuary.com</div>
+                    <div><strong>HOD:</strong> hod@wordsanctuary.com</div>
+                    <div><strong>Member:</strong> member@wordsanctuary.com</div>
+                    <div className="text-gray-500 mt-2">OTP: Any value works for demo</div>
+                  </div>
+                </div>
               </div>
-            )}
-
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                Email Address
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                value={formData.email}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-colors"
-                placeholder="Enter your email"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
-                Password
-              </label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                required
-                value={formData.password}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-colors"
-                placeholder="Enter your password"
-              />
-            </div>
-
-            <Button
-              type="submit"
-              variant="primary"
-              size="lg"
-              fullWidth
-              isLoading={isLoading}
-              className="bg-sky-900 hover:bg-sky-800"
-            >
-              {isLoading ? 'Signing In...' : 'Sign In'}
-            </Button>
-          </form>
-
-          {/* Demo accounts info */}
-          <div className="mt-8 pt-6 border-t border-gray-200">
-            <h3 className="text-sm font-medium text-gray-700 mb-3">Demo Accounts:</h3>
-            <div className="space-y-2 text-xs text-gray-600">
-              <div><strong>Super Admin:</strong> admin@wordsanctuary.com</div>
-              <div><strong>Head of Installation:</strong> head@wordsanctuary.com</div>
-              <div><strong>Sub Central Head:</strong> subcentral@wordsanctuary.com</div>
-              <div><strong>HOD:</strong> hod@wordsanctuary.com</div>
-              <div><strong>Member:</strong> member@wordsanctuary.com</div>
-              <div className="text-gray-500">Password: any value</div>
             </div>
           </div>
-        </div>
-
-        <div className="text-center">
-          <p className="text-sm text-gray-600">
-            Don't have an account?{' '}
-            <a href="/signup" className="font-medium text-sky-600 hover:text-sky-500">
-              Join our community
-            </a>
-          </p>
+          
+          {/* Image Section */}
+          <div className="flex-1 w-full lg:sticky lg:top-20 lg:h-[100vh] lg:max-h-[100vh] lg:overflow-hidden flex justify-center items-center px-4 sm:px-6 md:px-8 py-8 lg:py-0">
+            <div className="w-full max-w-lg h-48 sm:h-64 md:h-80 lg:h-96 relative rounded-2xl overflow-hidden shadow-lg">
+              <Image
+                src="/images/optimized/signup.webp"
+                alt="Welcome back to Word Sanctuary Global"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
