@@ -4,10 +4,13 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import CommunitySection from "@/components/CommunitySection";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function About() {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [shouldShowReadMore, setShouldShowReadMore] = useState(false);
+  const textRef = useRef<HTMLDivElement>(null);
+  const imageHeight = 602; // Height of the image container
 
   const fullText = `Pastor Temple embodies a fatherly figure, nurturing nations through Jesus' teachings. As our Good Shepherd, he guides us tirelessly, leading us closer to God. Through his vision, we've seen the birth of Word Sanctuary and Life Class, empowering us with God's Word.
 
@@ -20,6 +23,28 @@ Pastor Temple's ministry extends beyond the pulpit, reaching into the hearts of 
   const truncatedText = `Pastor Temple embodies a fatherly figure, nurturing nations through Jesus' teachings. As our Good Shepherd, he guides us tirelessly, leading us closer to God. Through his vision, we've seen the birth of Word Sanctuary and Life Class, empowering us with God's Word.
 
 His influence radiates Jesus' love, and his unwavering dedication to God's kingdom inspires countless lives. With a rare anointing, he shapes hearts and minds, bringing people to the knowledge of God's Word.`;
+
+  // Check if content needs truncation based on height
+  useEffect(() => {
+    if (textRef.current) {
+      // Create a temporary element to measure full text height
+      const tempDiv = document.createElement('div');
+      tempDiv.style.position = 'absolute';
+      tempDiv.style.visibility = 'hidden';
+      tempDiv.style.width = textRef.current.offsetWidth + 'px';
+      tempDiv.style.fontSize = '16px';
+      tempDiv.style.lineHeight = 'normal';
+      tempDiv.innerHTML = fullText.split('\n').filter(p => p.trim()).map(p => `<p style="margin-bottom: 16px;">${p}</p>`).join('');
+      
+      document.body.appendChild(tempDiv);
+      const fullHeight = tempDiv.offsetHeight;
+      document.body.removeChild(tempDiv);
+      
+      // Add some buffer for the header and spacing, check if content would overflow
+      const availableTextHeight = imageHeight - 100; // Subtract space for title and button
+      setShouldShowReadMore(fullHeight > availableTextHeight);
+    }
+  }, [fullText]);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -106,12 +131,13 @@ His influence radiates Jesus' love, and his unwavering dedication to God's kingd
               <div className="self-stretch flex-1 flex flex-col justify-start items-start gap-6">
                 <div className="self-stretch text-white text-5xl font-bold uppercase leading-none font-anton">ABOUT OUR PASTOR</div>
                 <div 
+                  ref={textRef}
                   className={`self-stretch text-justify justify-start text-white text-base font-normal leading-normal transition-all duration-300 ${
-                    isExpanded ? 'flex-1' : 'overflow-hidden'
+                    isExpanded || !shouldShowReadMore ? 'flex-1' : 'overflow-hidden'
                   }`}
-                  style={!isExpanded ? { maxHeight: '480px' } : {}}
+                  style={!isExpanded && shouldShowReadMore ? { maxHeight: `${imageHeight - 150}px` } : {}}
                 >
-                  {isExpanded ? (
+                  {(isExpanded || !shouldShowReadMore) ? (
                     <div className="space-y-4">
                       {fullText.split('\n').filter(p => p.trim()).map((paragraph, index) => (
                         <p key={index} className="mb-4 last:mb-0">
@@ -130,21 +156,23 @@ His influence radiates Jesus' love, and his unwavering dedication to God's kingd
                   )}
                 </div>
               </div>
-              <button 
-                onClick={() => setIsExpanded(!isExpanded)}
-                className="h-10 py-2.5 rounded-[100px] inline-flex justify-center items-center gap-2 hover:bg-white/10 transition-colors duration-200"
-              >
-                <div className="justify-center text-white text-sm font-semibold underline tracking-wide">
-                  {isExpanded ? 'READ LESS' : 'READ MORE'}
-                </div>
-                <div className="w-3 h-3 relative overflow-hidden">
-                  <div 
-                    className={`w-2 h-1.5 left-[2px] top-[3px] absolute outline outline-[1.50px] outline-offset-[-0.75px] outline-white transition-transform duration-200 ${
-                      isExpanded ? 'rotate-90' : ''
-                    }`} 
-                  />
-                </div>
-              </button>
+              {shouldShowReadMore && (
+                <button 
+                  onClick={() => setIsExpanded(!isExpanded)}
+                  className="h-10 py-2.5 rounded-[100px] inline-flex justify-center items-center gap-2 hover:bg-white/10 transition-colors duration-200"
+                >
+                  <div className="justify-center text-white text-sm font-semibold underline tracking-wide">
+                    {isExpanded ? 'READ LESS' : 'READ MORE'}
+                  </div>
+                  <div className="w-3 h-3 relative overflow-hidden">
+                    <div 
+                      className={`w-2 h-1.5 left-[2px] top-[3px] absolute outline outline-[1.50px] outline-offset-[-0.75px] outline-white transition-transform duration-200 ${
+                        isExpanded ? 'rotate-90' : ''
+                      }`} 
+                    />
+                  </div>
+                </button>
+              )}
             </div>
           </div>
         </div>
