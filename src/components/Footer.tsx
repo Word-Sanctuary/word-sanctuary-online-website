@@ -26,10 +26,10 @@ export default function Footer() {
   ];
 
   return (
-    <div className="w-full bg-sky-900 px-12 py-8">
+    <div className="w-full bg-sky-900 px-12 py-16">
       <div className="max-w-7xl mx-auto">
         {/* Main Footer Content */}
-        <div className="flex items-start gap-32 mb-8">
+        <div className="flex items-start gap-32 mb-12">
           {/* Logo Section */}
           <div className="flex items-center gap-4">
             <AssetLogo
@@ -41,11 +41,11 @@ export default function Footer() {
           </div>
 
           {/* Connect With Us Section */}
-          <div className="flex flex-col gap-4 min-w-[160px]">
+          <div className="flex flex-col gap-6 min-w-[160px]">
             <h3 className="text-white text-sm font-medium uppercase tracking-wider">
               CONNECT WITH US
             </h3>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-3">
               {connectLinks.map((link) => (
                 <a
                   key={link}
@@ -59,11 +59,11 @@ export default function Footer() {
           </div>
 
           {/* Fellowship With Us Section */}
-          <div className="flex flex-col gap-4 min-w-[160px]">
+          <div className="flex flex-col gap-6 min-w-[160px]">
             <h3 className="text-white text-sm font-medium uppercase tracking-wider">
               FELLOWSHIP WITH US
             </h3>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-3">
               {fellowshipLinks.map((link) => (
                 <a
                   key={link}
@@ -77,11 +77,11 @@ export default function Footer() {
           </div>
 
           {/* Resources Section */}
-          <div className="flex flex-col gap-4 min-w-[160px]">
+          <div className="flex flex-col gap-6 min-w-[160px]">
             <h3 className="text-white text-sm font-medium uppercase tracking-wider">
               RESOURCES
             </h3>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-3">
               {resourceLinks.map((link) => (
                 <a
                   key={link}
@@ -96,13 +96,13 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-white/20 pt-6 flex justify-between items-center">
+        <div className="border-t border-white/20 pt-8 flex justify-between items-center">
           <div className="text-white/80 text-sm">
             ©Copyright 2025. Word Sanctuary Global. All Rights Reserved.
           </div>
           
           {/* Social Media Icons */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-6">
             {/* Instagram */}
             <a href="#" className="text-white/80 hover:text-white transition-colors">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
