@@ -1,21 +1,48 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import SignupNavbar from "@/components/SignupNavbar";
 import { Button } from "@/components/ui";
 import Image from "next/image";
 
+// Christian topics for the life class dropdown
+const lifeClassTopics = [
+  "Biblical Foundations",
+  "Prayer and Worship",
+  "Christian Character",
+  "Spiritual Gifts",
+  "Leadership Development",
+  "Marriage and Family",
+  "Financial Stewardship",
+  "Evangelism and Missions",
+  "Biblical Counseling",
+  "Church History",
+  "Discipleship",
+  "Christian Ethics",
+  "Prophetic Ministry",
+  "Youth Ministry",
+  "Women's Ministry",
+  "Men's Ministry"
+];
+
 export default function SignUp() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: ""
+    fullName: "",
+    gender: "",
+    dateOfBirth: "",
+    phoneNumber: "",
+    homeAddress: "",
+    lifeClassTeacher: "",
+    lifeClassTopics: [] as string[]
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
+  const [currentStep, setCurrentStep] = useState(1);
+  const totalSteps = 2;
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -23,15 +50,38 @@ export default function SignUp() {
     }));
   };
 
+  const handleTopicChange = (topic: string, checked: boolean) => {
+    setFormData(prev => ({
+      ...prev,
+      lifeClassTopics: checked 
+        ? [...prev.lifeClassTopics, topic]
+        : prev.lifeClassTopics.filter(t => t !== topic)
+    }));
+  };
+
+  const handleNext = () => {
+    if (currentStep < totalSteps) {
+      setCurrentStep(currentStep + 1);
+    }
+  };
+
+  const handlePrev = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
     try {
+      // Simulate form submission
       await new Promise(resolve => setTimeout(resolve, 2000));
-      // Handle success
-      console.log("Account created successfully");
+      console.log("Account created successfully", formData);
+      
+      // Redirect to dashboard
+      router.push("/dashboard");
     } catch (error) {
       console.error("Error creating account:", error);
     } finally {
@@ -44,126 +94,226 @@ export default function SignUp() {
       <SignupNavbar />
       
       {/* Main Content */}
-      <div className="w-full pt-20 p-4 sm:p-6 md:p-8 lg:p-12 xl:p-24 min-h-screen flex justify-center items-center">
-        <div className="w-full max-w-7xl flex flex-col lg:flex-row justify-start items-center lg:items-stretch gap-8 lg:gap-12">
+      <div className="w-full pt-20 p-4 sm:p-6 md:p-8 lg:p-12 xl:p-16 min-h-screen flex justify-center items-center">
+        <div className="w-full max-w-7xl flex flex-col lg:flex-row justify-start items-center lg:items-stretch gap-8 lg:gap-12 h-full">
           
           {/* Form Section */}
-          <div className="flex-1 w-full flex flex-col justify-center items-center">
-            <div className="w-full max-w-md px-4 sm:px-8 flex flex-col justify-start items-center">
+          <div className="flex-1 w-full flex flex-col justify-center items-center min-h-0">
+            <div className="w-full max-w-lg px-4 sm:px-8 flex flex-col justify-start items-center">
               <div className="w-full flex flex-col justify-start items-center gap-6 sm:gap-8">
                 
                 {/* Header */}
                 <div className="w-full flex flex-col justify-start items-start gap-3">
                   <h1 className="w-full text-left text-gray-900 text-2xl sm:text-3xl font-normal font-anton leading-tight">
-                    Create Account
+                    Join Word Sanctuary
                   </h1>
                   <p className="w-full text-left text-slate-600 text-sm sm:text-base font-normal font-lato leading-normal">
-                    Fill in the form with the appropriate details
+                    Complete your registration to join our community
                   </p>
+                  
+                  {/* Progress Indicator */}
+                  <div className="w-full flex items-center gap-2 mt-4">
+                    <div className="flex items-center gap-2 flex-1">
+                      {[1, 2].map((step) => (
+                        <div key={step} className="flex items-center">
+                          <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
+                            currentStep >= step 
+                              ? 'bg-sky-900 text-white' 
+                              : 'bg-gray-200 text-gray-500'
+                          }`}>
+                            {step}
+                          </div>
+                          {step < totalSteps && (
+                            <div className={`w-12 h-1 mx-2 ${
+                              currentStep > step ? 'bg-sky-900' : 'bg-gray-200'
+                            }`} />
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                    <span className="text-sm text-gray-500">
+                      Step {currentStep} of {totalSteps}
+                    </span>
+                  </div>
                 </div>
                 
                 {/* Form */}
-                <form onSubmit={handleSubmit} className="w-full rounded-xl flex flex-col justify-start items-center gap-6">
-                  <div className="w-full flex flex-col justify-start items-start gap-4 sm:gap-5">
-                    
-                    {/* Name Field */}
-                    <div className="w-full flex flex-col justify-start items-start gap-1.5">
-                      <label className="text-slate-700 text-sm font-medium font-lato leading-tight">
-                        Name*
-                      </label>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        placeholder="Enter your name"
-                        className="w-full h-11 px-3.5 py-2.5 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal placeholder-gray-500 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-200"
-                      />
-                    </div>
-                    
-                    {/* Email Field */}
-                    <div className="w-full flex flex-col justify-start items-start gap-1.5">
-                      <label className="text-slate-700 text-sm font-medium font-lato leading-tight">
-                        Email*
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        placeholder="Enter your email"
-                        className="w-full h-11 px-3.5 py-2.5 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal placeholder-gray-500 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-200"
-                      />
-                    </div>
-                    
-                    {/* Password Field */}
-                    <div className="w-full flex flex-col justify-start items-start gap-1.5">
-                      <label className="text-slate-700 text-sm font-medium font-lato leading-tight">
-                        Password*
-                      </label>
-                      <div className="relative w-full">
+                <form onSubmit={handleSubmit} className="w-full flex flex-col justify-start items-center gap-6">
+                  
+                  {/* Step 1: Personal Information */}
+                  {currentStep === 1 && (
+                    <div className="w-full flex flex-col justify-start items-start gap-4 sm:gap-5">
+                      <h3 className="text-lg font-semibold text-gray-900 font-lato">Personal Information</h3>
+                      
+                      {/* Full Name */}
+                      <div className="w-full flex flex-col justify-start items-start gap-1.5">
+                        <label className="text-slate-700 text-sm font-medium font-lato leading-tight">
+                          Full Name*
+                        </label>
                         <input
-                          type={showPassword ? "text" : "password"}
-                          name="password"
-                          value={formData.password}
+                          type="text"
+                          name="fullName"
+                          value={formData.fullName}
                           onChange={handleInputChange}
                           required
-                          placeholder="Create a password"
-                          className="w-full h-11 px-3.5 py-2.5 pr-10 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal placeholder-gray-500 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-200"
+                          placeholder="Enter your full name"
+                          className="w-full h-11 px-3.5 py-2.5 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal placeholder-gray-500 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-200"
                         />
-                        <button
-                          type="button"
-                          onClick={() => setShowPassword(!showPassword)}
-                          className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600 transition-colors"
-                        >
-                          {showPassword ? (
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                            </svg>
-                          ) : (
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L6.05 6.05M9.878 9.878a3 3 0 105.243 5.243m0 0L17.95 17.95M9.878 9.878L6.05 6.05m3.828 3.828l4.242 4.242M9.878 9.878L6.05 6.05m3.828 3.828l4.242 4.242" />
-                            </svg>
-                          )}
-                        </button>
                       </div>
-                      <p className="text-slate-600 text-sm font-normal font-lato leading-tight">
-                        Must be at least 8 characters.
-                      </p>
+                      
+                      {/* Gender */}
+                      <div className="w-full flex flex-col justify-start items-start gap-1.5">
+                        <label className="text-slate-700 text-sm font-medium font-lato leading-tight">
+                          Gender*
+                        </label>
+                        <select
+                          name="gender"
+                          value={formData.gender}
+                          onChange={handleInputChange}
+                          required
+                          className="w-full h-11 px-3.5 py-2.5 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-200"
+                        >
+                          <option value="">Select gender</option>
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                        </select>
+                      </div>
+                      
+                      {/* Date of Birth */}
+                      <div className="w-full flex flex-col justify-start items-start gap-1.5">
+                        <label className="text-slate-700 text-sm font-medium font-lato leading-tight">
+                          Date of Birth*
+                        </label>
+                        <input
+                          type="date"
+                          name="dateOfBirth"
+                          value={formData.dateOfBirth}
+                          onChange={handleInputChange}
+                          required
+                          className="w-full h-11 px-3.5 py-2.5 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-200"
+                        />
+                      </div>
+                      
+                      {/* Phone Number */}
+                      <div className="w-full flex flex-col justify-start items-start gap-1.5">
+                        <label className="text-slate-700 text-sm font-medium font-lato leading-tight">
+                          Phone Number*
+                        </label>
+                        <input
+                          type="tel"
+                          name="phoneNumber"
+                          value={formData.phoneNumber}
+                          onChange={handleInputChange}
+                          required
+                          placeholder="Enter your phone number"
+                          className="w-full h-11 px-3.5 py-2.5 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal placeholder-gray-500 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-200"
+                        />
+                      </div>
+                      
+                      {/* Home Address */}
+                      <div className="w-full flex flex-col justify-start items-start gap-1.5">
+                        <label className="text-slate-700 text-sm font-medium font-lato leading-tight">
+                          Home Address*
+                        </label>
+                        <textarea
+                          name="homeAddress"
+                          value={formData.homeAddress}
+                          onChange={handleInputChange}
+                          required
+                          rows={3}
+                          placeholder="Enter your home address"
+                          className="w-full px-3.5 py-2.5 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal placeholder-gray-500 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-200 resize-none"
+                        />
+                      </div>
+                      
+                      {/* Next Button */}
+                      <div className="w-full pt-4">
+                        <Button
+                          type="button"
+                          onClick={handleNext}
+                          variant="primary"
+                          size="lg"
+                          fullWidth
+                          className="h-12 bg-sky-900 hover:bg-sky-800 text-base"
+                          disabled={!formData.fullName || !formData.gender || !formData.dateOfBirth || !formData.phoneNumber || !formData.homeAddress}
+                        >
+                          Continue
+                        </Button>
+                      </div>
                     </div>
-                  </div>
+                  )}
                   
-                  {/* Submit Button */}
-                  <div className="w-full flex flex-col justify-start items-start gap-4">
-                    <Button
-                      type="submit"
-                      variant="primary"
-                      size="lg"
-                      fullWidth
-                      disabled={isSubmitting}
-                      isLoading={isSubmitting}
-                      className="h-12 sm:h-14 bg-sky-900 hover:bg-sky-800 text-base sm:text-lg"
-                    >
-                      {isSubmitting ? "Creating..." : "Get started"}
-                    </Button>
-                  </div>
+                  {/* Step 2: Life Class Information */}
+                  {currentStep === 2 && (
+                    <div className="w-full flex flex-col justify-start items-start gap-4 sm:gap-5">
+                      <h3 className="text-lg font-semibold text-gray-900 font-lato">Life Class Information</h3>
+                      
+                      {/* Life Class Teacher */}
+                      <div className="w-full flex flex-col justify-start items-start gap-1.5">
+                        <label className="text-slate-700 text-sm font-medium font-lato leading-tight">
+                          Life Class Teacher*
+                        </label>
+                        <input
+                          type="text"
+                          name="lifeClassTeacher"
+                          value={formData.lifeClassTeacher}
+                          onChange={handleInputChange}
+                          required
+                          placeholder="Enter your life class teacher's name"
+                          className="w-full h-11 px-3.5 py-2.5 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal placeholder-gray-500 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-200"
+                        />
+                      </div>
+                      
+                      {/* Life Class Topics */}
+                      <div className="w-full flex flex-col justify-start items-start gap-1.5">
+                        <label className="text-slate-700 text-sm font-medium font-lato leading-tight">
+                          Life Class Topics* (Select multiple)
+                        </label>
+                        <div className="w-full max-h-48 overflow-y-auto border border-gray-300 rounded-lg p-3 bg-white">
+                          <div className="grid grid-cols-1 gap-2">
+                            {lifeClassTopics.map((topic) => (
+                              <label key={topic} className="flex items-center gap-2 cursor-pointer hover:bg-gray-50 p-2 rounded">
+                                <input
+                                  type="checkbox"
+                                  checked={formData.lifeClassTopics.includes(topic)}
+                                  onChange={(e) => handleTopicChange(topic, e.target.checked)}
+                                  className="w-4 h-4 text-sky-900 bg-white border-gray-300 rounded focus:ring-sky-500 focus:ring-2"
+                                />
+                                <span className="text-sm text-gray-700 font-lato">{topic}</span>
+                              </label>
+                            ))}
+                          </div>
+                        </div>
+                        <p className="text-slate-600 text-sm font-normal font-lato leading-tight">
+                          Selected: {formData.lifeClassTopics.length} topic{formData.lifeClassTopics.length !== 1 ? 's' : ''}
+                        </p>
+                      </div>
+                      
+                      {/* Navigation Buttons */}
+                      <div className="w-full flex gap-3 pt-4">
+                        <Button
+                          type="button"
+                          onClick={handlePrev}
+                          variant="secondary"
+                          size="lg"
+                          className="flex-1 h-12 text-base"
+                        >
+                          Back
+                        </Button>
+                        <Button
+                          type="submit"
+                          variant="primary"
+                          size="lg"
+                          disabled={isSubmitting || !formData.lifeClassTeacher || formData.lifeClassTopics.length === 0}
+                          isLoading={isSubmitting}
+                          className="flex-1 h-12 bg-sky-900 hover:bg-sky-800 text-base"
+                        >
+                          {isSubmitting ? "Creating Account..." : "Complete Registration"}
+                        </Button>
+                      </div>
+                    </div>
+                  )}
                 </form>
-                
-                {/* Login Link */}
-                <div className="w-full flex justify-center items-start gap-1">
-                  <span className="text-slate-600 text-sm font-normal font-lato leading-tight">
-                    Already have an account?
-                  </span>
-                  <a 
-                    href="/login" 
-                    className="text-sky-900 text-sm font-semibold font-lato leading-tight hover:text-sky-700 transition-colors duration-200"
-                  >
-                    Log in
-                  </a>
-                </div>
               </div>
             </div>
           </div>
