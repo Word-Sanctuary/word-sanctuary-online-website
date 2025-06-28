@@ -32,7 +32,7 @@ const ActionLink: React.FC<ActionLinkProps> = ({
   };
 
   // Base classes with hover effect
-  const baseClasses = 'inline-flex items-center font-bold tracking-wide font-inter transition-all duration-300 hover:gap-2 focus:outline-none';
+  const baseClasses = 'inline-flex items-center font-bold tracking-wide font-inter transition-all duration-200 hover:gap-2 focus:outline-none group';
 
   // Arrow size based on button size
   const arrowSize = {
@@ -48,7 +48,7 @@ const ActionLink: React.FC<ActionLinkProps> = ({
     <a className={classes} {...props}>
       <span>{children}</span>
       {showArrow && (
-        <div className={`${arrowSize[size]} relative overflow-hidden flex-shrink-0`}>
+        <div className={`${arrowSize[size]} relative overflow-hidden flex-shrink-0 transition-transform duration-200 group-hover:translate-x-0.5`}>
           <Image
             src="/icons/arrow-narrow-right.svg"
             alt=""

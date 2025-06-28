@@ -28,7 +28,7 @@ const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   // Base classes
-  const baseClasses = 'inline-flex justify-center items-center gap-2 font-bold tracking-wide transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+  const baseClasses = 'inline-flex justify-center items-center gap-2 font-bold tracking-wide transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transform active:scale-[0.98]';
 
   // Size classes
   const sizeClasses = {
@@ -39,11 +39,11 @@ const Button: React.FC<ButtonProps> = ({
 
   // Variant classes
   const variantClasses = {
-    primary: 'bg-sky-500 hover:bg-sky-600 text-white rounded-full shadow-sm focus:ring-sky-500',
-    secondary: 'bg-white hover:bg-gray-50 text-sky-900 rounded-full shadow-sm focus:ring-sky-500',
-    outline: 'bg-transparent hover:bg-white/10 text-white rounded-full outline outline-1 outline-offset-[-1px] outline-white focus:ring-white',
-    ghost: 'bg-transparent hover:bg-white/10 text-white focus:ring-white',
-    link: 'bg-transparent hover:gap-2 text-current p-0 h-auto focus:ring-current'
+    primary: 'bg-sky-500 hover:bg-sky-600 hover:shadow-md text-white rounded-full shadow-sm focus:ring-sky-500 hover:brightness-110',
+    secondary: 'bg-white hover:bg-gray-50 hover:shadow-md text-sky-900 rounded-full shadow-sm focus:ring-sky-500 hover:brightness-105',
+    outline: 'bg-transparent hover:bg-white/15 hover:shadow-md text-white rounded-full outline outline-1 outline-offset-[-1px] outline-white focus:ring-white hover:outline-white/80',
+    ghost: 'bg-transparent hover:bg-white/10 text-white focus:ring-white rounded-lg hover:brightness-110',
+    link: 'bg-transparent text-current p-0 h-auto focus:ring-current'
   };
 
   // Full width class
@@ -53,11 +53,11 @@ const Button: React.FC<ButtonProps> = ({
   const isDisabled = disabled || isLoading;
 
   // Combine all classes
-  const classes = `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${widthClass} ${className}`.trim();
+  const classes = `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${widthClass} group ${className}`.trim();
 
   // Arrow component
   const ArrowIcon = () => (
-    <div className="w-3 h-3 relative overflow-hidden flex-shrink-0">
+    <div className="w-3 h-3 relative overflow-hidden flex-shrink-0 transition-transform duration-200 group-hover:translate-x-0.5">
       <Image
         src="/icons/arrow-narrow-right.svg"
         alt=""
