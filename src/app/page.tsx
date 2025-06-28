@@ -62,114 +62,116 @@ export default function Home() {
       />
 
       {/* Welcome to Mount Zion Section */}
-      <section className="w-full p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-center gap-4 sm:gap-6 md:gap-8 bg-white">
-        <div className="w-full max-w-[702px] flex flex-col justify-start items-center gap-4 sm:gap-6 md:gap-8">
-          {/* Welcome Badge */}
-          <div className="h-8 sm:h-10 px-4 sm:px-6 py-2 sm:py-2.5 bg-zinc-200 rounded-full backdrop-blur-sm inline-flex justify-center items-center gap-2 sm:gap-4">
-            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-sky-900 rounded-full" />
-            <div className="justify-center text-sky-900 text-[10px] sm:text-xs font-bold tracking-wide">WELCOME TO WORD SANCTUARY GLOBAL</div>
-          </div>
-
-          {/* Heading and Description */}
-          <div className="w-full flex flex-col justify-start items-center gap-3 sm:gap-4">
-            <div className="w-full flex flex-col justify-start items-center gap-4 sm:gap-6 md:gap-8">
-              <h2 className="w-full text-center text-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal font-lato leading-tight">WELCOME TO MOUNT ZION</h2>
-              <div className="w-full text-center font-inter">
-                <span className="text-stone-500 text-sm sm:text-base font-normal leading-snug">
-                  The Heavenly Jerusalem; a Church that is
-                </span>
-                <span className="text-black text-sm sm:text-base font-bold leading-snug">
-                  {" HEAVEN!"}
-                </span>
-              </div>
+      <section className="w-full bg-white">
+        <div className="w-full p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6 md:gap-8">
+          <div className="w-full max-w-[702px] lg:max-w-none flex flex-col justify-start items-center lg:items-start gap-4 sm:gap-6 md:gap-8">
+            {/* Welcome Badge */}
+            <div className="h-8 sm:h-10 px-4 sm:px-6 py-2 sm:py-2.5 bg-zinc-200 rounded-full backdrop-blur-sm inline-flex justify-center items-center gap-2 sm:gap-4">
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-sky-900 rounded-full" />
+              <div className="justify-center text-sky-900 text-[10px] sm:text-xs font-bold tracking-wide font-lato">WELCOME TO WORD SANCTUARY GLOBAL</div>
             </div>
-          </div>
-        </div>
 
-        {/* Feature Cards */}
-        <div className="w-full flex flex-col md:flex-row justify-start items-start gap-4 sm:gap-6">
-          {/* About Us Card */}
-          <div className="w-full md:flex-1 h-64 sm:h-80 md:h-96 relative bg-zinc-700 rounded-lg overflow-hidden group cursor-pointer">
-            {/* Background Image */}
-            <Image
-              src="/images/image2.png"
-              alt="About Us"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 33vw"
-            />
-            <div className="absolute inset-0 bg-zinc-700/60" />
-
-            {/* Card Content */}
-            <div className="w-28 sm:w-32 md:w-36 h-48 sm:h-64 md:h-80 left-[16px] sm:left-[20px] md:left-[24px] top-[16px] sm:top-[20px] md:top-[24px] absolute flex flex-col justify-between items-start">
-              <div className="w-full flex flex-col justify-start items-start gap-1 sm:gap-1.5">
-                <div className="w-full text-neutral-200 text-[10px] sm:text-xs md:text-sm font-bold tracking-wide font-inter">WHO ARE WE?</div>
-                <div className="w-full text-white text-2xl sm:text-3xl md:text-4xl font-bold font-lato">About Us</div>
-              </div>
-              <div className="flex justify-start items-center gap-1 group-hover:gap-2 transition-all">
-                <div className="text-neutral-200 text-[10px] sm:text-xs md:text-sm font-bold tracking-wide font-inter">LEARN MORE</div>
-                <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 relative overflow-hidden">
-                  <svg className="w-1.5 sm:w-2 h-1 sm:h-1.5 absolute left-[2px] top-[2px] sm:top-[3px] text-neutral-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+            {/* Heading and Description */}
+            <div className="w-full flex flex-col justify-start items-center lg:items-start gap-3 sm:gap-4">
+              <div className="w-full flex flex-col justify-start items-center lg:items-start gap-4 sm:gap-6 md:gap-8">
+                <h2 className="w-full text-center lg:text-left text-black text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-normal font-anton leading-tight uppercase">WELCOME TO MOUNT ZION</h2>
+                <div className="w-full text-center lg:text-left">
+                  <span className="text-stone-500 text-sm sm:text-base font-normal font-lato leading-snug">
+                    The Heavenly Jerusalem; a Church that is{" "}
+                  </span>
+                  <span className="text-black text-sm sm:text-base font-bold font-lato leading-snug">
+                    HEAVEN!
+                  </span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Community Card */}
-          <div className="w-full md:flex-1 h-64 sm:h-80 md:h-96 relative bg-blue-600 rounded-lg overflow-hidden group cursor-pointer">
-            {/* Background Image */}
-            <Image
-              src="/images/image3.png"
-              alt="Community"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 33vw"
-            />
-            <div className="absolute inset-0 bg-blue-600/50" />
+          {/* Feature Cards */}
+          <div className="w-full flex flex-col md:flex-row justify-start items-start gap-4 sm:gap-6">
+            {/* About Us Card */}
+            <div className="w-full md:flex-1 h-64 sm:h-80 md:h-96 relative bg-zinc-700 rounded-lg overflow-hidden group cursor-pointer">
+              {/* Background Image */}
+              <Image
+                src="/images/image2.png"
+                alt="About Us"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-zinc-700/60" />
 
-            {/* Card Content */}
-            <div className="h-48 sm:h-64 md:h-80 left-[16px] sm:left-[20px] md:left-[24px] top-[16px] sm:top-[20px] md:top-[24px] absolute flex flex-col justify-between items-start">
-              <div className="flex flex-col justify-start items-start gap-1 sm:gap-1.5">
-                <div className="w-full text-neutral-200 text-[10px] sm:text-xs md:text-sm font-bold tracking-wide">JOIN OUR COMMUNITY</div>
-                <div className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">Community</div>
-              </div>
-              <div className="flex justify-start items-center gap-1 group-hover:gap-2 transition-all">
-                <div className="text-neutral-200 text-[10px] sm:text-xs md:text-sm font-bold tracking-wide">LEARN MORE</div>
-                <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 relative overflow-hidden">
-                  <svg className="w-1.5 sm:w-2 h-1 sm:h-1.5 absolute left-[2px] top-[2px] sm:top-[3px] text-neutral-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+              {/* Card Content */}
+              <div className="w-28 sm:w-32 md:w-36 h-48 sm:h-64 md:h-80 left-[16px] sm:left-[20px] md:left-[24px] top-[16px] sm:top-[20px] md:top-[24px] absolute flex flex-col justify-between items-start">
+                <div className="w-full flex flex-col justify-start items-start gap-1 sm:gap-1.5">
+                  <div className="w-full text-neutral-200 text-[10px] sm:text-xs md:text-sm font-bold tracking-wide font-inter">WHO ARE WE?</div>
+                  <div className="w-full text-white text-2xl sm:text-3xl md:text-4xl font-bold font-inter">About Us</div>
+                </div>
+                <div className="flex justify-start items-center gap-1 group-hover:gap-2 transition-all">
+                  <div className="text-neutral-200 text-[10px] sm:text-xs md:text-sm font-bold tracking-wide font-inter">LEARN MORE</div>
+                  <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 relative overflow-hidden">
+                    <svg className="w-1.5 sm:w-2 h-1 sm:h-1.5 absolute left-[2px] top-[2px] sm:top-[3px] text-neutral-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Celebration Card */}
-          <div className="w-full md:flex-1 h-64 sm:h-80 md:h-96 relative bg-blue-600 rounded-lg overflow-hidden group cursor-pointer">
-            {/* Background Image */}
-            <Image
-              src="/images/image4.png"
-              alt="Celebration"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 33vw"
-            />
-            <div className="absolute inset-0 bg-blue-600/50" />
+            {/* Community Card */}
+            <div className="w-full md:flex-1 h-64 sm:h-80 md:h-96 relative bg-blue-600 rounded-lg overflow-hidden group cursor-pointer">
+              {/* Background Image */}
+              <Image
+                src="/images/image3.png"
+                alt="Community"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-blue-600/50" />
 
-            {/* Card Content */}
-            <div className="h-48 sm:h-64 md:h-80 left-[16px] sm:left-[20px] md:left-[24px] top-[16px] sm:top-[20px] md:top-[25px] absolute flex flex-col justify-between items-start">
-              <div className="w-full flex flex-col justify-start items-start gap-1 sm:gap-1.5">
-                <div className="w-full text-neutral-200 text-[10px] sm:text-xs md:text-sm font-bold tracking-wide">JOIN US SPECIAL SERVICES</div>
-                <div className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">Celebration</div>
+              {/* Card Content */}
+              <div className="h-48 sm:h-64 md:h-80 left-[16px] sm:left-[20px] md:left-[24px] top-[16px] sm:top-[20px] md:top-[24px] absolute flex flex-col justify-between items-start">
+                <div className="flex flex-col justify-start items-start gap-1 sm:gap-1.5">
+                  <div className="w-full text-neutral-200 text-[10px] sm:text-xs md:text-sm font-bold tracking-wide font-inter">JOIN OUR COMMUNITY</div>
+                  <div className="text-white text-2xl sm:text-3xl md:text-4xl font-bold font-inter">Community</div>
+                </div>
+                <div className="flex justify-start items-center gap-1 group-hover:gap-2 transition-all">
+                  <div className="text-neutral-200 text-[10px] sm:text-xs md:text-sm font-bold tracking-wide font-inter">LEARN MORE</div>
+                  <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 relative overflow-hidden">
+                    <svg className="w-1.5 sm:w-2 h-1 sm:h-1.5 absolute left-[2px] top-[2px] sm:top-[3px] text-neutral-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
               </div>
-              <div className="flex justify-start items-center gap-1 group-hover:gap-2 transition-all">
-                <div className="text-neutral-200 text-[10px] sm:text-xs md:text-sm font-bold tracking-wide">LEARN MORE</div>
-                <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 relative overflow-hidden">
-                  <svg className="w-1.5 sm:w-2 h-1 sm:h-1.5 absolute left-[2px] top-[2px] sm:top-[3px] text-neutral-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+            </div>
+
+            {/* Celebration Card */}
+            <div className="w-full md:flex-1 h-64 sm:h-80 md:h-96 relative bg-blue-600 rounded-lg overflow-hidden group cursor-pointer">
+              {/* Background Image */}
+              <Image
+                src="/images/image4.png"
+                alt="Celebration"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-blue-600/50" />
+
+              {/* Card Content */}
+              <div className="h-48 sm:h-64 md:h-80 left-[16px] sm:left-[20px] md:left-[24px] top-[16px] sm:top-[20px] md:top-[25px] absolute flex flex-col justify-between items-start">
+                <div className="w-full flex flex-col justify-start items-start gap-1 sm:gap-1.5">
+                  <div className="w-full text-neutral-200 text-[10px] sm:text-xs md:text-sm font-bold tracking-wide font-inter">JOIN US SPECIAL SERVICES</div>
+                  <div className="text-white text-2xl sm:text-3xl md:text-4xl font-bold font-inter">Celebration</div>
+                </div>
+                <div className="flex justify-start items-center gap-1 group-hover:gap-2 transition-all">
+                  <div className="text-neutral-200 text-[10px] sm:text-xs md:text-sm font-bold tracking-wide font-inter">LEARN MORE</div>
+                  <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 relative overflow-hidden">
+                    <svg className="w-1.5 sm:w-2 h-1 sm:h-1.5 absolute left-[2px] top-[2px] sm:top-[3px] text-neutral-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
@@ -315,7 +317,7 @@ export default function Home() {
       </section>
 
       {/* A Gathering of Achievers Section */}
-      <section className="w-full min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[753px] relative flex justify-center items-end overflow-hidden">
+      <section className="w-full min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:h-[753px] relative overflow-hidden">
         {/* Background Image */}
         <Image
           src="/images/achievers.png"
@@ -327,20 +329,39 @@ export default function Home() {
         {/* Overlay for better text readability */}
         <div className="absolute inset-0 bg-black/40" />
         
-        <div className="w-full max-w-[1440px] h-full p-4 sm:p-6 md:p-8 lg:p-12 inline-flex flex-col justify-end items-start gap-4 sm:gap-6 relative z-10">
-          <div className="p-4 sm:p-6 md:p-8 lg:p-12 bg-black/20 rounded-xl outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-md flex flex-col justify-start items-start gap-4 sm:gap-6 w-full max-w-none sm:max-w-[90%] md:max-w-[80%] lg:max-w-none">
-            <div className="w-full sm:max-w-[671px] justify-center text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-normal uppercase leading-tight sm:leading-snug md:leading-normal lg:leading-[84px] font-anton">
+        {/* Mobile Layout */}
+        <div className="lg:hidden w-full h-full p-4 sm:p-6 md:p-8 flex flex-col justify-end items-start gap-4 sm:gap-6 relative z-10">
+          <div className="p-4 sm:p-6 md:p-8 bg-black/20 rounded-xl outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-md flex flex-col justify-start items-start gap-4 sm:gap-6 w-full max-w-none sm:max-w-[90%] md:max-w-[80%]">
+            <div className="w-full justify-center text-white text-2xl sm:text-3xl md:text-4xl font-normal uppercase leading-tight sm:leading-snug md:leading-normal font-anton">
               A gathering<br />of achievers
             </div>
-            <div className="w-full sm:max-w-[640px] justify-center text-white text-sm sm:text-base font-normal leading-relaxed sm:leading-normal">
+            <div className="w-full justify-center text-white text-sm sm:text-base font-normal font-lato leading-relaxed sm:leading-normal">
               At Word Sanctuary, our greatest success story is the grace to effectively evangelize, disciple, and equip those who were once seekers—transforming them into mature disciples and vibrant ministers of the gospel.
             </div>
             <div className="h-8 sm:h-10 px-4 sm:px-7 py-2 sm:py-2.5 bg-sky-500 rounded-[100px] inline-flex justify-center items-center gap-2">
-              <div className="justify-center text-white text-xs sm:text-sm font-semibold tracking-wide">LEARN MORE</div>
+              <div className="justify-center text-white text-xs sm:text-sm font-semibold font-lato tracking-wide">LEARN MORE</div>
               <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 relative overflow-hidden">
-                <svg className="w-1.5 sm:w-2 h-1 sm:h-1.5 absolute left-[2px] top-[2px] sm:top-[3px] text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
-                </svg>
+                <div className="w-1.5 sm:w-2 h-1 sm:h-1.5 left-[2px] top-[2px] sm:top-[3px] absolute outline outline-[1.50px] outline-offset-[-0.75px] outline-white" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Layout */}
+        <div className="hidden lg:block w-[1440px] h-[753px] p-12 left-0 top-0 absolute">
+          <div className="w-full h-full flex flex-col justify-end items-start gap-6">
+            <div className="p-12 bg-black/20 rounded-xl outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-md flex flex-col justify-start items-start gap-6">
+              <div className="w-[671px] justify-center text-white text-7xl font-normal font-anton uppercase leading-[84px]">
+                A gathering<br/>of achievers
+              </div>
+              <div className="w-[640px] justify-center text-white text-base font-normal font-lato leading-normal">
+                At Word Sanctuary, our greatest success story is the grace to effectively evangelize, disciple, and equip those who were once seekers—transforming them into mature disciples and vibrant ministers of the gospel.
+              </div>
+              <div className="h-10 px-7 py-2.5 bg-sky-500 rounded-[100px] inline-flex justify-center items-center gap-2">
+                <div className="justify-center text-white text-sm font-semibold font-lato tracking-wide">LEARN MORE</div>
+                <div className="w-3 h-3 relative overflow-hidden">
+                  <div className="w-2 h-1.5 left-[2px] top-[3px] absolute outline outline-[1.50px] outline-offset-[-0.75px] outline-white" />
+                </div>
               </div>
             </div>
           </div>
