@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Anton, Lato, Inter } from "next/font/google";
 import Footer from "@/components/Footer";
+import PerformanceMonitor from "@/components/PerformanceMonitor";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -32,7 +33,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Word Sanctuary Global - Your Digital Sanctuary for Words",
-  description: "Welcome to Word Sanctuary Global - a peaceful space where language comes alive and stories find their home. Connect, fellowship, and grow with us.",
+  description:
+    "Welcome to Word Sanctuary Global - a peaceful space where language comes alive and stories find their home. Connect, fellowship, and grow with us.",
 };
 
 export default function RootLayout({
@@ -45,10 +47,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${anton.variable} ${lato.variable} ${inter.variable} antialiased`}
       >
+        <PerformanceMonitor />
         <div className="min-h-screen flex flex-col">
-          <main className="flex-1">
-            {children}
-          </main>
+          <main className="flex-1">{children}</main>
           <Footer />
         </div>
       </body>

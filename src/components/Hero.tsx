@@ -30,16 +30,22 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState<Set<number>>(new Set());
 
   // Memoize carousel images to prevent recalculation
   const carouselImages = useMemo(() => {
     const defaultCarouselImages = [
-      '/images/hero-carousel/08Artboard 1 (2).jpg',
-      '/images/hero-carousel/10Artboard 1 (2).jpg',
-      '/images/hero-carousel/16 (4).jpg'
+      '/images/optimized/hero-carousel/08Artboard 1 (2).webp',
+      '/images/optimized/hero-carousel/10Artboard 1 (2).webp',
+      '/images/optimized/hero-carousel/16 (4).webp'
     ];
     return backgroundImages.length > 0 ? backgroundImages : defaultCarouselImages;
   }, [backgroundImages]);
+
+  // Track image loading
+  const handleImageLoad = useCallback((index: number) => {
+    setImagesLoaded(prev => new Set(prev).add(index));
+  }, []);
 
   // Optimized transition function
   const handleTransition = useCallback(() => {
@@ -49,13 +55,27 @@ const Hero: React.FC<HeroProps> = ({
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
     
     // Reset transition flag after transition completes
-    setTimeout(() => setIsTransitioning(false), 2500);
+    setTimeout(() => setIsTransitioning(false), 2000);
   }, [useCarousel, carouselImages.length, isTransitioning]);
+
+  // Preload next image when current loads
+  useEffect(() => {
+    if (imagesLoaded.has(currentImageIndex) && carouselImages.length > 1) {
+      const nextIndex = (currentImageIndex + 1) % carouselImages.length;
+      if (!imagesLoaded.has(nextIndex)) {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.href = carouselImages[nextIndex];
+        link.as = 'image';
+        document.head.appendChild(link);
+      }
+    }
+  }, [currentImageIndex, carouselImages, imagesLoaded]);
 
   useEffect(() => {
     if (!useCarousel || carouselImages.length <= 1) return;
 
-    const interval = setInterval(handleTransition, 5000);
+    const interval = setInterval(handleTransition, 6000); // Slower transition
     return () => clearInterval(interval);
   }, [useCarousel, carouselImages.length, handleTransition]);
 
@@ -71,7 +91,7 @@ const Hero: React.FC<HeroProps> = ({
                 index === currentImageIndex ? 'opacity-100' : 'opacity-0'
               }`}
               style={{
-                transition: 'opacity 2.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                transition: 'opacity 2s cubic-bezier(0.4, 0, 0.2, 1)',
                 backfaceVisibility: 'hidden',
                 perspective: 1000,
               }}
@@ -81,22 +101,12 @@ const Hero: React.FC<HeroProps> = ({
                 alt={`Hero background ${index + 1}`}
                 fill
                 className="object-cover"
-                priority={index <= 1} // Prioritize first 2 images
-                quality={85} // Slightly reduce quality for faster loading
+                priority={index === 0} // Only prioritize first image
+                quality={75} // Reduced quality for better performance
                 sizes="100vw"
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyaKex8MRXYBZkRZdehAVBp5JjM3AxyCLCnpGNGFsO4TrUNJ9nLxwwFzYFYq5LqEKkmCWJC5D8vWgS2lLwFqIZV/9k="
-                onLoad={() => {
-                  if (index === 0) {
-                    // Preload next image after first loads
-                    const nextIndex = (index + 1) % carouselImages.length;
-                    const link = document.createElement('link');
-                    link.rel = 'preload';
-                    link.href = carouselImages[nextIndex];
-                    link.as = 'image';
-                    document.head.appendChild(link);
-                  }
-                }}
+                onLoad={() => handleImageLoad(index)}
               />
             </div>
           ))}

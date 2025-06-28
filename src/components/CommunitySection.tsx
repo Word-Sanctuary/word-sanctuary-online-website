@@ -15,17 +15,17 @@ const defaultCards: CommunityCard[] = [
   {
     title: "Life Class",
     description: "Life class gets you grounded in God's word with a systematic approach to the study of God's word; from salvation, to discipleship, evangelism, all these and more will be brought to your knowledge.",
-    image: "/images/community1.png"
+    image: "/images/optimized/community1.webp"
   },
   {
     title: "Foundation Training", 
     description: "Life class gets you grounded in God's word with a systematic approach to the study of God's word; from salvation, to discipleship, evangelism, all these and more will be brought to your knowledge.",
-    image: "/images/communityimage2.png"
+    image: "/images/optimized/communityimage2.webp"
   },
   {
     title: "Central Trainings",
     description: "Life class gets you grounded in God's word with a systematic approach to the study of God's word; from salvation, to discipleship, evangelism, all these and more will be brought to your knowledge.",
-    image: "/images/communityimage3.png"
+    image: "/images/optimized/communityimage3.webp"
   }
 ];
 

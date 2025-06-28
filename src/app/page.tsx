@@ -12,27 +12,27 @@ export default function Home() {
   const installations = [
     {
       name: "Ilorin",
-      image: "/images/ilorin.png",
+      image: "/images/optimized/ilorin.webp",
       address: "Address in subtext"
     },
     {
       name: "Abuja", 
-      image: "/images/abuja.jpg",
+      image: "/images/optimized/abuja.webp",
       address: "Address in subtext"
     },
     {
       name: "Lagos",
-      image: "/images/lagos.png", 
+      image: "/images/optimized/lagos.webp", 
       address: "Address in subtext"
     },
     {
       name: "Ibadan",
-      image: "/images/ibadan.png",
+      image: "/images/optimized/ibadan.webp",
       address: "Address in subtext"
     },
     {
       name: "United Kingdom",
-      image: "/images/unitedkingdom.png",
+      image: "/images/optimized/unitedkingdom.webp",
       address: "Address in subtext"
     }
   ];
@@ -94,11 +94,12 @@ export default function Home() {
             <div className="w-full md:flex-1 h-64 sm:h-80 md:h-96 relative bg-zinc-700 rounded-lg overflow-hidden group cursor-pointer">
               {/* Background Image */}
               <Image
-                src="/images/image2.png"
+                src="/images/optimized/image2.webp"
                 alt="About Us"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 33vw"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-zinc-700/60" />
 
@@ -118,7 +119,7 @@ export default function Home() {
             <div className="w-full md:flex-1 h-64 sm:h-80 md:h-96 relative bg-blue-600 rounded-lg overflow-hidden group cursor-pointer">
               {/* Background Image */}
               <Image
-                src="/images/image3.png"
+                src="/images/optimized/image3.webp"
                 alt="Community"
                 fill
                 className="object-cover"
@@ -142,7 +143,7 @@ export default function Home() {
             <div className="w-full md:flex-1 h-64 sm:h-80 md:h-96 relative bg-blue-600 rounded-lg overflow-hidden group cursor-pointer">
               {/* Background Image */}
               <Image
-                src="/images/image4.png"
+                src="/images/optimized/image4.webp"
                 alt="Celebration"
                 fill
                 className="object-cover"
@@ -208,7 +209,7 @@ export default function Home() {
           <div className="flex-1 h-96 relative rounded overflow-hidden group cursor-pointer">
             {/* Background Image */}
             <Image
-              src="/images/ilorin.png"
+              src="/images/optimized/ilorin.webp"
               alt="Ilorin Installation"
               fill
               className="object-cover"
@@ -227,7 +228,7 @@ export default function Home() {
           <div className="flex-1 h-96 relative rounded overflow-hidden group cursor-pointer">
             {/* Background Image */}
             <Image
-              src="/images/abuja.jpg"
+              src="/images/optimized/abuja.webp"
               alt="Abuja Installation"
               fill
               className="object-cover"
@@ -246,7 +247,7 @@ export default function Home() {
           <div className="flex-1 h-96 relative rounded overflow-hidden group cursor-pointer">
             {/* Background Image */}
             <Image
-              src="/images/lagos.png"
+              src="/images/optimized/lagos.webp"
               alt="Lagos Installation"
               fill
               className="object-cover"
@@ -265,7 +266,7 @@ export default function Home() {
           <div className="flex-1 h-96 relative rounded overflow-hidden group cursor-pointer">
             {/* Background Image */}
             <Image
-              src="/images/ibadan.png"
+              src="/images/optimized/ibadan.webp"
               alt="Ibadan Installation"
               fill
               className="object-cover"
@@ -284,7 +285,7 @@ export default function Home() {
           <div className="flex-1 h-96 relative rounded overflow-hidden group cursor-pointer">
             {/* Background Image */}
             <Image
-              src="/images/unitedkingdom.png"
+              src="/images/optimized/unitedkingdom.webp"
               alt="United Kingdom Installation"
               fill
               className="object-cover"
@@ -310,7 +311,7 @@ export default function Home() {
       <section className="w-full min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:h-[753px] relative overflow-hidden">
         {/* Background Image */}
         <Image
-          src="/images/achievers.png"
+          src="/images/optimized/achievers.webp"
           alt="A Gathering of Achievers"
           fill
           className="object-cover"
@@ -372,7 +373,7 @@ export default function Home() {
           <div className="self-stretch inline-flex flex-col lg:flex-row justify-start items-start gap-8 sm:gap-12 lg:gap-16">
             <div className="w-full lg:w-[571px] h-64 sm:h-80 md:h-96 lg:h-96 relative rounded-xl overflow-hidden flex-shrink-0">
               <Image
-                src="/images/ourpastor.png"
+                src="/images/optimized/ourpastor.webp"
                 alt="Pastor Temple"
                 fill
                 className="object-cover object-top"

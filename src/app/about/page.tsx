@@ -121,7 +121,7 @@ His influence radiates Jesus' love, and his unwavering dedication to God's kingd
           <div className="self-stretch inline-flex flex-col lg:flex-row justify-start items-start gap-8 sm:gap-12 lg:gap-16">
             <div className="w-full lg:w-[571px] h-64 sm:h-80 md:h-96 lg:h-[602px] relative rounded-xl overflow-hidden flex-shrink-0">
               <Image
-                src="/images/ourpastor.png"
+                src="/images/optimized/ourpastor.webp"
                 alt="Pastor Temple"
                 fill
                 className="object-cover object-top"

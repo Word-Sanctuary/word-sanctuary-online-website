@@ -172,7 +172,7 @@ export default function SignUp() {
           <div className="flex-1 w-full flex justify-center items-center">
             <div className="w-full max-w-[620px] h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative rounded-3xl overflow-hidden shadow-lg">
               <Image
-                src="/images/signup.png"
+                src="/images/optimized/signup.webp"
                 alt="Join Word Sanctuary Global"
                 fill
                 className="object-cover"
