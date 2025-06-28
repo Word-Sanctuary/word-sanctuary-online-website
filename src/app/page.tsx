@@ -330,18 +330,20 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/40" />
         
         {/* Mobile Layout */}
-        <div className="lg:hidden w-full h-full p-4 sm:p-6 md:p-8 flex flex-col justify-end items-start gap-4 sm:gap-6 relative z-10">
-          <div className="p-4 sm:p-6 md:p-8 bg-black/20 rounded-xl outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-md flex flex-col justify-start items-start gap-4 sm:gap-6 w-full max-w-none sm:max-w-[90%] md:max-w-[80%]">
-            <div className="w-full justify-center text-white text-2xl sm:text-3xl md:text-4xl font-normal uppercase leading-tight sm:leading-snug md:leading-normal font-anton">
-              A gathering<br />of achievers
-            </div>
-            <div className="w-full justify-center text-white text-sm sm:text-base font-normal font-lato leading-relaxed sm:leading-normal">
-              At Word Sanctuary, our greatest success story is the grace to effectively evangelize, disciple, and equip those who were once seekers—transforming them into mature disciples and vibrant ministers of the gospel.
-            </div>
-            <div className="h-8 sm:h-10 px-4 sm:px-7 py-2 sm:py-2.5 bg-sky-500 rounded-[100px] inline-flex justify-center items-center gap-2">
-              <div className="justify-center text-white text-xs sm:text-sm font-semibold font-lato tracking-wide">LEARN MORE</div>
-              <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 relative overflow-hidden">
-                <div className="w-1.5 sm:w-2 h-1 sm:h-1.5 left-[2px] top-[2px] sm:top-[3px] absolute outline outline-[1.50px] outline-offset-[-0.75px] outline-white" />
+        <div className="lg:hidden w-full h-full flex flex-col justify-center items-start relative z-10">
+          <div className="w-full h-full flex flex-col justify-end items-start p-4 sm:p-6 md:p-8 pb-16 sm:pb-20 md:pb-24">
+            <div className="p-4 sm:p-6 md:p-8 bg-black/20 rounded-xl outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-md flex flex-col justify-start items-start gap-4 sm:gap-6 w-full max-w-none sm:max-w-[90%] md:max-w-[80%]">
+              <div className="w-full justify-center text-white text-2xl sm:text-3xl md:text-4xl font-normal uppercase leading-tight sm:leading-snug md:leading-normal font-anton">
+                A gathering<br />of achievers
+              </div>
+              <div className="w-full justify-center text-white text-sm sm:text-base font-normal font-lato leading-relaxed sm:leading-normal">
+                At Word Sanctuary, our greatest success story is the grace to effectively evangelize, disciple, and equip those who were once seekers—transforming them into mature disciples and vibrant ministers of the gospel.
+              </div>
+              <div className="h-8 sm:h-10 px-4 sm:px-7 py-2 sm:py-2.5 bg-sky-500 rounded-[100px] inline-flex justify-center items-center gap-2">
+                <div className="justify-center text-white text-xs sm:text-sm font-semibold font-lato tracking-wide">LEARN MORE</div>
+                <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 relative overflow-hidden">
+                  <div className="w-1.5 sm:w-2 h-1 sm:h-1.5 left-[2px] top-[2px] sm:top-[3px] absolute outline outline-[1.50px] outline-offset-[-0.75px] outline-white" />
+                </div>
               </div>
             </div>
           </div>

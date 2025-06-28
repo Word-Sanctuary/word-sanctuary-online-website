@@ -66,7 +66,7 @@ export default function Navbar() {
             <a
               key={item.name}
               href={item.href}
-              className={`relative justify-start text-xs font-bold font-['Inter'] tracking-widest transition-all duration-300 ease-in-out hover:text-white hover:scale-105 transform group ${
+              className={`relative justify-start text-xs font-bold font-['Inter'] tracking-widest transition-all duration-300 ease-in-out hover:text-white hover:scale-105 transform group px-3 py-2 rounded-lg hover:bg-white/10 ${
                 activeTab === item.name ? 'text-white font-black' : 'text-zinc-400'
               }`}
               style={{
@@ -74,10 +74,6 @@ export default function Navbar() {
               }}
             >
               {item.name}
-              {/* Hover underline effect */}
-              <span className={`absolute bottom-0 left-0 h-0.5 bg-white transition-all duration-300 ease-out ${
-                activeTab === item.name ? 'w-full' : 'w-0 group-hover:w-full'
-              }`}></span>
             </a>
           ))}
         </div>
