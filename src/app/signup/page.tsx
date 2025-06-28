@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Navbar from "@/components/Navbar";
+import SignupNavbar from "@/components/SignupNavbar";
 import { Button } from "@/components/ui";
 import Image from "next/image";
 
@@ -41,7 +41,7 @@ export default function SignUp() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navbar />
+      <SignupNavbar />
       
       {/* Main Content */}
       <div className="w-full pt-20 p-4 sm:p-6 md:p-8 lg:p-12 xl:p-24 min-h-screen flex justify-center items-center">

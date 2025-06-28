@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Anton, Lato, Inter } from "next/font/google";
-import Footer from "@/components/Footer";
 import PerformanceMonitor from "@/components/PerformanceMonitor";
+import ConditionalFooter from "@/components/ConditionalFooter";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -50,7 +50,7 @@ export default function RootLayout({
         <PerformanceMonitor />
         <div className="min-h-screen flex flex-col">
           <main className="flex-1">{children}</main>
-          <Footer />
+          <ConditionalFooter />
         </div>
       </body>
     </html>
