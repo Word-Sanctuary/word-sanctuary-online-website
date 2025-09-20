@@ -20,7 +20,7 @@ export default function SignIn() {
   const [currentStep, setCurrentStep] = useState(1);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const [otpSent, setOtpSent] = useState(false);
+  // Removed unused otpSent state
   const totalSteps = 2;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,7 +43,6 @@ export default function SignIn() {
       
       // For demo purposes, any email is valid
       if (formData.email) {
-        setOtpSent(true);
         setCurrentStep(2);
         setSuccess("OTP sent to your email address!");
         console.log("OTP sent to:", formData.email);
@@ -92,7 +91,6 @@ export default function SignIn() {
 
   const handleBack = () => {
     setCurrentStep(1);
-    setOtpSent(false);
     setError("");
     setSuccess("");
   };
@@ -104,7 +102,7 @@ export default function SignIn() {
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
       setSuccess("OTP resent to your email address!");
-    } catch (error) {
+    } catch {
       setError("Failed to resend OTP. Please try again.");
     } finally {
       setIsSubmitting(false);
@@ -251,7 +249,7 @@ export default function SignIn() {
                           className="text-sm font-medium font-lato underline"
                           style={{ color: '#001856' }}
                         >
-                          Didn't receive code? Resend OTP
+                          Didn&apos;t receive code? Resend OTP
                         </button>
                       </div>
                       
@@ -284,7 +282,7 @@ export default function SignIn() {
                 {/* Sign Up Link */}
                 <div className="w-full text-center pt-4">
                   <p className="text-slate-600 text-sm font-normal font-lato leading-normal">
-                    Don't have an account?{' '}
+                    Don&apos;t have an account?{' '}
                     <a href="/signup" className="font-medium underline" style={{ color: '#001856' }}>
                       Join our community
                     </a>

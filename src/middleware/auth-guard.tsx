@@ -103,7 +103,7 @@ export function AuthGuard({
             </svg>
             <h2 className="text-lg font-semibold text-gray-900 mb-2">Access Denied</h2>
             <p className="text-gray-600 mb-4">
-              You don't have the required permissions to access this resource.
+              You don&apos;t have the required permissions to access this resource.
             </p>
             <button
               onClick={() => router.push(fallbackRoute)}

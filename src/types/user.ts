@@ -189,7 +189,7 @@ export interface DashboardWidget {
   type: 'stats' | 'chart' | 'list' | 'calendar' | 'activity' | 'custom';
   size: 'small' | 'medium' | 'large' | 'full';
   position: { row: number; col: number };
-  data?: any;
+  data?: Record<string, unknown>;
   requiresPermission?: Permission[];
   roleRestriction?: UserRole[];
 }

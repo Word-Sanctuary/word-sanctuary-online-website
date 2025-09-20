@@ -34,7 +34,7 @@ export default function Events() {
             <h2 className="w-full text-center text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal font-['Anton'] leading-tight uppercase px-2">Join Us for Upcoming Events</h2>
             <div className="w-full text-center max-w-3xl px-4">
               <span className="text-stone-500 text-sm sm:text-base font-normal font-['Lato'] leading-relaxed">
-                Stay connected, grow in faith, and be part of what God is doing at Word Sanctuary. From weekly services to special gatherings, there's always a place for you.
+                Stay connected, grow in faith, and be part of what God is doing at Word Sanctuary. From weekly services to special gatherings, there&apos;s always a place for you.
               </span>
             </div>
           </div>
@@ -110,7 +110,7 @@ export default function Events() {
           <div className="w-full flex flex-col justify-center items-center gap-4 sm:gap-6 mt-8 sm:mt-12">
             <div className="w-full text-center max-w-2xl px-4">
               <h3 className="text-black text-lg sm:text-xl md:text-2xl font-bold font-['Anton'] uppercase mb-2 sm:mb-4">
-                Can't Find What You're Looking For?
+                Can&apos;t Find What You&apos;re Looking For?
               </h3>
               <p className="text-stone-500 text-sm sm:text-base font-normal font-['Lato'] leading-relaxed mb-4 sm:mb-6">
                 Contact us for more information about our events or to suggest new ones that would benefit our community.

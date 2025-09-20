@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { AuthGuard } from '@/middleware/auth-guard';
 import { UserRole } from '@/types/user';
@@ -65,13 +65,12 @@ const mockAdminUsers: AdminUser[] = [
 ];
 
 export default function AdminPanel() {
-  const { user } = useAuth();
+  const { user: _user } = useAuth(); // eslint-disable-line @typescript-eslint/no-unused-vars
   const router = useRouter();
-  const [users, setUsers] = useState<AdminUser[]>(mockAdminUsers);
+  const [users] = useState<AdminUser[]>(mockAdminUsers);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedRole, setSelectedRole] = useState<UserRole | 'ALL'>('ALL');
-  const [selectedUser, setSelectedUser] = useState<AdminUser | null>(null);
-  const [showUserModal, setShowUserModal] = useState(false);
+  // Removed unused state variables: selectedUser, showUserModal
 
   const filteredUsers = users.filter(u => {
     const matchesSearch = u.name.toLowerCase().includes(searchTerm.toLowerCase()) ||

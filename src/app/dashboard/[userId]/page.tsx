@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
-import { UserRole } from '@/types/user';
+import { UserRole, User } from '@/types/user';
 import { hasPermission } from '@/config/roles';
 
 interface UserDashboardProps {
@@ -79,7 +79,7 @@ const mockUsers = {
 export default function UserDashboard({ params }: UserDashboardProps) {
   const { user: currentUser } = useAuth();
   const router = useRouter();
-  const [targetUser, setTargetUser] = useState<any>(null);
+  const [targetUser, setTargetUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [userId, setUserId] = useState<string | null>(null);
@@ -123,7 +123,35 @@ export default function UserDashboard({ params }: UserDashboardProps) {
       return;
     }
 
-    setTargetUser(userData);
+    // Convert mock data to User interface
+    const user: User = {
+      id: userData.id,
+      fullName: userData.name,
+      email: userData.email,
+      role: userData.role,
+      status: 'ACTIVE',
+      permissions: [], // Mock permissions - in real app would come from API
+      dateJoined: new Date(userData.joinDate),
+      preferences: {
+        theme: 'light',
+        notifications: true,
+        emailUpdates: true,
+        language: 'en'
+      },
+      installation: {
+        id: userData.installation.toLowerCase().replace(/\s+/g, '-'),
+        name: userData.installation,
+        location: userData.installation,
+        country: 'Nigeria',
+        timezone: 'Africa/Lagos',
+        active: true
+      },
+      installationId: userData.installation.toLowerCase().replace(/\s+/g, '-'),
+      department: userData.department,
+      lastActive: new Date(userData.lastActive)
+    };
+    
+    setTargetUser(user);
     setLoading(false);
   }, [currentUser, userId, router]);
 
@@ -152,6 +180,17 @@ export default function UserDashboard({ params }: UserDashboardProps) {
   const isOwnProfile = currentUser?.id === userId;
   const canEditUser = hasPermission(currentUser?.role || 'VISITOR', 'manage_users');
 
+  if (!targetUser) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900 mb-2">User Not Found</h1>
+          <p className="text-gray-600">The requested user could not be found.</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="max-w-4xl mx-auto p-6">
       {/* Header */}
@@ -159,10 +198,10 @@ export default function UserDashboard({ params }: UserDashboardProps) {
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-4">
             <div className="w-16 h-16 rounded-full flex items-center justify-center text-white text-xl font-bold" style={{ backgroundColor: '#001856' }}>
-              {targetUser.name.split(' ').map((n: string) => n[0]).join('')}
+              {targetUser.fullName.split(' ').map((n: string) => n[0]).join('')}
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">{targetUser.name}</h1>
+              <h1 className="text-2xl font-bold text-gray-900">{targetUser.fullName}</h1>
               <p className="text-gray-600">{targetUser.email}</p>
               <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${
                 targetUser.role === 'SUPER_ADMIN' ? 'bg-purple-100 text-purple-800' :
@@ -192,7 +231,7 @@ export default function UserDashboard({ params }: UserDashboardProps) {
           <div className="space-y-3">
             <div>
               <label className="text-sm font-medium text-gray-500">Installation</label>
-              <p className="text-gray-900">{targetUser.installation}</p>
+              <p className="text-gray-900">{targetUser.installation?.name}</p>
             </div>
             <div>
               <label className="text-sm font-medium text-gray-500">Department</label>
@@ -200,11 +239,11 @@ export default function UserDashboard({ params }: UserDashboardProps) {
             </div>
             <div>
               <label className="text-sm font-medium text-gray-500">Join Date</label>
-              <p className="text-gray-900">{new Date(targetUser.joinDate).toLocaleDateString()}</p>
+              <p className="text-gray-900">{targetUser.dateJoined.toLocaleDateString()}</p>
             </div>
             <div>
               <label className="text-sm font-medium text-gray-500">Last Active</label>
-              <p className="text-gray-900">{new Date(targetUser.lastActive).toLocaleString()}</p>
+              <p className="text-gray-900">{targetUser.lastActive?.toLocaleString() || 'Never'}</p>
             </div>
           </div>
         </div>

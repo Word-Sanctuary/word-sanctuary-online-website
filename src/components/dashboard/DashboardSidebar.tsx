@@ -290,7 +290,7 @@ export default function DashboardSidebar({ user }: DashboardSidebarProps) {
                   Sign Out
                 </h3>
                 <p className="text-sm text-gray-500 mb-6">
-                  Are you sure you want to sign out? You'll need to sign in again to access your dashboard.
+                  Are you sure you want to sign out? You&apos;ll need to sign in again to access your dashboard.
                 </p>
               </div>
 

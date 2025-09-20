@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { User, AuthUser, UserRole } from '@/types/user';
+import { User, AuthUser, UserRole, Permission } from '@/types/user';
 import { ROLE_PERMISSIONS } from '@/config/roles';
 
 interface AuthContextType {
@@ -48,7 +48,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     checkAuth();
   }, []);
 
-  const login = async (email: string, password: string): Promise<boolean> => {
+  const login = async (email: string, _password: string): Promise<boolean> => { // eslint-disable-line @typescript-eslint/no-unused-vars
     try {
       setIsLoading(true);
       
@@ -147,7 +147,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
           email: email,
           role: 'HOD',
           status: 'ACTIVE',
-          permissions: ROLE_PERMISSIONS.HOD.permissions,
+          permissions: ROLE_PERMISSIONS.HOD,
           dateJoined: new Date('2023-06-01'),
           preferences: {
             notifications: true,
@@ -175,7 +175,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
           email: email,
           role: 'MEMBER',
           status: 'ACTIVE',
-          permissions: ROLE_PERMISSIONS.MEMBER.permissions,
+          permissions: ROLE_PERMISSIONS.MEMBER,
           dateJoined: new Date('2023-10-01'),
           preferences: {
             notifications: true,
@@ -250,7 +250,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   };
 
   const hasPermission = (permission: string): boolean => {
-    return user?.permissions.includes(permission as any) || false;
+    return user?.permissions.includes(permission as Permission) || false;
   };
 
   const hasRole = (role: UserRole): boolean => {

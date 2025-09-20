@@ -1,8 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { User, DashboardConfig, DashboardWidget } from '@/types/user';
-import { ROLE_PERMISSIONS } from '@/config/roles';
+import { User, DashboardConfig } from '@/types/user';
 
 interface DynamicDashboardContentProps {
   user: User;
@@ -49,7 +48,7 @@ export default function DynamicDashboardContent({ user, config, currentUser }: D
             systemHealth: 98
           };
           break;
-        case 'ADMIN':
+        case 'HEAD_OF_INSTALLATION':
           mockStats = {
             upcomingEvents: 8,
             completedClasses: 89,
@@ -59,7 +58,7 @@ export default function DynamicDashboardContent({ user, config, currentUser }: D
             activeModerations: 3
           };
           break;
-        case 'PASTOR':
+        case 'SUB_CENTRAL_HEAD':
           mockStats = {
             upcomingEvents: 5,
             completedClasses: 67,
@@ -69,7 +68,7 @@ export default function DynamicDashboardContent({ user, config, currentUser }: D
             scheduledMeetings: 12
           };
           break;
-        case 'LIFE_CLASS_TEACHER':
+        case 'HOD':
           mockStats = {
             upcomingEvents: 3,
             completedClasses: 45,
@@ -80,7 +79,7 @@ export default function DynamicDashboardContent({ user, config, currentUser }: D
             averageAttendance: 87
           };
           break;
-        case 'LEADER':
+        case 'SUB_CENTRAL_HEAD':
           mockStats = {
             upcomingEvents: 4,
             completedClasses: 23,
@@ -123,14 +122,12 @@ export default function DynamicDashboardContent({ user, config, currentUser }: D
     switch (user.role) {
       case 'SUPER_ADMIN':
         return `${timeOfDay}, Administrator`;
-      case 'ADMIN':
+      case 'HEAD_OF_INSTALLATION':
         return `${timeOfDay}, ${user.fullName}`;
-      case 'PASTOR':
+      case 'SUB_CENTRAL_HEAD':
         return `${timeOfDay}, Pastor ${user.fullName.split(' ').pop()}`;
-      case 'LIFE_CLASS_TEACHER':
+      case 'HOD':
         return `${timeOfDay}, Teacher ${user.fullName.split(' ').pop()}`;
-      case 'LEADER':
-        return `${timeOfDay}, Leader ${user.fullName.split(' ')[0]}`;
       case 'MEMBER':
         return `${timeOfDay}, ${user.fullName.split(' ')[0]}`;
       default:
@@ -142,14 +139,12 @@ export default function DynamicDashboardContent({ user, config, currentUser }: D
     switch (user.role) {
       case 'SUPER_ADMIN':
         return 'System overview and administration tools at your fingertips';
-      case 'ADMIN':
+      case 'HEAD_OF_INSTALLATION':
         return 'Manage your ministry operations and community growth';
-      case 'PASTOR':
+      case 'SUB_CENTRAL_HEAD':
         return 'Lead your congregation with wisdom and compassion';
-      case 'LIFE_CLASS_TEACHER':
+      case 'HOD':
         return 'Inspire and educate the next generation of believers';
-      case 'LEADER':
-        return 'Guide your team towards excellence in ministry';
       case 'MEMBER':
         return 'Continue your spiritual journey with our community';
       default:
@@ -161,16 +156,15 @@ export default function DynamicDashboardContent({ user, config, currentUser }: D
     const allStats = Object.entries(stats);
     const rolePriority = {
       'SUPER_ADMIN': ['totalUsers', 'activeInstallations', 'systemHealth', 'upcomingEvents'],
-      'ADMIN': ['communityMembers', 'managedEvents', 'activeModerations', 'upcomingEvents'],
-      'PASTOR': ['congregationSize', 'scheduledMeetings', 'upcomingEvents', 'completedClasses'],
-      'LIFE_CLASS_TEACHER': ['studentsEnrolled', 'lessonsCompleted', 'averageAttendance', 'upcomingEvents'],
-      'LEADER': ['teamMembers', 'completedProjects', 'upcomingEvents', 'completedClasses'],
+      'HEAD_OF_INSTALLATION': ['communityMembers', 'managedEvents', 'activeModerations', 'upcomingEvents'],
+      'SUB_CENTRAL_HEAD': ['congregationSize', 'scheduledMeetings', 'upcomingEvents', 'completedClasses'],
+      'HOD': ['studentsEnrolled', 'lessonsCompleted', 'averageAttendance', 'upcomingEvents'],
       'MEMBER': ['progressPoints', 'certificatesEarned', 'completedClasses', 'upcomingEvents'],
       'VISITOR': ['communityMembers', 'resourcesAvailable', 'upcomingEvents']
     };
 
     const priorityKeys = rolePriority[user.role] || ['upcomingEvents', 'completedClasses', 'communityMembers', 'resourcesAvailable'];
-    const priorityStats = priorityKeys.map(key => [key, stats[key]]).filter(([_, value]) => value !== undefined);
+    const priorityStats = priorityKeys.map(key => [key, stats[key]]).filter(([, value]) => value !== undefined);
     const otherStats = allStats.filter(([key]) => !priorityKeys.includes(key));
     
     return [...priorityStats, ...otherStats].slice(0, 4);
@@ -295,10 +289,9 @@ export default function DynamicDashboardContent({ user, config, currentUser }: D
           <div className="p-6 border-b border-gray-200">
             <h2 className="text-xl font-semibold text-gray-900 font-lato">
               {user.role === 'SUPER_ADMIN' ? 'System Status' :
-               user.role === 'ADMIN' ? 'Management Overview' :
-               user.role === 'PASTOR' ? 'Ministry Updates' :
-               user.role === 'LIFE_CLASS_TEACHER' ? 'Teaching Schedule' :
-               user.role === 'LEADER' ? 'Team Activities' :
+               user.role === 'HEAD_OF_INSTALLATION' ? 'Management Overview' :
+               user.role === 'SUB_CENTRAL_HEAD' ? 'Ministry Updates' :
+               user.role === 'HOD' ? 'Teaching Schedule' :
                user.role === 'MEMBER' ? 'My Progress' : 'Getting Started'}
             </h2>
           </div>

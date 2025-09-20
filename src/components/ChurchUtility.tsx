@@ -264,17 +264,7 @@ function ScheduleTab() {
 function NotesTab() {
   const [notes, setNotes] = useState('');
   const [savedNotes, setSavedNotes] = useState<string[]>([]);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  // Removed unused isMobile state and related useEffect
 
   const saveNote = () => {
     if (notes.trim()) {

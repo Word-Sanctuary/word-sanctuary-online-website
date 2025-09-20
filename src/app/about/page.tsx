@@ -2,51 +2,9 @@
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import CommunitySection from "@/components/CommunitySection";
-import { Button } from "@/components/ui";
 import Image from "next/image";
-import { useState, useRef, useEffect } from "react";
 
 export default function About() {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [shouldShowReadMore, setShouldShowReadMore] = useState(false);
-  const textRef = useRef<HTMLDivElement>(null);
-  const imageHeight = 602; // Height of the image container
-
-  const fullText = `Pastor Temple embodies a fatherly figure, nurturing nations through Jesus' teachings. As our Good Shepherd, he guides us tirelessly, leading us closer to God. Through his vision, we've seen the birth of Word Sanctuary and Life Class, empowering us with God's Word.
-
-His influence radiates Jesus' love, and his unwavering dedication to God's kingdom inspires countless lives. With a rare anointing, he shapes hearts and minds, bringing people to the knowledge of God's Word. Through his servant-leadership, we've witnessed lives transformed, new relationships formed, broken marriages restored, and the Word of God bringing out the best in people.
-
-His passion for souls is contagious, his love for people unconditional, and his commitment to God's Word unshakeable. His impact not only transforms lives but also foreshadows greater things to come, a true blessing to our generation, an honour to God's kingdom, and a testament to His faithfulness.
-
-Pastor Temple's ministry extends beyond the pulpit, reaching into the hearts of communities worldwide. His teachings have sparked spiritual revivals, established strong foundations for believers, and created lasting change in countless lives. Through his guidance, Word Sanctuary Global has become a beacon of hope and transformation.`;
-
-  const truncatedText = `Pastor Temple embodies a fatherly figure, nurturing nations through Jesus' teachings. As our Good Shepherd, he guides us tirelessly, leading us closer to God. Through his vision, we've seen the birth of Word Sanctuary and Life Class, empowering us with God's Word.
-
-His influence radiates Jesus' love, and his unwavering dedication to God's kingdom inspires countless lives. With a rare anointing, he shapes hearts and minds, bringing people to the knowledge of God's Word.`;
-
-  // Check if content needs truncation based on height
-  useEffect(() => {
-    if (textRef.current) {
-      // Create a temporary element to measure full text height
-      const tempDiv = document.createElement('div');
-      tempDiv.style.position = 'absolute';
-      tempDiv.style.visibility = 'hidden';
-      tempDiv.style.width = textRef.current.offsetWidth + 'px';
-      tempDiv.style.fontSize = '16px';
-      tempDiv.style.lineHeight = 'normal';
-      tempDiv.innerHTML = fullText.split('\n').filter(p => p.trim()).map(p => `<p style="margin-bottom: 16px;">${p}</p>`).join('');
-      
-      document.body.appendChild(tempDiv);
-      const fullHeight = tempDiv.offsetHeight;
-      document.body.removeChild(tempDiv);
-      
-      // Add some buffer for the header and spacing, check if content would overflow
-      const availableTextHeight = imageHeight - 100; // Subtract space for title and button
-      setShouldShowReadMore(fullHeight > availableTextHeight);
-    }
-  }, [fullText]);
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}

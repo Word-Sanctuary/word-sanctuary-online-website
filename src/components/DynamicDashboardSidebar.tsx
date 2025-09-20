@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { User, DashboardConfig, SidebarItem } from '@/types/user';
+import { User, DashboardConfig, SidebarItem, SidebarSection } from '@/types/user';
 import { canAccessRoute } from '@/config/roles';
 import { ReactElement } from 'react';
 
@@ -94,9 +94,7 @@ export default function DynamicDashboardSidebar({ user, config, currentUser }: D
     // Check if current user can access this item
     const canAccess = canAccessRoute(
       currentUser.role,
-      currentUser.permissions,
-      item.requiresPermission,
-      item.roleRestriction
+      item.href
     );
 
     if (!canAccess) {
@@ -133,14 +131,12 @@ export default function DynamicDashboardSidebar({ user, config, currentUser }: D
     );
   };
 
-  const renderSidebarSection = (section: any, index: number) => {
+  const renderSidebarSection = (section: SidebarSection, index: number) => {
     // Filter items based on permissions
     const accessibleItems = section.items.filter((item: SidebarItem) => 
       canAccessRoute(
         currentUser.role,
-        currentUser.permissions,
-        item.requiresPermission,
-        item.roleRestriction
+        item.href
       )
     );
 

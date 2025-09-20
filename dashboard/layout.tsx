@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import DashboardLayout from "@/dashboard/components/DashboardLayout";
+import DashboardLayout from "./components/DashboardLayout";
 import { AuthProvider } from "@/contexts/AuthContext";
 
 export const metadata: Metadata = {

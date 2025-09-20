@@ -13,7 +13,7 @@ interface DynamicDashboardNavbarProps {
 
 export default function DynamicDashboardNavbar({ 
   user, 
-  config, 
+  config: _config, // eslint-disable-line @typescript-eslint/no-unused-vars 
   isViewingOtherUser = false 
 }: DynamicDashboardNavbarProps) {
   const [userMenuOpen, setUserMenuOpen] = useState(false);

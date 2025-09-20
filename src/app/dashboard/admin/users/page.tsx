@@ -31,7 +31,7 @@ export default function AdminUsersPage() {
           email: 'admin@wordsanctuary.com',
           role: 'SUPER_ADMIN',
           status: 'ACTIVE',
-          permissions: ROLE_PERMISSIONS.SUPER_ADMIN.permissions,
+          permissions: ROLE_PERMISSIONS.SUPER_ADMIN,
           dateJoined: new Date('2023-01-01'),
           lastActive: new Date(),
           preferences: {
@@ -45,9 +45,9 @@ export default function AdminUsersPage() {
           id: '2',
           fullName: 'Pastor John Smith',
           email: 'pastor@wordsanctuary.com',
-          role: 'PASTOR',
+          role: 'HEAD_OF_INSTALLATION',
           status: 'ACTIVE',
-          permissions: ROLE_PERMISSIONS.PASTOR.permissions,
+          permissions: ROLE_PERMISSIONS.HEAD_OF_INSTALLATION,
           dateJoined: new Date('2023-02-01'),
           lastActive: new Date(Date.now() - 2 * 60 * 60 * 1000), // 2 hours ago
           preferences: {
@@ -61,9 +61,9 @@ export default function AdminUsersPage() {
           id: '3',
           fullName: 'Teacher Mary Johnson',
           email: 'teacher@wordsanctuary.com',
-          role: 'LIFE_CLASS_TEACHER',
+          role: 'HOD',
           status: 'ACTIVE',
-          permissions: ROLE_PERMISSIONS.LIFE_CLASS_TEACHER.permissions,
+          permissions: ROLE_PERMISSIONS.HOD,
           dateJoined: new Date('2023-03-01'),
           lastActive: new Date(Date.now() - 24 * 60 * 60 * 1000), // 1 day ago
           preferences: {
@@ -77,9 +77,9 @@ export default function AdminUsersPage() {
           id: '4',
           fullName: 'Leader Sarah Wilson',
           email: 'leader@wordsanctuary.com',
-          role: 'LEADER',
+          role: 'SUB_CENTRAL_HEAD',
           status: 'ACTIVE',
-          permissions: ROLE_PERMISSIONS.LEADER.permissions,
+          permissions: ROLE_PERMISSIONS.SUB_CENTRAL_HEAD,
           dateJoined: new Date('2023-04-01'),
           lastActive: new Date(Date.now() - 12 * 60 * 60 * 1000), // 12 hours ago
           preferences: {
@@ -95,7 +95,7 @@ export default function AdminUsersPage() {
           email: 'member@wordsanctuary.com',
           role: 'MEMBER',
           status: 'ACTIVE',
-          permissions: ROLE_PERMISSIONS.MEMBER.permissions,
+          permissions: ROLE_PERMISSIONS.MEMBER,
           dateJoined: new Date('2023-06-01'),
           lastActive: new Date(Date.now() - 3 * 60 * 60 * 1000), // 3 hours ago
           preferences: {
@@ -111,7 +111,7 @@ export default function AdminUsersPage() {
           email: 'visitor@wordsanctuary.com',
           role: 'VISITOR',
           status: 'ACTIVE',
-          permissions: ROLE_PERMISSIONS.VISITOR.permissions,
+          permissions: ROLE_PERMISSIONS.VISITOR,
           dateJoined: new Date('2023-11-01'),
           lastActive: new Date(Date.now() - 30 * 60 * 1000), // 30 minutes ago
           preferences: {
@@ -133,10 +133,9 @@ export default function AdminUsersPage() {
   const getRoleBadgeColor = (role: UserRole) => {
     switch (role) {
       case 'SUPER_ADMIN': return 'bg-red-100 text-red-800';
-      case 'ADMIN': return 'bg-orange-100 text-orange-800';
-      case 'PASTOR': return 'bg-purple-100 text-purple-800';
-      case 'LIFE_CLASS_TEACHER': return 'bg-blue-100 text-blue-800';
-      case 'LEADER': return 'bg-green-100 text-green-800';
+      case 'HEAD_OF_INSTALLATION': return 'bg-orange-100 text-orange-800';
+      case 'SUB_CENTRAL_HEAD': return 'bg-purple-100 text-purple-800';
+      case 'HOD': return 'bg-blue-100 text-blue-800';
       case 'MEMBER': return 'bg-gray-100 text-gray-800';
       case 'VISITOR': return 'bg-blue-100 text-blue-800';
       default: return 'bg-gray-100 text-gray-800';
@@ -172,10 +171,9 @@ export default function AdminUsersPage() {
 
   const roleStats = {
     SUPER_ADMIN: users.filter(u => u.role === 'SUPER_ADMIN').length,
-    ADMIN: users.filter(u => u.role === 'ADMIN').length,
-    PASTOR: users.filter(u => u.role === 'PASTOR').length,
-    LIFE_CLASS_TEACHER: users.filter(u => u.role === 'LIFE_CLASS_TEACHER').length,
-    LEADER: users.filter(u => u.role === 'LEADER').length,
+    HEAD_OF_INSTALLATION: users.filter(u => u.role === 'HEAD_OF_INSTALLATION').length,
+    SUB_CENTRAL_HEAD: users.filter(u => u.role === 'SUB_CENTRAL_HEAD').length,
+    HOD: users.filter(u => u.role === 'HOD').length,
     MEMBER: users.filter(u => u.role === 'MEMBER').length,
     VISITOR: users.filter(u => u.role === 'VISITOR').length,
   };
@@ -185,7 +183,7 @@ export default function AdminUsersPage() {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-2">Access Denied</h1>
-          <p className="text-gray-600">You don't have permission to access this page.</p>
+          <p className="text-gray-600">You don&apos;t have permission to access this page.</p>
         </div>
       </div>
     );

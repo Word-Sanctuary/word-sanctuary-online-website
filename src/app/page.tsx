@@ -2,18 +2,12 @@
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import InstallationCarousel from "@/components/InstallationCarousel";
-import CommunitySection from "@/components/CommunitySection";
 import UpcomingEvents from "@/components/UpcomingEvents";
-import { Button, ActionLink, FeatureCard } from "@/components/ui";
-import { getHeroConfig } from "@/assets/data";
-import Image from "next/image";
+import { FeatureCard } from "@/components/ui";
 
 export default function Home() {
-  // Get hero configuration
-  const heroConfig = getHeroConfig();
-  
-  // Event data for the carousel
+  // Event data for the carousel (commented out as not used)
+  /*
   const events = [
     {
       name: "Ilorin",
@@ -41,6 +35,7 @@ export default function Home() {
       address: "Address in subtext"
     }
   ];
+  */
 
   return (
     <div className="min-h-screen bg-gray-50">

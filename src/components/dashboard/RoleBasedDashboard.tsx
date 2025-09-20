@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { User, UserRole } from '@/types/user';
-import { usePermissionCheck } from '@/middleware/auth-guard';
+// Removed unused usePermissionCheck import
 
 interface DashboardStats {
   upcomingEvents: number;
@@ -418,7 +418,7 @@ function MemberDashboard({ user, stats, loading }: { user: User; stats: Dashboar
 }
 
 // Visitor Dashboard
-function VisitorDashboard({ user, stats, loading }: { user: User; stats: DashboardStats; loading: boolean }) {
+function VisitorDashboard({ user: _user, stats, loading }: { user: User; stats: DashboardStats; loading: boolean }) { // eslint-disable-line @typescript-eslint/no-unused-vars
   return (
     <div className="space-y-8">
       {/* Welcome Section */}
@@ -478,7 +478,7 @@ function VisitorDashboard({ user, stats, loading }: { user: User; stats: Dashboa
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
         <h3 className="text-lg font-semibold text-blue-900 mb-2">New to Word Sanctuary?</h3>
         <p className="text-blue-700 mb-4">
-          We're excited to have you explore our community! As a visitor, you can browse public events, 
+          We&apos;re excited to have you explore our community! As a visitor, you can browse public events, 
           view selected resources, and participate in community discussions.
         </p>
         <div className="flex space-x-4">
@@ -501,7 +501,7 @@ function VisitorDashboard({ user, stats, loading }: { user: User; stats: Dashboa
 }
 
 // Default Dashboard
-function DefaultDashboard({ user, stats, loading }: { user: User; stats: DashboardStats; loading: boolean }) {
+function DefaultDashboard({ user, stats: _stats, loading: _loading }: { user: User; stats: DashboardStats; loading: boolean }) { // eslint-disable-line @typescript-eslint/no-unused-vars
   return (
     <div className="space-y-8">
       <div className="bg-gradient-to-r from-blue-600 to-blue-600 rounded-lg p-6 text-white">

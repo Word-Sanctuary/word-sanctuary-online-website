@@ -2,7 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import { Button, AccountSection, AccountCard } from "@/components/ui";
+// Removed unused imports: Button, AccountSection, AccountCard
 import Image from "next/image";
 import { useState } from "react";
 

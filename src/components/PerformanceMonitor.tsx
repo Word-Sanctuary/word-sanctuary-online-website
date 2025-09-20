@@ -2,6 +2,16 @@
 
 import { useEffect } from 'react';
 
+// Define types for performance entries
+interface LayoutShift extends PerformanceEntry {
+  value: number;
+  hadRecentInput: boolean;
+}
+
+interface PerformanceEventTiming extends PerformanceEntry {
+  processingStart: number;
+}
+
 interface PerformanceMetrics {
   lcp?: number; // Largest Contentful Paint
   fid?: number; // First Input Delay
@@ -23,11 +33,11 @@ export default function PerformanceMonitor() {
             metrics.lcp = entry.startTime;
             break;
           case 'first-input':
-            metrics.fid = (entry as any).processingStart - entry.startTime;
+            metrics.fid = (entry as PerformanceEventTiming).processingStart - entry.startTime;
             break;
           case 'layout-shift':
-            if (!(entry as any).hadRecentInput) {
-              metrics.cls = (metrics.cls || 0) + (entry as any).value;
+            if (!(entry as LayoutShift).hadRecentInput) {
+              metrics.cls = (metrics.cls || 0) + (entry as LayoutShift).value;
             }
             break;
         }
@@ -37,7 +47,7 @@ export default function PerformanceMonitor() {
     // Observe performance entries
     try {
       observer.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] });
-    } catch (e) {
+    } catch {
       // Ignore if not supported
     }
 
