@@ -3,6 +3,7 @@
 import { AssetLogo } from '@/assets';
 import { Button } from '@/components/ui';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Footer() {
   const connectLinks = [
@@ -47,14 +48,15 @@ export default function Footer() {
                 </p>
               </div>
               <div className="flex justify-start mt-16">
-                <Button 
-                  variant="secondary" 
-                  size="lg"
-                  onClick={() => window.open('https://give.wordsanctuaryglobal.com', '_blank')}
-                  className="bg-white text-stone-900 hover:bg-gray-50"
-                >
-                  GIVE NOW
-                </Button>
+                <Link href="/givings">
+                  <Button 
+                    variant="secondary" 
+                    size="lg"
+                    className="bg-white text-stone-900 hover:bg-gray-50"
+                  >
+                    GIVE NOW
+                  </Button>
+                </Link>
               </div>
             </div>
             {/* Decorative illustration background - spans full width and covers lower portion */}
@@ -79,9 +81,11 @@ export default function Footer() {
                   <div className="self-stretch justify-start text-black text-7xl font-normal font-['Anton'] leading-[100px]">Give to Word Sanctuary</div>
                   <div className="self-stretch justify-start text-black text-2xl font-normal font-['Lato'] leading-normal">Your generosity keeps blessing lives, thank you for giving!</div>
                 </div>
-                <div className="w-36 h-14 px-7 py-2.5 bg-white rounded-[100px] inline-flex justify-center items-center gap-2 cursor-pointer hover:bg-gray-50 transition-colors" onClick={() => window.open('https://give.wordsanctuaryglobal.com', '_blank')}>
-                  <div className="justify-center text-black text-base font-extrabold font-['Lato'] tracking-widest">JOIN US</div>
-                </div>
+                <Link href="/givings">
+                  <div className="w-36 h-14 px-7 py-2.5 bg-white rounded-[100px] inline-flex justify-center items-center gap-2 cursor-pointer hover:bg-gray-50 transition-colors">
+                    <div className="justify-center text-black text-base font-extrabold font-['Lato'] tracking-widest">JOIN US</div>
+                  </div>
+                </Link>
               </div>
               {/* People vector image background */}
               <div className="absolute bottom-0 right-0 w-[571px] h-96 opacity-30 pointer-events-none">
