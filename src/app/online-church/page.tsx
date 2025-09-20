@@ -10,10 +10,10 @@ export default function OnlineChurch() {
       <Navbar />
       
       {/* Main Online Church Section - Full height minus navbar */}
-      <div className="h-full md:h-[calc(100vh-80px)] mt-20 flex flex-col md:flex-row">
+      <div className="h-full md:h-[calc(100vh-80px)] mt-16 sm:mt-20 flex flex-col md:flex-row">
         {/* YouTube Video Widget - 2/3 on desktop, full width on mobile */}
-        <div className="flex md:flex-[2] bg-black flex items-center justify-center h-[50vh] md:h-full">
-          <div className="w-full h-full max-w-4xl mx-auto p-4">
+        <div className="flex md:flex-[2] bg-black flex items-center justify-center h-[60vh] sm:h-[65vh] md:h-full">
+          <div className="w-full h-full max-w-4xl mx-auto p-2 sm:p-4">
             <div className="relative w-full h-full rounded-lg overflow-hidden">
               {/* YouTube Video Embed */}
               <iframe
@@ -29,7 +29,7 @@ export default function OnlineChurch() {
         </div>
 
         {/* Church Utility Section - 1/3 on desktop, remaining height on mobile */}
-        <div className="flex md:flex-[1] bg-white relative overflow-hidden flex-1 md:h-full">
+        <div className="flex md:flex-[1] bg-white relative overflow-hidden flex-1 md:h-full min-h-[40vh] sm:min-h-[35vh]">
           <ChurchUtility className="h-full w-full" />
         </div>
       </div>

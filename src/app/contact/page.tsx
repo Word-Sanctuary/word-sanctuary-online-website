@@ -21,33 +21,33 @@ export default function Contact() {
       />
       
       {/* Contact Form Section */}
-      <section className="w-full bg-white p-4 sm:p-6 md:p-8 lg:p-12">
+      <section className="w-full bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-12 lg:px-12 lg:py-16">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col justify-start items-center gap-8 sm:gap-12 lg:gap-16">
+          <div className="flex flex-col justify-start items-center gap-6 sm:gap-8 md:gap-12 lg:gap-16">
             {/* Header */}
             <div className="flex flex-col justify-start items-center gap-4 sm:gap-6">
-              <div className="h-8 sm:h-10 px-4 sm:px-6 py-2 sm:py-2.5 bg-zinc-200 rounded-full backdrop-blur-sm inline-flex justify-center items-center gap-4">
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#001856' }} />
-                <div className="justify-center text-[10px] font-bold tracking-wide" style={{ color: '#001856' }}>CONTACT US</div>
+              <div className="h-8 sm:h-10 px-4 sm:px-6 py-2 sm:py-2.5 bg-zinc-200 rounded-full backdrop-blur-sm inline-flex justify-center items-center gap-3 sm:gap-4">
+                <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full" style={{ backgroundColor: '#001856' }} />
+                <div className="justify-center text-[9px] sm:text-[10px] font-bold tracking-wide" style={{ color: '#001856' }}>CONTACT US</div>
               </div>
-              <div className="text-center justify-center text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal uppercase leading-tight font-anton">We&apos;d Love to Hear From You</div>
-              <div className="text-center justify-center max-w-2xl">
-                <span className="text-stone-500 text-sm sm:text-base font-normal leading-tight">Whether you have a question, need prayer, or just want to connect — </span>
-                <span className="text-stone-500 text-sm sm:text-base font-bold leading-tight">We&apos;re here for you.</span>
+              <div className="text-center justify-center text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-normal uppercase leading-tight font-anton px-2">We&apos;d Love to Hear From You</div>
+              <div className="text-center justify-center max-w-2xl px-4">
+                <span className="text-stone-500 text-sm sm:text-base font-normal leading-relaxed">Whether you have a question, need prayer, or just want to connect — </span>
+                <span className="text-stone-500 text-sm sm:text-base font-bold leading-relaxed">We&apos;re here for you.</span>
               </div>
             </div>
             
             {/* Contact Form */}
-            <div className="w-full max-w-4xl flex flex-col justify-start items-center gap-6 sm:gap-8 lg:gap-10">
-              <div className="w-full flex flex-col justify-start items-center gap-4 sm:gap-6">
+            <div className="w-full max-w-4xl flex flex-col justify-start items-center gap-4 sm:gap-6 md:gap-8 lg:gap-10">
+              <div className="w-full flex flex-col justify-start items-center gap-3 sm:gap-4 md:gap-6">
                 {/* First Row - Name and Email */}
-                <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
                   <div className="flex flex-col justify-start items-start gap-1.5">
                     <label className="text-slate-700 text-sm sm:text-base font-medium leading-tight">Full name</label>
                     <input 
                       type="text" 
                       placeholder="Enter your full name"
-                      className="w-full h-11 sm:h-12 px-3.5 py-2.5 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm sm:text-base placeholder-gray-500 focus:ring-2 focus:border-transparent outline-none transition-colors"
+                      className="w-full h-10 sm:h-11 md:h-12 px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm sm:text-base placeholder-gray-500 focus:ring-2 focus:border-transparent outline-none transition-colors"
                       style={{ '--tw-ring-color': '#001856' } as React.CSSProperties}
                     />
                   </div>
@@ -56,20 +56,20 @@ export default function Contact() {
                     <input 
                       type="email" 
                       placeholder="Enter your email address"
-                      className="w-full h-11 sm:h-12 px-3.5 py-2.5 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm sm:text-base placeholder-gray-500 focus:ring-2 focus:border-transparent outline-none transition-colors"
+                      className="w-full h-10 sm:h-11 md:h-12 px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm sm:text-base placeholder-gray-500 focus:ring-2 focus:border-transparent outline-none transition-colors"
                       style={{ '--tw-ring-color': '#001856' } as React.CSSProperties}
                     />
                   </div>
                 </div>
                 
                 {/* Second Row - Phone and Location */}
-                <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
                   <div className="flex flex-col justify-start items-start gap-1.5">
                     <label className="text-slate-700 text-sm sm:text-base font-medium leading-tight">Phone Number</label>
                     <input 
                       type="tel" 
                       placeholder="Enter your phone number"
-                      className="w-full h-11 sm:h-12 px-3.5 py-2.5 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm sm:text-base placeholder-gray-500 focus:ring-2 focus:border-transparent outline-none transition-colors"
+                      className="w-full h-10 sm:h-11 md:h-12 px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm sm:text-base placeholder-gray-500 focus:ring-2 focus:border-transparent outline-none transition-colors"
                       style={{ '--tw-ring-color': '#001856' } as React.CSSProperties}
                     />
                   </div>
@@ -78,7 +78,7 @@ export default function Contact() {
                     <input 
                       type="text" 
                       placeholder="Enter your location"
-                      className="w-full h-11 sm:h-12 px-3.5 py-2.5 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm sm:text-base placeholder-gray-500 focus:ring-2 focus:border-transparent outline-none transition-colors"
+                      className="w-full h-10 sm:h-11 md:h-12 px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm sm:text-base placeholder-gray-500 focus:ring-2 focus:border-transparent outline-none transition-colors"
                       style={{ '--tw-ring-color': '#001856' } as React.CSSProperties}
                     />
                   </div>
@@ -87,7 +87,7 @@ export default function Contact() {
                 {/* Third Row - Service Type */}
                 <div className="w-full flex flex-col justify-start items-start gap-1.5">
                   <label className="text-slate-700 text-sm sm:text-base font-medium leading-tight">What would you have us do for you?</label>
-                  <select className="w-full h-11 sm:h-12 px-3.5 py-2.5 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm sm:text-base focus:ring-2 focus:border-transparent outline-none transition-colors bg-white" style={{ '--tw-ring-color': '#001856' } as React.CSSProperties}>
+                  <select className="w-full h-10 sm:h-11 md:h-12 px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm sm:text-base focus:ring-2 focus:border-transparent outline-none transition-colors bg-white" style={{ '--tw-ring-color': '#001856' } as React.CSSProperties}>
                     <option value="">Select a service...</option>
                     <option value="prayer">Prayer</option>
                     <option value="direction">Direction</option>
@@ -101,8 +101,8 @@ export default function Contact() {
                   <label className="text-slate-700 text-sm sm:text-base font-medium leading-tight">Message</label>
                   <textarea 
                     placeholder="Your message..."
-                    rows={6}
-                    className="w-full px-3.5 py-3 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm sm:text-base placeholder-gray-500 focus:ring-2 focus:border-transparent outline-none transition-colors resize-none"
+                    rows={5}
+                    className="w-full px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm sm:text-base placeholder-gray-500 focus:ring-2 focus:border-transparent outline-none transition-colors resize-none"
                     style={{ '--tw-ring-color': '#001856' } as React.CSSProperties}
                   ></textarea>
                   <div className="text-slate-600 text-xs sm:text-sm font-normal leading-tight">This is a hint text to help user.</div>
@@ -123,18 +123,18 @@ export default function Contact() {
       </section>
       
       {/* Join Us Today Section */}
-      <section className="w-full bg-white p-4 sm:p-6 md:p-8 lg:p-12">
+      <section className="w-full bg-white px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-12 lg:px-12 lg:py-16">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col justify-start items-center gap-8 sm:gap-12">
+          <div className="flex flex-col justify-start items-center gap-6 sm:gap-8 md:gap-12">
             {/* Header */}
             <div className="text-center">
-              <h2 className="text-black text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-wide">
+              <h2 className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-wide px-2">
                 JOIN US TODAY
               </h2>
             </div>
             
             {/* Cards Grid */}
-            <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+            <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
               {/* Join Our Workforce Card */}
               <div className="relative group cursor-pointer h-48 sm:h-56 lg:h-64 rounded-2xl overflow-hidden bg-zinc-700">
                 {/* Background Image */}
@@ -190,14 +190,14 @@ export default function Contact() {
       </section>
       
       {/* Key Contacts Section */}
-      <section className="w-full bg-gray-50 p-4 sm:p-6 md:p-8 lg:p-12">
+      <section className="w-full bg-gray-50 px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-12 lg:px-12 lg:py-16">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col justify-start items-center gap-8 sm:gap-12">
+          <div className="flex flex-col justify-start items-center gap-6 sm:gap-8 md:gap-12">
             {/* Section Title */}
-            <div className="text-black text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-wide">KEY CONTACTS</div>
+            <div className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-wide text-center px-2">KEY CONTACTS</div>
             
             {/* Google Map */}
-            <div className="w-full h-96 sm:h-[500px] lg:h-[600px] xl:h-[700px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 mb-8 sm:mb-12">
+            <div className="w-full h-80 sm:h-96 md:h-[500px] lg:h-[600px] xl:h-[700px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 mb-6 sm:mb-8 md:mb-12">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.123456789!2d4.5!3d8.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwMzAnMDAuMCJOIDTCsDMwJzAwLjAiRQ!5e0!3m2!1sen!2sng!4v1234567890"
                 width="100%"
@@ -211,7 +211,7 @@ export default function Contact() {
             </div>
             
             {/* Contact Cards */}
-            <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                   {/* Phone Card */}
                   <div className="relative rounded-2xl p-4 sm:p-6 lg:p-8 min-h-32 sm:min-h-36 lg:min-h-40 flex flex-col justify-between shadow-xl" style={{ backgroundColor: '#001856' }}>
                     {/* Icon */}
