@@ -7,9 +7,9 @@ import { UserRole } from '@/types/user';
 import { hasPermission } from '@/config/roles';
 
 interface UserDashboardProps {
-  params: {
+  params: Promise<{
     userId: string;
-  };
+  }>;
 }
 
 // Mock user data - in real app this would come from API
@@ -82,8 +82,18 @@ export default function UserDashboard({ params }: UserDashboardProps) {
   const [targetUser, setTargetUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [userId, setUserId] = useState<string | null>(null);
 
   useEffect(() => {
+    // Extract userId from params promise
+    params.then(({ userId }) => {
+      setUserId(userId);
+    });
+  }, [params]);
+
+  useEffect(() => {
+    if (!userId) return;
+
     // Check if current user has permission to view other users
     if (!currentUser) {
       router.push('/signin');
@@ -91,7 +101,7 @@ export default function UserDashboard({ params }: UserDashboardProps) {
     }
 
     // Get target user data
-    const userData = mockUsers[params.userId as keyof typeof mockUsers];
+    const userData = mockUsers[userId as keyof typeof mockUsers];
     
     if (!userData) {
       setError('User not found');
@@ -101,7 +111,7 @@ export default function UserDashboard({ params }: UserDashboardProps) {
 
     // Check if current user can view this user's profile
     const canViewUser = 
-      currentUser.id === params.userId || // Own profile
+      currentUser.id === userId || // Own profile
       hasPermission(currentUser.role, 'manage_users') || // Admin permissions
       (hasPermission(currentUser.role, 'view_member_directory') && 
        (currentUser.installation?.name === userData.installation || 
@@ -115,12 +125,12 @@ export default function UserDashboard({ params }: UserDashboardProps) {
 
     setTargetUser(userData);
     setLoading(false);
-  }, [currentUser, params.userId, router]);
+  }, [currentUser, userId, router]);
 
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2" style={{ borderBottomColor: '#001856' }}></div>
       </div>
     );
   }
@@ -131,7 +141,7 @@ export default function UserDashboard({ params }: UserDashboardProps) {
         <div className="text-red-600 text-xl mb-4">{error}</div>
         <button
           onClick={() => router.back()}
-          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          className="px-4 py-2 text-white rounded hover:opacity-90"
         >
           Go Back
         </button>
@@ -139,7 +149,7 @@ export default function UserDashboard({ params }: UserDashboardProps) {
     );
   }
 
-  const isOwnProfile = currentUser?.id === params.userId;
+  const isOwnProfile = currentUser?.id === userId;
   const canEditUser = hasPermission(currentUser?.role || 'VISITOR', 'manage_users');
 
   return (
@@ -148,7 +158,7 @@ export default function UserDashboard({ params }: UserDashboardProps) {
       <div className="bg-white rounded-lg shadow-md p-6 mb-6">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-4">
-            <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-xl font-bold">
+            <div className="w-16 h-16 rounded-full flex items-center justify-center text-white text-xl font-bold" style={{ backgroundColor: '#001856' }}>
               {targetUser.name.split(' ').map((n: string) => n[0]).join('')}
             </div>
             <div>
@@ -167,7 +177,7 @@ export default function UserDashboard({ params }: UserDashboardProps) {
             </div>
           </div>
           {(isOwnProfile || canEditUser) && (
-            <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+            <button className="px-4 py-2 text-white rounded hover:opacity-90" style={{ backgroundColor: '#001856' }}>
               {isOwnProfile ? 'Edit Profile' : 'Edit User'}
             </button>
           )}
@@ -280,7 +290,7 @@ export default function UserDashboard({ params }: UserDashboardProps) {
         <h2 className="text-lg font-semibold text-gray-900 mb-4">Recent Activity</h2>
         <div className="space-y-3">
           <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded">
-            <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+            <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#001856' }}></div>
             <div>
               <p className="text-sm text-gray-900">Attended Sunday Service</p>
               <p className="text-xs text-gray-500">2 days ago</p>

@@ -114,12 +114,13 @@ export default function DynamicDashboardSidebar({ user, config, currentUser }: D
         className={`
           flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors
           ${isActive 
-            ? 'bg-sky-100 text-sky-900 border border-sky-200' 
+            ? 'border' 
             : 'text-gray-700 hover:bg-gray-100'
           }
         `}
+        style={isActive ? { backgroundColor: 'rgba(0, 24, 86, 0.1)', borderColor: '#001856', color: '#001856' } : {}}
       >
-        <span className={isActive ? 'text-sky-900' : 'text-gray-500'}>
+        <span className={isActive ? '' : 'text-gray-500'} style={isActive ? { color: '#001856' } : {}}>
           {icon}
         </span>
         <span className="flex-1">{item.label}</span>
@@ -189,10 +190,10 @@ export default function DynamicDashboardSidebar({ user, config, currentUser }: D
         <nav className="p-4 space-y-6">
           {/* User role indicator */}
           <div className="px-3 py-2 bg-gradient-to-r from-sky-50 to-sky-100 rounded-lg border border-sky-200">
-            <p className="text-xs font-medium text-sky-700 uppercase tracking-wider">
+            <p className="text-xs font-medium uppercase tracking-wider" style={{ color: '#001856' }}>
               {user.role.replace(/_/g, ' ')}
             </p>
-            <p className="text-sm text-sky-900 font-medium mt-1">
+            <p className="text-sm font-medium mt-1" style={{ color: '#001856' }}>
               {user.fullName}
             </p>
           </div>

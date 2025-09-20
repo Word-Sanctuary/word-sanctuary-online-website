@@ -118,15 +118,15 @@ export default function SignUp() {
                         <div key={step} className="flex items-center">
                           <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium ${
                             currentStep >= step 
-                              ? 'bg-sky-900 text-white' 
+                              ? 'text-white' 
                               : 'bg-gray-200 text-gray-500'
-                          }`}>
+                          }`} style={currentStep >= step ? { backgroundColor: '#001856' } : {}}>
                             {step}
                           </div>
                           {step < totalSteps && (
                             <div className={`w-8 h-0.5 mx-1 ${
-                              currentStep > step ? 'bg-sky-900' : 'bg-gray-200'
-                            }`} />
+                              currentStep > step ? '' : 'bg-gray-200'
+                            }`} style={currentStep > step ? { backgroundColor: '#001856' } : {}} />
                           )}
                         </div>
                       ))}
@@ -157,7 +157,8 @@ export default function SignUp() {
                           onChange={handleInputChange}
                           required
                           placeholder="Enter your full name"
-                          className="w-full h-10 px-3 py-2 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal placeholder-gray-500 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-200"
+                          className="w-full h-10 px-3 py-2 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal placeholder-gray-500 focus:ring-2 focus:border-transparent outline-none transition-all duration-200"
+                          style={{ '--tw-ring-color': '#001856' } as React.CSSProperties}
                         />
                       </div>
                       
@@ -171,7 +172,8 @@ export default function SignUp() {
                           value={formData.gender}
                           onChange={handleInputChange}
                           required
-                          className="w-full h-10 px-3 py-2 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-200"
+                          className="w-full h-10 px-3 py-2 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal focus:ring-2 focus:border-transparent outline-none transition-all duration-200"
+                          style={{ '--tw-ring-color': '#001856' } as React.CSSProperties}
                         >
                           <option value="">Select gender</option>
                           <option value="male">Male</option>
@@ -190,7 +192,8 @@ export default function SignUp() {
                           value={formData.dateOfBirth}
                           onChange={handleInputChange}
                           required
-                          className="w-full h-10 px-3 py-2 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-200"
+                          className="w-full h-10 px-3 py-2 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal focus:ring-2 focus:border-transparent outline-none transition-all duration-200"
+                          style={{ '--tw-ring-color': '#001856' } as React.CSSProperties}
                         />
                       </div>
                       
@@ -206,7 +209,8 @@ export default function SignUp() {
                           onChange={handleInputChange}
                           required
                           placeholder="Enter your phone number"
-                          className="w-full h-10 px-3 py-2 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal placeholder-gray-500 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-200"
+                          className="w-full h-10 px-3 py-2 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal placeholder-gray-500 focus:ring-2 focus:border-transparent outline-none transition-all duration-200"
+                          style={{ '--tw-ring-color': '#001856' } as React.CSSProperties}
                         />
                       </div>
                       
@@ -222,7 +226,8 @@ export default function SignUp() {
                           required
                           rows={2}
                           placeholder="Enter your home address"
-                          className="w-full px-3 py-2 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal placeholder-gray-500 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-200 resize-none"
+                          className="w-full px-3 py-2 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal placeholder-gray-500 focus:ring-2 focus:border-transparent outline-none transition-all duration-200 resize-none"
+                          style={{ '--tw-ring-color': '#001856' } as React.CSSProperties}
                         />
                       </div>
                       
@@ -234,7 +239,7 @@ export default function SignUp() {
                           variant="primary"
                           size="lg"
                           fullWidth
-                          className="h-10 bg-sky-900 hover:bg-sky-800 text-sm"
+                          className="h-10 hover:opacity-90 text-sm"
                           disabled={!formData.fullName || !formData.gender || !formData.dateOfBirth || !formData.phoneNumber || !formData.homeAddress}
                         >
                           Continue
@@ -260,7 +265,8 @@ export default function SignUp() {
                           onChange={handleInputChange}
                           required
                           placeholder="Enter your life class teacher's name"
-                          className="w-full h-10 px-3 py-2 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal placeholder-gray-500 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-200"
+                          className="w-full h-10 px-3 py-2 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal placeholder-gray-500 focus:ring-2 focus:border-transparent outline-none transition-all duration-200"
+                          style={{ '--tw-ring-color': '#001856' } as React.CSSProperties}
                         />
                       </div>
                       
@@ -277,7 +283,8 @@ export default function SignUp() {
                                   type="checkbox"
                                   checked={formData.lifeClassTopics.includes(topic)}
                                   onChange={(e) => handleTopicChange(topic, e.target.checked)}
-                                  className="w-3.5 h-3.5 text-sky-900 bg-white border-gray-300 rounded focus:ring-sky-500 focus:ring-1"
+                                  className="w-3.5 h-3.5 bg-white border-gray-300 rounded focus:ring-1"
+                                  style={{ '--tw-ring-color': '#001856' } as React.CSSProperties}
                                 />
                                 <span className="text-sm text-gray-700 font-lato">{topic}</span>
                               </label>
@@ -306,7 +313,7 @@ export default function SignUp() {
                           size="lg"
                           disabled={isSubmitting || !formData.lifeClassTeacher || formData.lifeClassTopics.length === 0}
                           isLoading={isSubmitting}
-                          className="flex-1 h-10 bg-sky-900 hover:bg-sky-800 text-sm"
+                          className="flex-1 h-10 hover:opacity-90 text-sm"
                         >
                           {isSubmitting ? "Creating Account..." : "Complete Registration"}
                         </Button>

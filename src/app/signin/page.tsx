@@ -140,15 +140,15 @@ export default function SignIn() {
                         <div key={step} className="flex items-center">
                           <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium ${
                             currentStep >= step 
-                              ? 'bg-sky-900 text-white' 
+                              ? 'text-white' 
                               : 'bg-gray-200 text-gray-500'
-                          }`}>
+                          }`} style={currentStep >= step ? { backgroundColor: '#001856' } : {}}>
                             {step}
                           </div>
                           {step < totalSteps && (
                             <div className={`w-8 h-0.5 mx-1 ${
-                              currentStep > step ? 'bg-sky-900' : 'bg-gray-200'
-                            }`} />
+                              currentStep > step ? '' : 'bg-gray-200'
+                            }`} style={currentStep > step ? { backgroundColor: '#001856' } : {}} />
                           )}
                         </div>
                       ))}
@@ -191,7 +191,8 @@ export default function SignIn() {
                           onChange={handleInputChange}
                           required
                           placeholder="Enter your email address"
-                          className="w-full h-10 px-3 py-2 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal placeholder-gray-500 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-200"
+                          className="w-full h-10 px-3 py-2 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal placeholder-gray-500 focus:ring-2 focus:border-transparent outline-none transition-all duration-200"
+                          style={{ '--tw-ring-color': '#001856' } as React.CSSProperties}
                         />
                       </div>
                       
@@ -202,7 +203,7 @@ export default function SignIn() {
                           variant="primary"
                           size="lg"
                           fullWidth
-                          className="h-10 bg-sky-900 hover:bg-sky-800 text-sm"
+                          className="h-10 hover:opacity-90 text-sm"
                           disabled={!formData.email || isSubmitting}
                           isLoading={isSubmitting}
                         >
@@ -236,7 +237,8 @@ export default function SignIn() {
                           required
                           placeholder="Enter 6-digit code"
                           maxLength={6}
-                          className="w-full h-10 px-3 py-2 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal placeholder-gray-500 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-200 text-center tracking-widest"
+                          className="w-full h-10 px-3 py-2 rounded-lg shadow-sm border border-gray-300 text-gray-900 text-sm font-normal font-lato leading-normal placeholder-gray-500 focus:ring-2 focus:border-transparent outline-none transition-all duration-200 text-center tracking-widest"
+                          style={{ '--tw-ring-color': '#001856' } as React.CSSProperties}
                         />
                       </div>
 
@@ -246,7 +248,8 @@ export default function SignIn() {
                           type="button"
                           onClick={handleResendOTP}
                           disabled={isSubmitting}
-                          className="text-sky-600 hover:text-sky-500 text-sm font-medium font-lato underline"
+                          className="text-sm font-medium font-lato underline"
+                          style={{ color: '#001856' }}
                         >
                           Didn't receive code? Resend OTP
                         </button>
@@ -269,7 +272,7 @@ export default function SignIn() {
                           size="lg"
                           disabled={isSubmitting || !formData.otp}
                           isLoading={isSubmitting}
-                          className="flex-1 h-10 bg-sky-900 hover:bg-sky-800 text-sm"
+                          className="flex-1 h-10 hover:opacity-90 text-sm"
                         >
                           {isSubmitting ? "Verifying..." : "Sign In"}
                         </Button>
@@ -282,7 +285,7 @@ export default function SignIn() {
                 <div className="w-full text-center pt-4">
                   <p className="text-slate-600 text-sm font-normal font-lato leading-normal">
                     Don't have an account?{' '}
-                    <a href="/signup" className="text-sky-600 hover:text-sky-500 font-medium underline">
+                    <a href="/signup" className="font-medium underline" style={{ color: '#001856' }}>
                       Join our community
                     </a>
                   </p>

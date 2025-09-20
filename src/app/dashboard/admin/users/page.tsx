@@ -138,7 +138,7 @@ export default function AdminUsersPage() {
       case 'LIFE_CLASS_TEACHER': return 'bg-blue-100 text-blue-800';
       case 'LEADER': return 'bg-green-100 text-green-800';
       case 'MEMBER': return 'bg-gray-100 text-gray-800';
-      case 'VISITOR': return 'bg-sky-100 text-sky-800';
+      case 'VISITOR': return 'bg-blue-100 text-blue-800';
       default: return 'bg-gray-100 text-gray-800';
     }
   };
@@ -216,7 +216,8 @@ export default function AdminUsersPage() {
           <select
             value={selectedRole}
             onChange={(e) => setSelectedRole(e.target.value as UserRole | 'ALL')}
-            className="px-3 py-1 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
+            className="px-3 py-1 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:border-transparent"
+            style={{ '--tw-ring-color': '#001856' } as React.CSSProperties}
           >
             <option value="ALL">All Roles</option>
             <option value="SUPER_ADMIN">Super Admin</option>
@@ -238,7 +239,7 @@ export default function AdminUsersPage() {
         
         {isLoading ? (
           <div className="p-8 text-center">
-            <div className="w-8 h-8 border-2 border-sky-200 border-t-sky-900 rounded-full animate-spin mx-auto mb-4"></div>
+            <div className="w-8 h-8 border-2 border-gray-200 rounded-full animate-spin mx-auto mb-4" style={{ borderTopColor: '#001856' }}></div>
             <p className="text-gray-600">Loading users...</p>
           </div>
         ) : (
@@ -260,7 +261,7 @@ export default function AdminUsersPage() {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
                         <div className="w-10 h-10 bg-sky-100 rounded-full flex items-center justify-center">
-                          <span className="text-sky-900 text-sm font-medium">
+                          <span className="text-sm font-medium" style={{ color: '#001856' }}>
                             {user.fullName.split(' ').map(n => n[0]).join('').toUpperCase()}
                           </span>
                         </div>
@@ -290,7 +291,8 @@ export default function AdminUsersPage() {
                       <div className="flex items-center gap-2">
                         <a
                           href={`/dashboard/${user.id}`}
-                          className="text-sky-600 hover:text-sky-900 font-medium"
+                          className="font-medium"
+                          style={{ color: '#001856' }}
                         >
                           View Dashboard
                         </a>

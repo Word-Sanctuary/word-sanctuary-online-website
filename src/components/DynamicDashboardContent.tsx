@@ -201,9 +201,9 @@ export default function DynamicDashboardContent({ user, config, currentUser }: D
   if (isLoading) {
     return (
       <div className="max-w-7xl mx-auto space-y-6">
-        <div className="bg-gradient-to-r from-sky-900 to-sky-700 rounded-xl p-6 text-white animate-pulse">
-          <div className="h-8 bg-sky-600 rounded w-1/3 mb-2"></div>
-          <div className="h-4 bg-sky-600 rounded w-1/2"></div>
+        <div className="bg-gradient-to-r from-blue-900 to-blue-700 rounded-xl p-6 text-white animate-pulse">
+          <div className="h-8 bg-blue-600 rounded w-1/3 mb-2"></div>
+          <div className="h-4 bg-blue-600 rounded w-1/2"></div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[1, 2, 3, 4].map((i) => (
@@ -222,7 +222,7 @@ export default function DynamicDashboardContent({ user, config, currentUser }: D
   return (
     <div className="max-w-7xl mx-auto space-y-6">
       {/* Welcome Header */}
-      <div className="bg-gradient-to-r from-sky-900 to-sky-700 rounded-xl p-6 text-white">
+      <div className="bg-gradient-to-r from-blue-900 to-blue-700 rounded-xl p-6 text-white">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl md:text-3xl font-bold font-anton mb-2">

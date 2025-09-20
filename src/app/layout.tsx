@@ -36,6 +36,10 @@ export const metadata: Metadata = {
   title: "Word Sanctuary Global - Your Digital Sanctuary for Words",
   description:
     "Welcome to Word Sanctuary Global - a peaceful space where language comes alive and stories find their home. Connect, fellowship, and grow with us.",
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({

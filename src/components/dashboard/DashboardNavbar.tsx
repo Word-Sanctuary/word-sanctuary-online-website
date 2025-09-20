@@ -19,7 +19,7 @@ export default function DashboardNavbar({ user }: DashboardNavbarProps) {
       case 'SUB_CENTRAL_HEAD': return 'bg-blue-500';
       case 'HOD': return 'bg-green-500';
       case 'MEMBER': return 'bg-gray-500';
-      case 'VISITOR': return 'bg-sky-500';
+      case 'VISITOR': return 'bg-blue-500';
       default: return 'bg-gray-500';
     }
   };
@@ -29,7 +29,7 @@ export default function DashboardNavbar({ user }: DashboardNavbarProps) {
   };
 
   return (
-    <div className="w-full px-6 md:px-8 bg-sky-900/95 backdrop-blur-md flex justify-between items-center fixed top-0 z-50 h-16 border-b border-white/10 shadow-lg shadow-sky-900/20">
+    <div className="w-full px-6 md:px-8 backdrop-blur-md flex justify-between items-center fixed top-0 z-50 h-16 border-b border-white/10 shadow-lg" style={{ backgroundColor: 'rgba(0, 24, 86, 0.95)', boxShadow: '0 10px 15px -3px rgba(0, 24, 86, 0.2)' }}>
       {/* Logo */}
       <Link href="/" className="transition-transform duration-300 hover:scale-105">
         <div className="w-28 h-10">

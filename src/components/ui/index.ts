@@ -1,5 +1,10 @@
 export { default as Button } from './Button';
 export { default as ActionLink } from './ActionLink';
 export { default as OptimizedImage } from './OptimizedImage';
+export { default as CarouselNavButton } from './CarouselNavButton';
+export { default as EventCard } from './EventCard';
+export { default as FeatureCard } from './FeatureCard';
+export { default as AccountCard } from './AccountCard';
+export { default as AccountSection } from './AccountSection';
 export type { ButtonProps } from './Button';
 export type { ActionLinkProps } from './ActionLink';

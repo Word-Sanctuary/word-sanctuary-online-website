@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import { Button } from '@/components/ui';
+import CarouselNavButton from '@/components/ui/CarouselNavButton';
 import Image from 'next/image';
 
 interface HeroProps {
@@ -9,7 +10,7 @@ interface HeroProps {
     text: string;
     showDot?: boolean;
   };
-  title: {
+  title?: {
     primary: string;
     secondary?: string;
   };
@@ -19,6 +20,8 @@ interface HeroProps {
   };
   useCarousel?: boolean;
   backgroundImages?: string[];
+  staticImage?: string;
+  showNavigation?: boolean;
 }
 
 const Hero: React.FC<HeroProps> = ({
@@ -26,7 +29,9 @@ const Hero: React.FC<HeroProps> = ({
   title,
   ctaButton,
   useCarousel = false,
-  backgroundImages = []
+  backgroundImages = [],
+  staticImage,
+  showNavigation = false
 }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -49,6 +54,29 @@ const Hero: React.FC<HeroProps> = ({
 
   // Optimized transition function
   const handleTransition = useCallback(() => {
+    if (!useCarousel || carouselImages.length <= 1 || isTransitioning) return;
+    
+    setIsTransitioning(true);
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
+    
+    // Reset transition flag after transition completes
+    setTimeout(() => setIsTransitioning(false), 2000);
+  }, [useCarousel, carouselImages.length, isTransitioning]);
+
+  // Navigation functions
+  const goToPrevious = useCallback(() => {
+    if (!useCarousel || carouselImages.length <= 1 || isTransitioning) return;
+    
+    setIsTransitioning(true);
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === 0 ? carouselImages.length - 1 : prevIndex - 1
+    );
+    
+    // Reset transition flag after transition completes
+    setTimeout(() => setIsTransitioning(false), 2000);
+  }, [useCarousel, carouselImages.length, isTransitioning]);
+
+  const goToNext = useCallback(() => {
     if (!useCarousel || carouselImages.length <= 1 || isTransitioning) return;
     
     setIsTransitioning(true);
@@ -81,6 +109,29 @@ const Hero: React.FC<HeroProps> = ({
 
   return (
     <section className="relative min-h-screen flex items-end justify-center pb-16 pt-20 overflow-hidden">
+      {/* Navigation Buttons */}
+      {useCarousel && carouselImages.length > 1 && showNavigation && (
+        <>
+          {/* Previous Button */}
+          <div className="absolute left-4 md:left-8 top-1/2 transform -translate-y-1/2 z-30">
+            <CarouselNavButton
+              direction="left"
+              onClick={goToPrevious}
+              disabled={isTransitioning}
+            />
+          </div>
+          
+          {/* Next Button */}
+          <div className="absolute right-4 md:right-8 top-1/2 transform -translate-y-1/2 z-30">
+            <CarouselNavButton
+              direction="right"
+              onClick={goToNext}
+              disabled={isTransitioning}
+            />
+          </div>
+        </>
+      )}
+
       {/* Background Images Carousel */}
       {useCarousel && carouselImages.length > 0 ? (
         <div className="absolute inset-0" style={{ contain: 'layout style paint' }}>
@@ -111,13 +162,28 @@ const Hero: React.FC<HeroProps> = ({
             </div>
           ))}
         </div>
+      ) : staticImage ? (
+        // Static background image
+        <div className="absolute inset-0">
+          <Image
+            src={staticImage}
+            alt="Hero background"
+            fill
+            className="object-cover"
+            priority
+            quality={75}
+            sizes="100vw"
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyaKex8MRXYBZkRZdehAVBp5JjM3AxyCLCnpGNGFsO4TrUNJ9nLxwwFzYFYq5LqEKkmCWJC5D8vWgS2lLwFqIZV/9k="
+          />
+        </div>
       ) : (
         // Fallback gradient background
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-sky-800 to-blue-700"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700"></div>
       )}
 
       {/* Background overlay for better text readability - using navbar primary color */}
-      <div className="absolute inset-0 bg-sky-900/60"></div>
+      <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0, 24, 86, 0.6)' }}></div>
 
       {/* Background pattern effect */}
       <div className="absolute inset-0 opacity-20">
@@ -130,7 +196,7 @@ const Hero: React.FC<HeroProps> = ({
           {/* Badge */}
           {badge && (
             <div className="h-10 px-6 py-2.5 bg-white/40 rounded-full outline outline-1 outline-offset-[-1px] outline-white backdrop-blur-sm inline-flex justify-center items-center gap-4">
-              {badge.showDot && <div className="w-2 h-2 bg-sky-900 rounded-full" />}
+              {badge.showDot && <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#001856' }} />}
               <div className="justify-center text-white text-xs font-bold tracking-wide font-lato">
                 {badge.text}
               </div>
@@ -138,16 +204,18 @@ const Hero: React.FC<HeroProps> = ({
           )}
 
           {/* Main Heading */}
-          <div className="text-center justify-center max-w-4xl">
-            <span className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight block font-anton">
-              {title.primary}
-            </span>
-            {title.secondary && (
-              <span className="text-sky-400 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight block font-anton">
-                {title.secondary}
+          {title && (
+            <div className="text-center justify-center max-w-4xl">
+              <span className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight block font-anton">
+                {title.primary}
               </span>
-            )}
-          </div>
+              {title.secondary && (
+                <span className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight block font-anton" style={{ color: '#60a5fa' }}>
+                  {title.secondary}
+                </span>
+              )}
+            </div>
+          )}
         </div>
 
         {/* CTA Button */}

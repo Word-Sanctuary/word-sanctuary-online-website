@@ -19,7 +19,7 @@ export default function DashboardNavbar({ user }: DashboardNavbarProps) {
       case 'SUB_CENTRAL_HEAD': return 'bg-blue-500';
       case 'HOD': return 'bg-green-500';
       case 'MEMBER': return 'bg-gray-500';
-      case 'VISITOR': return 'bg-sky-500';
+      case 'VISITOR': return 'bg-blue-500';
       default: return 'bg-gray-500';
     }
   };

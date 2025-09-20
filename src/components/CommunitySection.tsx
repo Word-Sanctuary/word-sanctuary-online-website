@@ -35,13 +35,13 @@ export default function CommunitySection({ cards = defaultCards }: CommunitySect
       <div className="self-stretch flex flex-col justify-start items-center gap-8 sm:gap-10 md:gap-12">
         <div className="self-stretch flex flex-col justify-start items-center gap-6 sm:gap-7 md:gap-8">
           <div className="h-8 sm:h-10 px-4 sm:px-6 py-2 sm:py-2.5 bg-slate-300 rounded-[100px] backdrop-blur-[2px] inline-flex justify-center items-center gap-3 sm:gap-4">
-            <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-sky-900 rounded-full" />
-            <div className="justify-center text-sky-900 text-[9px] sm:text-[10px] font-bold">FAMILY</div>
+            <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full" style={{ backgroundColor: '#001856' }} />
+            <div className="justify-center text-[9px] sm:text-[10px] font-bold" style={{ color: '#001856' }}>FAMILY</div>
           </div>
           <div className="self-stretch flex flex-col justify-start items-center gap-3 sm:gap-4">
             <div className="self-stretch text-center justify-center">
               <span className="text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-tight sm:leading-snug md:leading-normal lg:leading-[56px] font-anton">We do community differently <br />at</span>
-              <span className="text-sky-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-tight sm:leading-snug md:leading-normal lg:leading-[56px] font-anton"> Word Sanctuary Global</span>
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-tight sm:leading-snug md:leading-normal lg:leading-[56px] font-anton" style={{ color: '#001856' }}> Word Sanctuary Global</span>
             </div>
             <div className="self-stretch text-center justify-center">
               <span className="text-black text-sm sm:text-base font-normal">A place to grow, belong, and become — </span>
@@ -50,8 +50,8 @@ export default function CommunitySection({ cards = defaultCards }: CommunitySect
           </div>
         </div>
         <div className="h-8 sm:h-10 px-4 sm:px-7 py-2 sm:py-2.5 rounded-[100px] outline outline-1 outline-offset-[-1px] outline-black inline-flex justify-center items-center gap-2">
-          <ActionLink href="/installations" color="dark" size="sm">
-            SEE ALL INSTALLATIONS
+          <ActionLink href="/events" color="dark" size="sm">
+            SEE ALL EVENTS
           </ActionLink>
         </div>
       </div>

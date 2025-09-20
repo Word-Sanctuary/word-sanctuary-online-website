@@ -4,6 +4,10 @@
     "description": "Headquarters and Global Ministry operations",
     "author": "HQ and Global Ministry Team"
   },
+  "hero": {
+    "useCarousel": false,
+    "staticImage": "/images/optimized/hero-carousel/08Artboard 1 (2).webp"
+  },
   "navigation": {
     "primary": [
       {
@@ -17,8 +21,8 @@
         "icon": "info"
       },
       {
-        "label": "Installations",
-        "href": "/installations",
+        "label": "Events",
+        "href": "/events",
         "icon": "cube"
       },
       {

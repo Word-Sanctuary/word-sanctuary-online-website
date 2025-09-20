@@ -35,7 +35,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
           setUser({
             ...userData,
             isAuthenticated: true,
-            permissions: ROLE_PERMISSIONS[userData.role]?.permissions || []
+            permissions: ROLE_PERMISSIONS[userData.role] || []
           });
         }
       } catch (error) {
@@ -65,7 +65,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
           email: email,
           role: 'SUPER_ADMIN',
           status: 'ACTIVE',
-          permissions: ROLE_PERMISSIONS.SUPER_ADMIN.permissions,
+          permissions: ROLE_PERMISSIONS.SUPER_ADMIN,
           dateJoined: new Date('2023-01-01'),
           preferences: {
             notifications: true,
@@ -92,7 +92,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
           email: email,
           role: 'HEAD_OF_INSTALLATION',
           status: 'ACTIVE',
-          permissions: ROLE_PERMISSIONS.HEAD_OF_INSTALLATION.permissions,
+          permissions: ROLE_PERMISSIONS.HEAD_OF_INSTALLATION,
           dateJoined: new Date('2023-01-01'),
           preferences: {
             notifications: true,
@@ -119,7 +119,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
           email: email,
           role: 'SUB_CENTRAL_HEAD',
           status: 'ACTIVE',
-          permissions: ROLE_PERMISSIONS.SUB_CENTRAL_HEAD.permissions,
+          permissions: ROLE_PERMISSIONS.SUB_CENTRAL_HEAD,
           dateJoined: new Date('2023-03-01'),
           preferences: {
             notifications: true,
@@ -218,8 +218,27 @@ export function AuthProvider({ children }: AuthProviderProps) {
   };
 
   const logout = () => {
-    setUser(null);
-    localStorage.removeItem('auth_user');
+    try {
+      // Clear user state
+      setUser(null);
+      
+      // Clear localStorage
+      localStorage.removeItem('auth_user');
+      
+      // Clear any other auth-related items that might exist
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+      
+      // Force a brief delay to ensure state is cleared
+      setTimeout(() => {
+        // Use location.replace to prevent back button issues
+        window.location.replace('/signin');
+      }, 100);
+    } catch (error) {
+      console.error('Error during logout:', error);
+      // Still redirect even if there's an error
+      window.location.replace('/signin');
+    }
   };
 
   const updateUser = (userData: Partial<User>) => {

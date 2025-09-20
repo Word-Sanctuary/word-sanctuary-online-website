@@ -27,7 +27,7 @@ export default function DashboardNavbar() {
           onClick={() => setUserMenuOpen(!userMenuOpen)}
           className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-100 transition-colors"
         >
-          <div className="w-8 h-8 bg-sky-900 rounded-full flex items-center justify-center">
+          <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: '#001856' }}>
             <span className="text-white text-sm font-medium">U</span>
           </div>
           <svg 

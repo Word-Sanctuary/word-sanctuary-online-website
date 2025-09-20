@@ -28,12 +28,12 @@ export default function Footer() {
   ];
 
   return (
-    <div className="w-full relative">
+    <div className="w-full relative bg-white">
       {/* White section for top part of mobile card */}
-      <div className="block md:hidden bg-white h-24"></div>
+      {/* <div className="block md:hidden bg-white h-24"></div> */}
       
       {/* Blue footer section */}
-      <div className="bg-sky-900 relative">
+      <div className="relative mt-24" style={{ backgroundColor: '#001856' }}>
         {/* Mobile Donation Card - Only visible on mobile, positioned absolutely */}
         <div className="block md:hidden absolute -top-16 left-4 right-4 z-10">
           <div className="bg-sky-200 rounded-xl shadow-lg overflow-hidden p-8 pb-12 relative">
@@ -69,7 +69,35 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="px-4 md:px-12 pt-80 md:pt-16 pb-16">
+
+        {/* Desktop Donation Card - Only visible on desktop, positioned to stick out significantly */}
+        <div className="hidden md:block absolute -top-24 left-4 right-4 z-10">
+          <div className="max-w-7xl mx-auto">
+            <div className="w-full h-96 relative bg-blue-200 rounded-xl shadow-[0px_14px_44px_0px_rgba(0,0,0,0.12)] overflow-hidden">
+              <div className="w-[927px] left-[75px] top-[68px] absolute inline-flex flex-col justify-start items-start gap-16">
+                <div className="self-stretch flex flex-col justify-start items-start gap-3.5">
+                  <div className="self-stretch justify-start text-black text-7xl font-normal font-['Anton'] leading-[100px]">Give to Word Sanctuary</div>
+                  <div className="self-stretch justify-start text-black text-2xl font-normal font-['Lato'] leading-normal">Your generosity keeps blessing lives, thank you for giving!</div>
+                </div>
+                <div className="w-36 h-14 px-7 py-2.5 bg-white rounded-[100px] inline-flex justify-center items-center gap-2 cursor-pointer hover:bg-gray-50 transition-colors" onClick={() => window.open('https://give.wordsanctuaryglobal.com', '_blank')}>
+                  <div className="justify-center text-black text-base font-extrabold font-['Lato'] tracking-widest">JOIN US</div>
+                </div>
+              </div>
+              {/* People vector image background */}
+              <div className="absolute bottom-0 right-0 w-[571px] h-96 opacity-30 pointer-events-none">
+                <Image 
+                  src="/icons/peoplevector.svg" 
+                  alt="People illustration" 
+                  width={571}
+                  height={384}
+                  className="w-full h-full object-cover object-bottom"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="px-4 md:px-12 pt-80 md:pt-[400px] pb-16">
         <div className="max-w-7xl mx-auto">
           {/* Main Footer Content */}
           <div className="flex flex-col md:flex-row md:items-start gap-8 md:gap-32 mb-12">

@@ -39,8 +39,8 @@ const Button: React.FC<ButtonProps> = ({
 
   // Variant classes
   const variantClasses = {
-    primary: 'bg-sky-500 hover:bg-sky-600 hover:shadow-md text-white rounded-full shadow-sm focus:ring-sky-500 hover:brightness-110',
-    secondary: 'bg-white hover:bg-gray-50 hover:shadow-md text-sky-900 rounded-full shadow-sm focus:ring-sky-500 hover:brightness-105',
+    primary: 'hover:shadow-md text-white rounded-full shadow-sm hover:brightness-110',
+    secondary: 'bg-white hover:bg-gray-50 hover:shadow-md rounded-full shadow-sm hover:brightness-105',
     outline: 'bg-transparent hover:bg-white/15 hover:shadow-md text-white rounded-full outline outline-1 outline-offset-[-1px] outline-white focus:ring-white hover:outline-white/80',
     ghost: 'bg-transparent hover:bg-white/10 text-white focus:ring-white rounded-lg hover:brightness-110',
     link: 'bg-transparent text-current p-0 h-auto focus:ring-current'
@@ -84,12 +84,24 @@ const Button: React.FC<ButtonProps> = ({
     </>
   );
 
+  // Get background color for primary variant
+  const getBackgroundColor = () => {
+    if (variant === 'primary') {
+      return { backgroundColor: '#001856' };
+    }
+    if (variant === 'secondary') {
+      return { color: '#001856' };
+    }
+    return {};
+  };
+
   // Render as link if href is provided
   if (as === 'a' || href) {
     return (
       <a
         href={href}
         className={classes}
+        style={getBackgroundColor()}
         {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
       >
         {content}
@@ -101,6 +113,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       className={classes}
+      style={getBackgroundColor()}
       disabled={isDisabled}
       {...props}
     >

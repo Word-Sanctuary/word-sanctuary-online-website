@@ -51,7 +51,7 @@ export default function DashboardPage() {
   return (
     <div className="max-w-7xl mx-auto space-y-6">
       {/* Welcome Header */}
-      <div className="bg-gradient-to-r from-sky-900 to-sky-700 rounded-xl p-6 text-white">
+      <div className="bg-gradient-to-r from-blue-900 to-blue-700 rounded-xl p-6 text-white">
         <h1 className="text-2xl md:text-3xl font-bold font-anton mb-2">
           {getRoleGreeting()}
         </h1>
@@ -69,7 +69,7 @@ export default function DashboardPage() {
               <p className="text-3xl font-bold text-gray-900">{stats.upcomingEvents}</p>
             </div>
             <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-              <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#001856' }}>
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2-2z" />
               </svg>
             </div>

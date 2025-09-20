@@ -94,12 +94,13 @@ export default function DashboardSidebar() {
                 className={`
                   flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors
                   ${isActive 
-                    ? 'bg-sky-100 text-sky-900 border border-sky-200' 
+                    ? 'border' 
                     : 'text-gray-700 hover:bg-gray-100'
                   }
                 `}
+                style={isActive ? { backgroundColor: 'rgba(0, 24, 86, 0.1)', borderColor: '#001856', color: '#001856' } : {}}
               >
-                <span className={isActive ? 'text-sky-900' : 'text-gray-500'}>
+                <span className={isActive ? '' : 'text-gray-500'} style={isActive ? { color: '#001856' } : {}}>
                   {item.icon}
                 </span>
                 {item.label}

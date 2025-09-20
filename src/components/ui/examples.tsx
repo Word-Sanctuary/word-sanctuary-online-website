@@ -30,7 +30,7 @@ export function ButtonExamples() {
       </div>
 
       {/* Outline Buttons */}
-      <div className="space-y-4 bg-sky-900 p-4 rounded-lg">
+      <div className="space-y-4 p-4 rounded-lg" style={{ backgroundColor: '#001856' }}>
         <h3 className="text-lg font-semibold text-white">Outline Buttons (on dark background)</h3>
         <div className="flex gap-4 flex-wrap">
           <Button variant="outline" size="sm">Small Outline</Button>
@@ -41,7 +41,7 @@ export function ButtonExamples() {
       </div>
 
       {/* Ghost Buttons */}
-      <div className="space-y-4 bg-sky-900 p-4 rounded-lg">
+      <div className="space-y-4 p-4 rounded-lg" style={{ backgroundColor: '#001856' }}>
         <h3 className="text-lg font-semibold text-white">Ghost Buttons (on dark background)</h3>
         <div className="flex gap-4 flex-wrap">
           <Button variant="ghost" size="sm">Small Ghost</Button>
@@ -129,7 +129,7 @@ export function RealWorldExamples() {
       </div>
 
       {/* Hero Section CTA */}
-      <div className="bg-sky-900 rounded-lg p-8 text-center text-white max-w-lg mx-auto">
+      <div className="rounded-lg p-8 text-center text-white max-w-lg mx-auto" style={{ backgroundColor: '#001856' }}>
         <div className="space-y-6">
           <h1 className="text-3xl font-bold">JOIN OUR COMMUNITY</h1>
           <p className="text-lg">Experience a new chapter in your spiritual growth journey</p>

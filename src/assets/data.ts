@@ -26,8 +26,14 @@ export interface SiteMetadata {
   author: string;
 }
 
+export interface HeroConfig {
+  useCarousel: boolean;
+  staticImage: string;
+}
+
 export interface SiteConfig {
   siteMetadata: SiteMetadata;
+  hero: HeroConfig;
   navigation: {
     primary: NavigationItem[];
   };
@@ -45,6 +51,10 @@ export function getSocialLinks(): SocialLink[] {
 
 export function getSiteMetadata(): SiteMetadata {
   return siteConfig.siteMetadata;
+}
+
+export function getHeroConfig(): HeroConfig {
+  return siteConfig.hero;
 }
 
 // Get navigation item by href

@@ -5,11 +5,12 @@ A reusable hero section component with optional carousel background functionalit
 ## Features
 
 - **Background Carousel**: Automatically cycles through images from the hero-carousel folder
+- **Static Background Image**: Option to display a single static image when carousel is disabled
 - **Customizable Content**: Configurable badge, title, and CTA button
 - **Responsive Design**: Works across all screen sizes
 - **Smooth Transitions**: Fade transitions between carousel images
 - **Carousel Indicators**: Visual dots to show current image and allow manual navigation
-- **Fallback Background**: Falls back to gradient background if carousel is disabled
+- **Fallback Background**: Falls back to gradient background if carousel is disabled and no static image is provided
 
 ## Usage
 
@@ -19,6 +20,21 @@ A reusable hero section component with optional carousel background functionalit
 import Hero from "@/components/Hero";
 
 <Hero
+  title={{
+    primary: "Your Main Title",
+    secondary: "Your Secondary Title"
+  }}
+/>
+```
+
+### With Static Background Image
+
+```tsx
+import Hero from "@/components/Hero";
+
+<Hero
+  useCarousel={false}
+  staticImage="/path/to/your/static-image.jpg"
   title={{
     primary: "Your Main Title",
     secondary: "Your Secondary Title"
@@ -85,6 +101,7 @@ import Hero from "@/components/Hero";
 | `ctaButton.onClick` | `function` | No | Click handler |
 | `useCarousel` | `boolean` | No | Enable carousel functionality (default: false) |
 | `backgroundImages` | `string[]` | No | Custom carousel images (defaults to hero-carousel folder images) |
+| `staticImage` | `string` | No | Static background image when carousel is disabled |
 
 ## Default Carousel Images
 
@@ -99,7 +116,7 @@ The component automatically uses images from `/public/images/hero-carousel/`:
 - **Transition**: 2-second smooth fade with subtle scale effect
 - **Manual Control**: Click indicators to jump to specific image
 - **Loop**: Infinite loop through images
-- **Overlay**: Uses navbar primary color (sky-900) for brand consistency
+- **Overlay**: Uses navbar primary color (#001856) for brand consistency
 
 ## Styling
 
@@ -116,4 +133,6 @@ The component uses Tailwind CSS classes and includes:
 - First image is prioritized for faster loading
 - Component handles empty image arrays gracefully
 - Carousel automatically disables for single images
+- Static image is used when carousel is disabled and provided
+- Falls back to gradient background if no static image is provided
 - Background pattern overlay adds visual depth

@@ -15,13 +15,19 @@ export default function Navbar() {
 
   const navItems = [
     { name: 'HOME', href: '/' },
-    { name: 'ABOUT', href: '/about' },
-    { name: 'INSTALLATIONS', href: '/installations' },
+    { name: 'ABOUT US', href: '/about' },
+    { name: 'EVENTS', href: '/events' },
+    { name: 'ONLINE CHURCH', href: '/online-church' },
     { name: 'CONTACT US', href: '/contact' }
   ];
 
   // Determine active tab based on current pathname
   const getActiveTab = () => {
+    // Check if we're on the givings page
+    if (pathname === '/givings') {
+      return 'GIVINGS';
+    }
+    
     const currentItem = navItems.find(item => item.href === pathname);
     return currentItem ? currentItem.name : 'HOME';
   };
@@ -71,11 +77,11 @@ export default function Navbar() {
 
   return (
     <>
-      <div className={`w-full px-8 md:px-12 bg-sky-900/95 backdrop-blur-md flex justify-between items-center overflow-hidden fixed top-0 z-50 transition-all duration-300 ease-in-out border-b border-white/10 ${
-        isScrolled ? 'h-16 shadow-lg shadow-sky-900/20' : 'h-20'
+      <div className={`w-full px-8 md:px-12 backdrop-blur-md flex justify-between items-center overflow-hidden fixed top-0 z-50 transition-all duration-300 ease-in-out ${
+        isScrolled ? 'h-16 shadow-lg' : 'h-20'
       } ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
-      }`}>
+      }`} style={{ backgroundColor: 'rgba(0, 24, 86, 0.95)', boxShadow: isScrolled ? '0 10px 15px -3px rgba(0, 24, 86, 0.2)' : 'none' }}>
         {/* Logo */}
         <div className={`transition-all duration-300 ${
           isScrolled ? 'w-28 h-10' : 'w-32 h-12'
@@ -88,41 +94,48 @@ export default function Navbar() {
           />
         </div>
         
-        {/* Navigation Items - Desktop (Centered) */}
-        <div className="hidden md:flex justify-center items-center gap-8 lg:gap-12 flex-1">
-          {navItems.map((item, index) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className={`relative justify-start text-xs font-bold font-['Inter'] tracking-widest transition-all duration-300 ease-in-out hover:text-white hover:scale-105 transform group px-3 py-2 rounded-lg hover:bg-white/10 ${
-                activeTab === item.name ? 'text-white font-black' : 'text-zinc-400'
+        {/* Right Side - Navigation Items and Givings Button */}
+        <div className="flex items-center gap-6 lg:gap-8">
+          {/* Navigation Items - Desktop */}
+          <div className="hidden md:flex items-center gap-6 lg:gap-8">
+            {navItems.map((item, index) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className={`relative justify-start text-xs font-bold font-['Inter'] tracking-widest transition-all duration-300 ease-in-out hover:text-white hover:scale-105 transform group px-3 py-2 rounded-lg hover:bg-white/10 ${
+                  activeTab === item.name ? 'text-white font-black' : 'text-zinc-400'
+                }`}
+                style={{
+                  animationDelay: `${index * 100}ms`
+                }}
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
+          
+          {/* Givings Button - Desktop Only */}
+          <div className="hidden md:block">
+            <Button 
+              variant="secondary"
+              size="md"
+              href="/givings"
+              as="a"
+              className={`transition-all duration-300 ${
+                activeTab === 'GIVINGS' 
+                  ? 'bg-white text-blue-900 font-black shadow-lg transform scale-105 ring-4 ring-white/80' 
+                  : 'hover:scale-105'
               }`}
-              style={{
-                animationDelay: `${index * 100}ms`
-              }}
             >
-              {item.name}
-            </a>
-          ))}
-        </div>
-        
-        {/* Desktop Join Us Button and Mobile Menu Button */}
-        <div className="flex items-center">
-          {/* Join Us Button - Desktop Only */}
-          <Button 
-            variant="secondary"
-            size="md"
-            href="/signup"
-            as="a"
-            className="hidden md:block"
-          >
-            JOIN US
-          </Button>
+              GIVINGS
+            </Button>
+          </div>
           
           {/* Mobile Menu Button */}
           <button 
             onClick={toggleMobileMenu}
-            className="md:hidden w-6 h-6 relative transition-all duration-300 hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-sky-900 rounded"
+            className="md:hidden w-6 h-6 relative transition-all duration-300 hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 rounded"
+            style={{ '--tw-ring-offset-color': '#001856' } as React.CSSProperties}
           >
             <div className={`transition-all duration-300 ${isMobileMenuOpen ? 'rotate-90' : 'rotate-0'}`}>
               <Image
@@ -149,7 +162,7 @@ export default function Navbar() {
       <div className={`fixed top-4 right-4 left-4 z-50 md:hidden transition-all duration-300 ease-in-out ${
         isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
       }`}>
-        <div className="w-full p-4 xs:p-6 sm:p-8 bg-sky-900 rounded-lg shadow-[0px_4px_30px_0px_rgba(255,255,255,0.12)] flex flex-col justify-start items-end gap-3 xs:gap-4 sm:gap-6">
+        <div className="w-full p-4 xs:p-6 sm:p-8 rounded-lg shadow-[0px_4px_30px_0px_rgba(255,255,255,0.12)] flex flex-col justify-start items-end gap-3 xs:gap-4 sm:gap-6" style={{ backgroundColor: '#001856' }}>
           {/* Close Button */}
           <button 
             onClick={closeMobileMenu}
@@ -183,17 +196,21 @@ export default function Navbar() {
             </a>
           ))}
           
-          {/* Join Us Button - Mobile */}
-          <Button 
-            variant="secondary"
-            fullWidth
-            href="/signup"
-            as="a"
+          {/* Givings Link - Mobile */}
+          <a
+            href="/givings"
             onClick={closeMobileMenu}
-            className="mt-2 xs:mt-2 sm:mt-4"
+            className={`w-full text-center transition-all duration-300 transform hover:scale-105 mt-2 xs:mt-2 sm:mt-4 px-4 py-2 rounded-lg ${
+              activeTab === 'GIVINGS' 
+                ? "bg-white text-blue-900 font-black shadow-lg scale-105 ring-4 ring-white/80" 
+                : "text-zinc-400 hover:text-white bg-white/10 hover:bg-white/20"
+            }`}
+            style={{
+              animationDelay: `${navItems.length * 100}ms`
+            }}
           >
-            JOIN US
-          </Button>
+            GIVINGS
+          </a>
         </div>
       </div>
     </>

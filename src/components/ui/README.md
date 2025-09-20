@@ -26,7 +26,7 @@ A versatile button component that supports multiple variants, sizes, and states.
 #### Variants
 
 - **primary**: Sky-500 background, white text (main action buttons)
-- **secondary**: White background, sky-900 text (navigation, forms)
+- **secondary**: White background, #001856 text (navigation, forms)
 - **outline**: Transparent background, white border and text (on dark backgrounds)
 - **ghost**: Transparent background, no border (subtle actions)
 - **link**: No background, text only with hover effects (inline actions)
@@ -108,8 +108,8 @@ import { ActionLink } from '@/components/ui';
 
 ### Colors
 
-- **Primary**: Sky-500 (#0ea5e9)
-- **Secondary**: Sky-900 (#0c4a6e)
+- **Primary**: #001856
+- **Secondary**: #001856
 - **Text Light**: White (#ffffff)
 - **Text Dark**: Black (#000000)
 - **Text Muted**: Neutral-200 (#e5e5e5)
@@ -140,7 +140,7 @@ All components are fully responsive with appropriate sizing for mobile, tablet, 
 
 **Before:**
 ```tsx
-<button className="h-11 px-8 py-2.5 bg-sky-500 rounded-full hover:bg-sky-600">
+<button className="h-11 px-8 py-2.5 rounded-full hover:opacity-90" style={{ backgroundColor: '#001856' }}>
   LEARN MORE
 </button>
 ```

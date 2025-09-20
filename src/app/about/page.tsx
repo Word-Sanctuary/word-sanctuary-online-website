@@ -54,18 +54,11 @@ His influence radiates Jesus' love, and his unwavering dedication to God's kingd
       
       {/* Hero Section */}
       <Hero
-        useCarousel={true}
+        useCarousel={false}
         title={{
-          primary: "GROWING IN LOVE — ",
-          secondary: "A CHURCH THAT'S HEAVEN"
+          primary: "YEAR'S THEME PICTURE",
         }}
-        ctaButton={{
-          text: "JOIN US",
-          onClick: () => {
-            // Add your YouTube link logic here
-            window.open('https://youtube.com/@wordsanctuaryglobal', '_blank');
-          }
-        }}
+        staticImage="/images/optimized/hero-carousel/10Artboard 1 (2).webp"
       />
       
       {/* About Us Section */}
@@ -76,25 +69,16 @@ His influence radiates Jesus' love, and his unwavering dedication to God's kingd
               <div className="w-full flex flex-col justify-start items-center gap-10 sm:gap-12 md:gap-16">
                 <div className="flex flex-col justify-start items-center gap-4 sm:gap-6">
                   <div className="h-8 sm:h-10 px-4 sm:px-6 py-2 sm:py-2.5 bg-zinc-200 rounded-full backdrop-blur-sm inline-flex justify-center items-center gap-3 sm:gap-4">
-                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-sky-900 rounded-full" />
-                    <div className="justify-center text-sky-900 text-[9px] sm:text-[10px] font-bold tracking-wide">ABOUT US</div>
+                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full" style={{ backgroundColor: '#001856' }} />
+                    <div className="justify-center text-[9px] sm:text-[10px] font-bold tracking-wide" style={{ color: '#001856' }}>ABOUT US</div>
                   </div>
-                  <div className="text-center justify-center text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-tight sm:leading-snug md:leading-tight lg:leading-[59px] font-anton">WORD SANCTUARY GLOBAL</div>
-                  <div className="max-w-2xl text-center justify-center">
-                    <span className="text-stone-500 text-xs sm:text-sm font-normal leading-snug">The Heavenly Jerusalem; a Church that is </span>
-                    <span className="text-black text-xs sm:text-sm font-bold leading-snug">HEAVEN!</span>
-                  </div>
+                  <div className="text-center justify-center text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-tight sm:leading-snug md:leading-tight lg:leading-[59px] font-['Anton']">PREACH THE WORD!</div>
+            
                 </div>
-                <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-                  <div className="text-stone-500 text-xs sm:text-sm font-normal leading-snug">
-                    Lorem ipsum dolor sit amet consectetur. Tristique nam amet est turpis in pellentesque. Elit pellentesque ultricies donec posuere tellus egestas sem magna. Mi diam tincidunt urna massa urna lectus. Sit ac parturient morbi nunc hendrerit mauris quis ut a. Nisl sit diam mi nulla a pretium nec venenatis a. Neque mi suspendisse quam faucibus augue senectus.
-                  </div>
-                  <div className="text-stone-500 text-xs sm:text-sm font-normal leading-snug">
-                    Lorem ipsum dolor sit amet consectetur. Tristique nam amet est turpis in pellentesque. Elit pellentesque ultricies donec posuere tellus egestas sem magna. Mi diam tincidunt urna massa urna lectus. Sit ac parturient morbi nunc hendrerit mauris quis ut a. Nisl sit diam mi nulla a pretium nec venenatis a. Neque mi suspendisse quam faucibus augue senectus.
-                  </div>
-                  <div className="text-stone-500 text-xs sm:text-sm font-normal leading-snug">
-                    Lorem ipsum dolor sit amet consectetur. Tristique nam amet est turpis in pellentesque. Elit pellentesque ultricies donec posuere tellus egestas sem magna. Mi diam tincidunt urna massa urna lectus. Sit ac parturient morbi nunc hendrerit mauris quis ut a. Nisl sit diam mi nulla a pretium nec venenatis a. Neque mi suspendisse quam faucibus augue senectus.
-                  </div>
+                <div className="self-stretch px-80 inline-flex flex-col justify-start items-start gap-3">
+                  <div className="self-stretch text-center justify-start text-stone-500 text-sm font-normal font-['Lato'] leading-snug">Word Sanctuary Global, A church called by God to fill the earth with the knowledge of the Glory of God. We are an apostolic church, with the mandate of making a family for God on earth. We are Kings and Priests, called to preach the gospel of Christ everywhere we get, till the whole world is taken and given back to God. 1Timothy 2:4, Habakkuk 2:14, Revelations 1:6.</div>
+                  <div className="self-stretch text-center justify-start text-stone-500 text-sm font-normal font-['Lato'] leading-snug">We are intent on ensuring that the church online community, represented as Word Sanctuary Global, blooms and prospers, as everyone, everywhere in the world, are connected to church and the consistent word of God, and are trained to be better evangelists and disciplers.</div>
+                  <div className="self-stretch text-center justify-start text-stone-500 text-sm font-normal font-['Lato'] leading-snug">We have a wide variety of avenues where people are taught to be better representatives of the Lord, in every aspect, e.g. Marriages and Relationships, Business, Home management, Entrepreneurship, etc.</div>
                 </div>
               </div>
             </div>
@@ -102,93 +86,312 @@ His influence radiates Jesus' love, and his unwavering dedication to God's kingd
         </div>
       </section>
       
-      {/* Beliefs Section */}
-      <section className="w-full min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[753px] relative flex justify-center items-end">
-        {/* Background Image */}
+      {/* Vision and Mission Section */}
+      <section className="w-full min-h-[600px] sm:min-h-[700px] md:min-h-[800px] lg:min-h-[900px] xl:min-h-[1000px] relative flex">
+        {/* Vision Half - Left Side */}
+        <div className="w-1/2 relative flex justify-center items-end">
+          {/* Background Image for Vision */}
         <div className="absolute inset-0">
           <Image
-            src="/images/optimized/webelieve.webp"
-            alt="We Believe Background"
+              src="/images/achievers.png"
+              alt="Vision Background"
             fill
             className="object-cover"
-            sizes="100vw"
+              sizes="50vw"
             priority
           />
-          {/* Subtle dark overlay for text readability */}
-          <div className="absolute inset-0 bg-black/30" />
+            {/* Blue overlay for Vision */}
+            <div className="absolute inset-0" style={{ backgroundColor: '#001856CC' }} />
+          </div>
+          
+          {/* Vision Content */}
+          <div className="relative z-10 w-full p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-end items-start gap-4 sm:gap-6">
+            <div className="self-stretch p-12 inline-flex flex-col justify-end items-start gap-6">
+              <div className="self-stretch p-12 bg-black/20 rounded-2xl outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-md flex flex-col justify-start items-start gap-6">
+                <div className="self-stretch justify-center text-white text-7xl font-normal font-['Anton'] uppercase leading-[84px]">VISION</div>
+                <div className="self-stretch justify-center text-white text-base font-normal font-['Lato'] leading-normal">Lorem ipsum dolor sit amet consectetur. Tincidunt aliquam scelerisque orci viverra at habitant nulla vel morbi. Ut nulla feugiat nibh turpis. Sit consequat lectus est laoreet facilisi ut duis est. Velit sollicitudin vitae erat id in sagittis. Tincidunt sed arcu pulvinar fames nibh proin platea massa. Dui diam a ligula pulvinar sed in.<br/>Tortor nunc cursus sit elit malesuada vel at viverra. Est eu at auctor duis ac orci elementum scelerisque. Id vel turpis proin integer dictum volutpat gravida pellentesque. Ridiculus lacinia quis adipiscing et augue auctor purus vulputate vel. Id id mi malesuada ultrices sagittis erat.</div>
+              </div>
+            </div>
+          </div>
         </div>
         
-        {/* Content */}
-        <div className="relative z-10 max-w-6xl mx-auto w-full p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-end items-start gap-4 sm:gap-6">
-          <div className="w-full p-4 sm:p-6 md:p-8 lg:p-12 bg-black/20 rounded-xl outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-md flex flex-col justify-start items-start gap-4 sm:gap-6">
-            <div className="w-full text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold uppercase leading-tight font-anton">AT WORD SANCTUARY, we believe;</div>
-            <div className="w-full text-white text-sm sm:text-base font-normal leading-relaxed sm:leading-normal">
-              Lorem ipsum dolor sit amet consectetur. Tincidunt aliquam scelerisque orci viverra at habitant nulla vel morbi. Ut nulla feugiat nibh turpis. Sit consequat lectus est laoreet facilisi ut duis est. Velit sollicitudin vitae erat id in sagittis. Tincidunt sed arcu pulvinar fames nibh proin platea massa. Dui diam a ligula pulvinar sed in.<br/><br/>
-              Tortor nunc cursus sit elit malesuada vel at viverra. Est eu at auctor duis ac orci elementum scelerisque. Id vel turpis proin integer dictum volutpat gravida pellentesque. Ridiculus lacinia quis adipiscing et augue auctor purus vulputate vel. Id id mi malesuada ultrices sagittis erat.
+        {/* Mission Half - Right Side */}
+        <div className="w-1/2 relative flex justify-center items-end">
+          {/* Background Image for Mission */}
+          <div className="absolute inset-0">
+            <Image
+              src="/images/achievers.png"
+              alt="Mission Background"
+              fill
+              className="object-cover"
+              sizes="50vw"
+              priority
+            />
+            {/* Light blue overlay for Mission */}
+            <div className="absolute inset-0" style={{ backgroundColor: '#B3D6FFCC' }} />
+          </div>
+          
+          {/* Mission Content */}
+          <div className="relative z-10 w-full p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-end items-start gap-4 sm:gap-6">
+            <div className="self-stretch p-12 inline-flex flex-col justify-end items-start gap-6">
+              <div className="self-stretch p-12 bg-black/80 rounded-2xl outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-md flex flex-col justify-start items-start gap-6">
+                <div className="self-stretch justify-center text-white text-7xl font-normal font-['Anton'] uppercase leading-[84px]">MISSION</div>
+                <div className="self-stretch justify-center text-white text-base font-normal font-['Lato'] leading-normal">Lorem ipsum dolor sit amet consectetur. Tincidunt aliquam scelerisque orci viverra at habitant nulla vel morbi. Ut nulla feugiat nibh turpis. Sit consequat lectus est laoreet facilisi ut duis est. Velit sollicitudin vitae erat id in sagittis. Tincidunt sed arcu pulvinar fames nibh proin platea massa. Dui diam a ligula pulvinar sed in.<br/>Tortor nunc cursus sit elit malesuada vel at viverra. Est eu at auctor duis ac orci elementum scelerisque. Id vel turpis proin integer dictum volutpat gravida pellentesque. Ridiculus lacinia quis adipiscing et augue auctor purus vulputate vel. Id id mi malesuada ultrices sagittis erat.</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
       
-      {/* About Our Pastor Section */}
+      {/* Leadership Section */}
       <section className="self-stretch bg-neutral-900 inline-flex flex-col justify-start items-start gap-2.5 overflow-hidden">
-        <div className="self-stretch p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-2.5">
-          <div className="self-stretch inline-flex flex-col lg:flex-row justify-start items-start gap-8 sm:gap-12 lg:gap-16">
-            <div className="w-full lg:w-[571px] h-64 sm:h-80 md:h-96 lg:h-[602px] relative rounded-xl overflow-hidden flex-shrink-0">
-              <Image
-                src="/images/optimized/ourpastor.webp"
-                alt="Pastor Temple"
-                fill
-                className="object-cover object-top"
-                sizes="(max-width: 1024px) 100vw, 571px"
-              />
+        <div className="self-stretch px-12 py-24 inline-flex flex-col justify-start items-start gap-2.5">
+          <div className="self-stretch flex flex-col justify-center items-start gap-16">
+            <div className="self-stretch px-28 flex flex-col justify-start items-start">
+              <div className="self-stretch flex flex-col justify-start items-center gap-6">
+                <div className="self-stretch text-center justify-center text-white text-7xl font-normal font-['Anton'] uppercase leading-[84px]">Our Leadership</div>
+                <div className="self-stretch text-center justify-start text-white text-base font-normal font-['Lato'] leading-normal">Word Sanctuary, A Subsidiary of the Word Commission International, under the supreme leadership of His Grace, Evangelist Isaac Omolehin, is Led by Pastors Temple and Omolara Omolehin, and are supported by a team of pastors and ministers who are committed to the God-given mandate.</div>
+                <div className="self-stretch text-center justify-start text-white text-base font-bold font-['Lato'] leading-normal">MEET OUR PASTORS</div>
+              </div>
             </div>
-            <div className="flex-1 self-stretch inline-flex flex-col justify-start items-start">
-              <div className="self-stretch flex-1 flex flex-col justify-start items-start gap-4 sm:gap-6">
-                <div className="self-stretch text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase leading-tight sm:leading-snug md:leading-tight lg:leading-none font-anton">ABOUT OUR PASTOR</div>
-                <div 
-                  ref={textRef}
-                  className={`self-stretch text-left sm:text-justify justify-start text-white text-sm sm:text-base font-normal leading-relaxed sm:leading-normal transition-all duration-300 ${
-                    isExpanded || !shouldShowReadMore ? 'flex-1' : 'overflow-hidden'
-                  }`}
-                  style={!isExpanded && shouldShowReadMore ? { maxHeight: `${imageHeight - 150}px` } : {}}
-                >
-                  {(isExpanded || !shouldShowReadMore) ? (
-                    <div className="space-y-3 sm:space-y-4">
-                      {fullText.split('\n').filter(p => p.trim()).map((paragraph, index) => (
-                        <p key={index} className="mb-3 sm:mb-4 last:mb-0">
-                          {paragraph}
-                        </p>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="space-y-3 sm:space-y-4">
-                      {truncatedText.split('\n').filter(p => p.trim()).map((paragraph, index) => (
-                        <p key={index} className="mb-4 last:mb-0">
-                          {paragraph}
-                        </p>
-                      ))}
-                    </div>
-                  )}
+            <div className="self-stretch inline-flex justify-center items-center gap-11 flex-wrap content-center">
+              <div className="w-96 h-[500px] relative bg-gradient-to-b from-stone-500/0 via-neutral-600/40 to-neutral-900 rounded-2xl outline outline-2 outline-offset-[-2px] outline-white/50 overflow-hidden">
+                <Image
+                  src="/images/ourpastor.png"
+                  alt="Pastor Temple Omolehin"
+                  fill
+                  className="object-cover"
+                  sizes="384px"
+                />
+                <div className="w-96 h-24 p-2.5 left-0 top-[400px] absolute bg-white/5 border-t-2 border-white/50 inline-flex justify-center items-center gap-2.5">
+                  <div className="text-center justify-center text-white text-2xl font-normal font-['Anton']">Pastor Temple Omolehin</div>
                 </div>
               </div>
-              {shouldShowReadMore && (
-                <Button 
-                  variant="ghost" 
-                  size="sm"
-                  onClick={() => setIsExpanded(!isExpanded)}
-                  className="h-8 sm:h-10 py-2 sm:py-2.5 text-white text-xs sm:text-sm font-semibold underline"
-                >
-                  {isExpanded ? 'READ LESS' : 'READ MORE'}
-                </Button>
-              )}
+              <div className="w-96 h-[500px] relative bg-gradient-to-b from-stone-500/0 via-neutral-600/40 to-neutral-900 rounded-2xl outline outline-2 outline-offset-[-2px] outline-white/50 overflow-hidden">
+                <Image
+                  src="/images/ourpastor.png"
+                  alt="Pastor Moyo Omolehin"
+                  fill
+                  className="object-cover"
+                  sizes="384px"
+                />
+                <div className="w-96 h-24 p-2.5 left-0 top-[400px] absolute bg-white/5 border-t-2 border-white/50 inline-flex justify-center items-center gap-2.5">
+                  <div className="text-center justify-center text-white text-2xl font-normal font-['Anton']">Pastor Moyo Omolehin</div>
+                </div>
+              </div>
+              <div className="w-96 h-[500px] relative bg-gradient-to-b from-stone-500/0 via-neutral-600/40 to-neutral-900 rounded-2xl outline outline-2 outline-offset-[-2px] outline-white/50 overflow-hidden">
+                <Image
+                  src="/images/ourpastor.png"
+                  alt="Pastor Ayanfeoluwa Adelowo"
+                  fill
+                  className="object-cover"
+                  sizes="384px"
+                />
+                <div className="w-96 h-24 p-2.5 left-0 top-[400px] absolute bg-white/5 border-t-2 border-white/50 inline-flex justify-center items-center gap-2.5">
+                  <div className="text-center justify-center text-white text-2xl font-normal font-['Anton']">Pastor Ayanfeoluwa Adelowo</div>
+                </div>
+              </div>
+              <div className="w-96 h-[500px] relative bg-gradient-to-b from-stone-500/0 via-neutral-600/40 to-neutral-900 rounded-2xl outline outline-2 outline-offset-[-2px] outline-white/50 overflow-hidden">
+                <Image
+                  src="/images/ourpastor.png"
+                  alt="Pastor Michael Jackson"
+                  fill
+                  className="object-cover"
+                  sizes="384px"
+                />
+                <div className="w-96 h-24 p-2.5 left-0 top-[400px] absolute bg-white/5 border-t-2 border-white/50 inline-flex justify-center items-center gap-2.5">
+                  <div className="text-center justify-center text-white text-2xl font-normal font-['Anton']">Pastor Michael Jackson</div>
+                </div>
+              </div>
+              <div className="w-96 h-[500px] relative bg-gradient-to-b from-stone-500/0 via-neutral-600/40 to-neutral-900 rounded-2xl outline outline-2 outline-offset-[-2px] outline-white/50 overflow-hidden">
+              <Image
+                  src="/images/ourpastor.png"
+                  alt="Pastor Oyinkansola Omolehin"
+                fill
+                  className="object-cover"
+                  sizes="384px"
+              />
+                <div className="w-96 h-24 p-2.5 left-0 top-[400px] absolute bg-white/5 border-t-2 border-white/50 inline-flex justify-center items-center gap-2.5">
+                  <div className="text-center justify-center text-white text-2xl font-normal font-['Anton']">Pastor Oyinkansola Omolehin</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Family Section */}
-      <CommunitySection />
+      
+      {/* Installations Section */}
+      <section className="w-full bg-white p-4 sm:p-6 md:p-8 lg:p-12">
+        <div className="w-[1440px] max-w-full mx-auto p-12 inline-flex flex-col justify-start items-center gap-4">
+          <div className="self-stretch flex flex-col justify-start items-center gap-8">
+            <div className="self-stretch flex flex-col justify-start items-center gap-12">
+              <div className="self-stretch flex flex-col justify-start items-center gap-16">
+                <div className="flex flex-col justify-start items-center gap-6">
+                  <div className="h-10 px-6 py-2.5 bg-zinc-400/40 rounded-[100px] backdrop-blur-[2px] inline-flex justify-center items-center gap-4">
+                    <div className="w-2 h-2 bg-blue-950 rounded-full" />
+                    <div className="justify-center text-blue-950 text-[10px] font-bold font-['Lato']">INSTALLATIONS</div>
+                  </div>
+                  <div className="text-center justify-center text-black text-5xl font-normal font-['Anton'] leading-[59px]">JOIN US IN OVER 20 INSTALLATIONS <br/>WORLD WIDE</div>
+                  <div className="self-stretch text-center justify-center">
+                    <span className="text-stone-500 text-sm font-normal font-['Lato'] leading-snug">The Heavenly Jerusalem; a Church that is </span>
+                    <span className="text-black text-sm font-bold font-['Lato'] leading-snug">HEAVEN!</span>
+                  </div>
+                </div>
+                <div className="self-stretch flex flex-col justify-center items-center gap-12">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 w-full max-w-7xl">
+                    <div className="w-full h-96 relative bg-white rounded-2xl overflow-hidden">
+                      <Image
+                        src="/images/ilorin.png"
+                        alt="Ilorin Installation"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      />
+                      <div className="w-full h-96 left-0 top-0 absolute bg-black/50 rounded overflow-hidden">
+                        <div className="w-full left-4 right-4 top-[298px] absolute inline-flex flex-col justify-start items-start gap-1">
+                          <div className="self-stretch justify-center text-white text-2xl sm:text-3xl font-bold font-['Lato']">Ilorin</div>
+                          <div className="self-stretch flex flex-col justify-start items-start gap-1">
+                            <div className="text-center justify-center text-white text-sm font-normal font-['Lato']">Description of Address</div>
+                            <div className="text-center justify-center text-white text-sm font-normal font-['Lato']">+2340123456789</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="w-full h-96 relative bg-white rounded-2xl overflow-hidden">
+                      <Image
+                        src="/images/abuja.png"
+                        alt="Abuja Installation"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      />
+                      <div className="w-full h-96 left-0 top-0 absolute bg-black/50 rounded overflow-hidden">
+                        <div className="w-full left-4 right-4 top-[298px] absolute inline-flex flex-col justify-start items-start">
+                          <div className="self-stretch justify-center text-white text-2xl sm:text-3xl font-bold font-['Lato']">Abuja</div>
+                          <div className="self-stretch flex flex-col justify-start items-start gap-1">
+                            <div className="text-center justify-center text-white text-sm font-normal font-['Lato']">Description of Address</div>
+                            <div className="text-center justify-center text-white text-sm font-normal font-['Lato']">+2340123456789</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="w-full h-96 relative bg-white rounded-2xl overflow-hidden">
+                      <Image
+                        src="/images/lagos.png"
+                        alt="Lagos Installation"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      />
+                      <div className="w-full h-96 left-0 top-0 absolute bg-black/50 rounded overflow-hidden">
+                        <div className="w-full left-4 right-4 top-[298px] absolute inline-flex flex-col justify-start items-start">
+                          <div className="self-stretch justify-center text-white text-2xl sm:text-3xl font-bold font-['Lato']">Lagos</div>
+                          <div className="self-stretch flex flex-col justify-start items-start gap-1">
+                            <div className="text-center justify-center text-white text-sm font-normal font-['Lato']">Description of Address</div>
+                            <div className="text-center justify-center text-white text-sm font-normal font-['Lato']">+2340123456789</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="w-full h-96 relative bg-white rounded-2xl overflow-hidden">
+                      <Image
+                        src="/images/ibadan.png"
+                        alt="Ibadan Installation"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      />
+                      <div className="w-full h-96 left-0 top-0 absolute bg-black/50 rounded overflow-hidden">
+                        <div className="w-full left-4 right-4 top-[298px] absolute inline-flex flex-col justify-start items-start">
+                          <div className="self-stretch justify-center text-white text-2xl sm:text-3xl font-bold font-['Lato']">Ibadan</div>
+                          <div className="self-stretch flex flex-col justify-start items-start gap-1">
+                            <div className="text-center justify-center text-white text-sm font-normal font-['Lato']">Description of Address</div>
+                            <div className="text-center justify-center text-white text-sm font-normal font-['Lato']">+2340123456789</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 w-full max-w-7xl">
+                    <div className="w-full h-96 relative bg-white rounded-2xl overflow-hidden">
+                      <Image
+                        src="/images/ilorin.png"
+                        alt="Ilorin Installation"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      />
+                      <div className="w-full h-96 left-0 top-0 absolute bg-black/50 rounded overflow-hidden">
+                        <div className="w-full left-4 right-4 top-[298px] absolute inline-flex flex-col justify-start items-start gap-1">
+                          <div className="self-stretch justify-center text-white text-2xl sm:text-3xl font-bold font-['Lato']">Ilorin</div>
+                          <div className="self-stretch flex flex-col justify-start items-start gap-1">
+                            <div className="text-center justify-center text-white text-sm font-normal font-['Lato']">Description of Address</div>
+                            <div className="text-center justify-center text-white text-sm font-normal font-['Lato']">+2340123456789</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="w-full h-96 relative bg-white rounded-2xl overflow-hidden">
+                      <Image
+                        src="/images/abuja.png"
+                        alt="Abuja Installation"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      />
+                      <div className="w-full h-96 left-0 top-0 absolute bg-black/50 rounded overflow-hidden">
+                        <div className="w-full left-4 right-4 top-[298px] absolute inline-flex flex-col justify-start items-start">
+                          <div className="self-stretch justify-center text-white text-2xl sm:text-3xl font-bold font-['Lato']">Abuja</div>
+                          <div className="self-stretch flex flex-col justify-start items-start gap-1">
+                            <div className="text-center justify-center text-white text-sm font-normal font-['Lato']">Description of Address</div>
+                            <div className="text-center justify-center text-white text-sm font-normal font-['Lato']">+2340123456789</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="w-full h-96 relative bg-white rounded-2xl overflow-hidden">
+                      <Image
+                        src="/images/lagos.png"
+                        alt="Lagos Installation"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      />
+                      <div className="w-full h-96 left-0 top-0 absolute bg-black/50 rounded overflow-hidden">
+                        <div className="w-full left-4 right-4 top-[298px] absolute inline-flex flex-col justify-start items-start">
+                          <div className="self-stretch justify-center text-white text-2xl sm:text-3xl font-bold font-['Lato']">Lagos</div>
+                          <div className="self-stretch flex flex-col justify-start items-start gap-1">
+                            <div className="text-center justify-center text-white text-sm font-normal font-['Lato']">Description of Address</div>
+                            <div className="text-center justify-center text-white text-sm font-normal font-['Lato']">+2340123456789</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="w-full h-96 relative bg-white rounded-2xl overflow-hidden">
+                      <Image
+                        src="/images/ibadan.png"
+                        alt="Ibadan Installation"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      />
+                      <div className="w-full h-96 left-0 top-0 absolute bg-black/50 rounded overflow-hidden">
+                        <div className="w-full left-4 right-4 top-[298px] absolute inline-flex flex-col justify-start items-start">
+                          <div className="self-stretch justify-center text-white text-2xl sm:text-3xl font-bold font-['Lato']">Ibadan</div>
+                          <div className="self-stretch flex flex-col justify-start items-start gap-1">
+                            <div className="text-center justify-center text-white text-sm font-normal font-['Lato']">Description of Address</div>
+                            <div className="text-center justify-center text-white text-sm font-normal font-['Lato']">+2340123456789</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       
     </div>
   );

@@ -26,7 +26,7 @@ export default function DynamicDashboardNavbar({
       case 'LIFE_CLASS_TEACHER': return 'bg-blue-500';
       case 'LEADER': return 'bg-green-500';
       case 'MEMBER': return 'bg-gray-500';
-      case 'VISITOR': return 'bg-sky-500';
+      case 'VISITOR': return 'bg-blue-500';
       default: return 'bg-gray-500';
     }
   };
@@ -53,12 +53,12 @@ export default function DynamicDashboardNavbar({
       {isViewingOtherUser && (
         <div className="flex items-center gap-3 px-4 py-2 bg-sky-50 rounded-lg border border-sky-200">
           <div className="w-8 h-8 bg-sky-100 rounded-full flex items-center justify-center">
-            <span className="text-sky-900 text-sm font-medium">
+            <span className="text-sm font-medium" style={{ color: '#001856' }}>
               {user.fullName.split(' ').map(n => n[0]).join('').toUpperCase()}
             </span>
           </div>
           <div>
-            <p className="text-sm font-medium text-sky-900">{user.fullName}</p>
+            <p className="text-sm font-medium" style={{ color: '#001856' }}>{user.fullName}</p>
             <span className={`inline-block px-2 py-0.5 text-xs font-medium text-white rounded-full ${getRoleBadgeColor(user.role)}`}>
               {formatRoleName(user.role)}
             </span>

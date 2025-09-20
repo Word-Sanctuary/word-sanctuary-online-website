@@ -13,6 +13,7 @@ export type UserRole =
 
 // User permissions for different actions
 export type Permission = 
+  // System Administration
   | 'manage_users'
   | 'manage_content'
   | 'manage_events'
@@ -24,19 +25,57 @@ export type Permission =
   | 'send_notifications'
   | 'manage_installations'
   | 'access_admin_panel'
+  | 'assign_roles'
+  
+  // Global oversight
+  | 'view_global_reports'
+  | 'manage_system_settings'
+  | 'backup_data'
+  | 'audit_logs'
+  
+  // Installation Management
   | 'view_member_directory'
   | 'create_events'
   | 'edit_events'
+  | 'manage_departments'
+  | 'view_installation_reports'
+  | 'manage_sub_central'
+  | 'oversee_hods'
+  | 'create_departments'
+  | 'assign_hods'
+  | 'view_installation_analytics'
+  | 'manage_installation_finances'
+  | 'approve_events'
+  | 'send_installation_notifications'
+  
+  // Regional Management
+  | 'regional_administration'
+  | 'coordinate_departments'
+  | 'view_sub_central_reports'
+  | 'manage_local_events'
+  | 'oversee_local_hods'
+  | 'send_regional_notifications'
+  
+  // Department Management
+  | 'manage_department_members'
+  | 'create_department_content'
+  | 'view_department_reports'
+  | 'coordinate_department_activities'
+  
+  // Member Activities
   | 'join_classes'
   | 'view_resources'
   | 'download_resources'
   | 'participate_community'
-  | 'manage_departments'
-  | 'assign_roles'
-  | 'view_installation_reports'
-  | 'manage_sub_central'
-  | 'oversee_hods'
-  | 'regional_administration';
+  | 'attend_events'
+  | 'access_member_portal'
+  | 'view_personal_progress'
+  | 'submit_testimonies'
+  | 'access_devotionals'
+  
+  // Visitor Access
+  | 'view_public_events'
+  | 'access_basic_content';
 
 // User status
 export type UserStatus = 'ACTIVE' | 'INACTIVE' | 'SUSPENDED' | 'PENDING';
